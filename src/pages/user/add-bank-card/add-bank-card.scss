@@ -1,0 +1,220 @@
+page-add-bank-card {
+  .bank-card-content{
+    .cf-row label{
+      width: auto;
+    }
+    .cf-row input{
+      height: 100%;
+      font-size: 14px;
+    }
+    .select-input{
+      background-repeat: no-repeat;
+      background-size: 8px 15px;
+      padding-right: 15px;
+      text-align: right;
+      background-position: right center;
+      &::-webkit-input-placeholder{
+        text-align: right;
+        color: #999999;
+      }
+    }
+  }
+  .common-form-info{
+    h4{
+      font-size: 12px;
+      color: #666666;
+      letter-spacing: -0.19px;
+      text-align: center;
+      margin-top:5px;
+    }
+    ul{
+      margin: 15px 0px 20px 0;
+    }
+    li{
+      font-size: 12px;
+      color: #666666;
+      letter-spacing: -0.19px;
+      text-align: left;
+      padding: 0 16px;
+      line-height:20px;
+    }
+
+  }
+  .disable-submit-button{
+    background-color: #B4B4B4!important;
+    color: #ffffff;
+  }
+  #branchName{
+    width: 100%;
+    flex: 1;
+    line-height:51px;
+  }
+
+}
+.bankList-model{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000000;
+  .mask{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(33,33,33,.5);
+    z-index: 0;
+  }
+  .bankList-model-content{
+    height: 442px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 1;
+    h4{
+      height: 34px;
+      line-height:33px;
+      text-align: center;
+      font-size: 14px;
+      border-bottom: 1px solid #EAEAEA;
+    }
+    .bank-list{
+      height: 408px;
+      overflow: scroll;
+      p{
+        height: 31px;
+        display: flex;
+        padding: 0 16px;
+        align-items: center;
+        .firecat-icon {
+          width: 36px;
+          background-position: left center;
+          height: 100%;
+        }
+
+        .s-BOCOM-icon {
+          background-size: 18px 19px;
+        }
+
+        .s-SPDB-icon {
+          background-size: 23px 13px;
+        }
+
+        .s-CEB-icon {
+          background-size: 23px 12px;
+        }
+
+        .s-GDB-icon {
+          background-size: 16px 15.6px;
+        }
+
+        .s-BOC-icon, .s-ICBC-icon, .s-CITIC-icon, .s-ABC-icon, .s-CMB-icon, .s-PSBC-icon {
+          background-size: 18px 18px;
+        }
+
+        .s-CMBC-icon {
+          background-size: 20px 17px;
+        }
+
+        .s-CCB-icon {
+          background-size: 18px 19px;
+        }
+
+        .s-HXB-icon {
+          background-size: 20px 18.7px;
+        }
+        .s-CIB-icon {
+          background-size: 20px 12.7px;
+        }
+        .s-PAB-icon {
+          background-size: 22px auto;
+        }
+      }
+    }
+    .bank-address-head{
+      height: 35px;
+      line-height:34px;
+      width: 100%;
+      border-bottom: 1px solid #EAEAEA;
+      ion-segment{
+        display: block;
+      }
+      .segment-button{
+        padding: 0 16px;
+        width: auto;
+        float: left;
+        flex: none;
+        line-height:35px;
+        background-color: transparent;
+        border: none;
+        color: #333333;
+        height: 100%;
+        position: relative;
+        &.segment-activated{
+          color: #F6374E;
+          .underline{
+            background-color: #F6374E;
+          }
+        }
+        .underline{
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          right: 0;
+          background-color: transparent;
+          height: 2px;
+          transition: all .35s;
+        }
+      }
+      .visible{
+        visibility: hidden;
+      }
+    }
+    .bank-address-body{
+      height: 372px;
+      overflow: scroll;
+      width: 100%;
+    }
+    .switch-body{
+      overflow: scroll;
+      p{
+        display: block;
+        line-height:31px;
+        text-align: left;
+        width: 100%;
+      }
+    }
+    .bank-address{
+      overflow: inherit;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+}
+.common-form{
+  .search-container{
+    position: absolute;
+    //min-height: 266px;
+    left: 0;
+    right: 0;
+    top: 52px;
+    text-align: center;
+    border-top: 2px solid #F08845;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height:36px;
+    overflow: scroll;
+    max-height: 300px;
+  }
+}
+
+.disable-submit{
+  background-color: #B4B4B4!important;
+  color: #FFFFFF;
+}

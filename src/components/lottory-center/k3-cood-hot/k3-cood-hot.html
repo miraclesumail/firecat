@@ -1,0 +1,24 @@
+<div class="k3-component k3-cood">
+  <div class="kj-head">
+    <div class="kj-unit kj-unit1">号码</div>
+    <div class="kj-unit kj-unit2">
+      <div class="kj-unit-list">30期冷热</div>
+      <div class="kj-unit-list">60期冷热</div>
+      <div class="kj-unit-list">90期冷热</div>
+      <div class="kj-unit-list">遗漏</div>
+    </div>
+  </div>
+  <div class="kj-body">
+    <div class="kj-list" *ngFor="let nums of k3cood.sazi">
+      <div class="kj-unit kj-unit1">{{nums}}</div>
+      <div class="kj-unit kj-unit2">
+        <div class="kj-unit-list">{{k3cood.thirtyData[nums]}}</div>
+        <div class="kj-unit-list">{{k3cood.sixtyData[nums]}}</div>
+        <div class="kj-unit-list">{{k3cood.ninetyData[nums]}}</div>
+        <div class="kj-unit-list">{{90-k3cood.ninetyData[nums]}}</div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

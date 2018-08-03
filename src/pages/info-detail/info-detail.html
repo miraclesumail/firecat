@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">{{title}}</h2>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="info-detail">
+    <h2 class="info-detail-title">{{detail.title}}</h2>
+    <p class="date-info">博猫 | {{detail.updated_at.slice(5)}}</p>
+    <p class="hello">尊敬的博猫用户您好：</p>
+    <div class="info-detail-content">
+      <p [innerHTML]='detail.content'></p>
+    </div>
+    <p class="info-detail-group" text-right>博猫运营团队</p>
+    <p class="info-detail-date" text-right>{{detail.updated_at.slice(0,10)|date:'yyyy年MM月dd日'}}</p>
+    <!--<p class="date-info">本文修改于：2018-02-11 15:49</p>-->
+
+  </div>
+</ion-content>

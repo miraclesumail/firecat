@@ -1,0 +1,23 @@
+<div class="distribute-style" *ngIf="resultsData.data.length!=0">
+  <div class="ssc-table">
+    <div class="ssc-table-head">
+      <div class="t-qihao">期号</div>
+      <div class="t-qihao-list">
+        <div>和</div>
+        <div>大小</div>
+        <div>单双</div>
+      </div>
+    </div>
+    <div class="ssc-table-body">
+      <div class="ssc-table-wrap" *ngFor="let result of resultsData.data" [ngClass]="{'isWaiting-bg':result.code.length<=1}">
+        <div class="t-qihao">{{result.number.slice(-5)}}期</div>
+        <div class="t-qihao-list" *ngIf="result.code.length>1">
+          <div>{{result.sum}}</div>
+          <div [ngClass]="{'big':result.sum>9,'small':result.sum<10}">{{result.sum>9?'大':'小'}}</div>
+          <div [ngClass]="{'double':result.sum%2==0,'single':result.sum%2==1}">{{result.sum%2==0?'双':'单'}}</div>
+        </div>
+        <div class="t-qihao-list" *ngIf="result.code.length<=1" style="justify-content: center;color: #666">等待开奖...</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+menumodal {
+   .modal{position: fixed;left:calc(50% - 150px);top:200px;width: 300px;height: 150px;background: #ffffff;z-index: 3;transition: .8s;border-radius: 5px;display: none}
+  
+   .modal.active{display: block}
+
+   .small-menu span:nth-of-type(1){width:20px;height: 20px;background: url('../assets/imgs/games/nochoose.png') center center no-repeat;float:left;margin-right: 5px}
+   .small-menu span:nth-of-type(1).active{background: url('../assets/imgs/games/choosen.png') center center no-repeat}
+}
+  

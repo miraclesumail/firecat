@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 2 Copy 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="江苏快三-1" transform="translate(-181.000000, -190.000000)">
+            <g id="Group-3" transform="translate(141.000000, 135.000000)">
+                <g id="Rectangle-2-Copy-5" transform="translate(40.000000, 55.000000)">
+                    <g stroke-width="1" transform="translate(10.400000, 2.400000)"></g>
+                    <g id="Rectangle-Copy-2" stroke-width="1">
+                        <rect stroke="#E5E5E5" fill="#FFFFFF" x="0.5" y="0.5" width="15" height="15" rx="4"></rect>
+                        <circle id="Oval-3-Copy-3" fill="#000000" cx="8" cy="8" r="1.6"></circle>
+                        <circle id="Oval-3-Copy-5" fill="#000000" cx="4" cy="12" r="1.6"></circle>
+                    </g>
+                    <circle id="Oval-3-Copy-4" fill="#000000" cx="12" cy="4" r="1.6"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

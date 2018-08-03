@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">追号记录</h2>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="lh-head">
+    <div class="lh-Picker">
+      <ion-datetime min="2013" cancelText="取消" doneText="确定" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" (ionChange)='selectDate()' [(ngModel)]="followData.timeStarts"></ion-datetime>
+      <i class="firecat-icon dropdown-icon"></i>
+    </div>
+    <div class="mid-line"></div>
+    <div class="lh-Picker">
+      <ion-datetime min="2013" cancelText="取消" doneText="确定" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" (ionChange)='selectDate()' [(ngModel)]="followData.timeEnds"></ion-datetime>
+      <i class="firecat-icon dropdown-icon"></i>
+    </div>
+    <div class="mid-line"></div>
+    <div class="lh-Picker game-picker">
+      <ion-item>
+        <ion-select cancelText="取消" okText="确认" placeholder="{{followData.currentLottory.friend_name}}" (ionChange)="selectLottory(followData.currentLottory,followData.currentpage,true)">
+          <ion-label>{{followData.currentLottory.friend_name}}</ion-label>
+          <ion-option *ngFor="let lottory of followData.lottorys" value="{{lottory.friend_name}}" (ionSelect)="changeCurrent(lottory)">{{lottory.friend_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <i class="firecat-icon dropdown-icon"></i>
+    </div>
+  </div>
+  <div class="lh-body">
+    <div class="switch-case case-withdraw cl">
+      <div class="enpty" *ngIf="followData.datas.length==0">
+        <p>暂无可浏览记录</p>
+        <div class="fix-sure-btn">
+          <button (click)="toHome()">立即购彩</button>
+        </div>
+      </div>
+      <div class="month"  *ngIf="followData.datas.length!=0">
+        <div class="case-content switch-case">
+          <div class="case-content-unit" [ngClass]="{'isSlide':follow.isSlide==true}" *ngFor="let follow of followData.datas;index as i">
+            <div class="case-wrap">
+              <p><span>{{follow.lottery_name}}</span> <span>{{follow.bought_at.substring(5,10)}}</span> {{follow.qihao}}期</p>
+              <p><span class="grey" [ngClass]="{'blue':follow.status==0}">{{followData.statusName[follow.status]}}</span></p>
+            </div>
+            <div class="case-wrap ball-wrap border-bottom">
+              <p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden"><span>{{follow.title}}：{{follow.display_bet_number}}</span></p>
+              <p>投注金额：{{formatMoney(follow.amount)}}元</p>
+            </div>
+            <div class="content-detail">
+              <div class="case-wrap ">
+                <p class="right" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号： <span>{{follow.serial_number}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <p class="right">追号时间： <span>{{follow.bought_at}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <p class="right">开始期号： <span>{{follow.start_issue}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">追号期数： <span>{{follow.total_issues}}</span>期</p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">完成期数： <span>{{follow.finished_issues}}</span>期</p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">追号金额： <span>{{formatMoney(follow.amount)}}</span>元</p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">完成金额： <span>{{formatMoney(follow.finished_amount)}}</span>元</p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">取消金额： <span>{{formatMoney(follow.canceled_amount)}}</span>元</p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">中奖金额： <span>{{formatMoney(follow.prize)}}元</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">追号奖金组： <span>{{follow.prize_group}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">模式： <span>{{follow.coefficient}}</span></p>
+              </div>
+            </div>
+            <div class="case-wrap case-wrap-big">
+              <p *ngIf="follow.stop_on_won">中奖后停止追号</p>
+              <p>
+                <span class="stopFollow" (click)="stopFollow(follow)" *ngIf="follow.status==0">终止追号</span>
+                <button class="detail-btn" (click)="toggleDetail(follow)"><i class="trangle"></i>{{follow.isSlide==true?'收起':'详情'}}</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite($event))" *ngIf="loadmore==true">
+    <ion-infinite-scroll-content class="myloading" loadingSpinner="bubbles" loadingText="努力加载中…"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!--<div *ngIf="isNomore==false" style="line-height: 50px;text-align: center;font-size: 14px;margin-top: -10px">-->
+    <!--没有更多了-->
+  <!--</div>-->
+</ion-content>

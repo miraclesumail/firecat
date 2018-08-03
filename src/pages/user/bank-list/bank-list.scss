@@ -1,0 +1,43 @@
+page-bank-list {
+  .toolbar-content{
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .back-button{
+    z-index: 10;
+  }
+  .bank-list{
+    padding: 16px 16px 40px;
+    background-color: #FFFFFF;
+    ul{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      li{
+        width: 47.5%;
+        height: 40px;
+        border: 1px solid #D4D4D4;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        transition: all 0.35s;
+        img{
+          transform: scale(0.75);
+          height: 100%;
+        }
+        &.current{
+          background-image: url("../../../assets/bank-icon/selected.png");
+          background-size: 16px 15px;
+          background-repeat: no-repeat;
+          background-position: right top;
+          border-color: #F85222;
+        }
+      }
+    }
+  }
+}

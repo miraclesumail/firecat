@@ -1,0 +1,32 @@
+<!-- Generated template for the RenxuanerzuxuanfushiComponent component -->
+<div class="shakePhone" (click)="randomChoose()"></div>  
+<div>{{common.smallKind.bonus_note}} {{util.formatMoney(common.bonus)}} 元</div>
+
+<div id="balls-choice">
+    <label *ngFor="let item of choices;let i = index" [class.current]="item.choose" (click)="toggle(i,2);$event.preventDefault()">
+          <input type="checkbox" [checked]="item.choose"> {{item.name}}
+    </label>  
+</div>
+<div class="l-game" *ngFor="let data of common.ballData;let ii = index" >
+    <div class="l">
+        <p><span></span>组选</p>   
+    </div>
+
+    <div class="r">
+        <div class="ball-list">
+            <ul>
+                <li *ngFor="let item of data.value.slice(0,5);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i)">{{i}}</li>
+            </ul>
+
+            <ul>
+                <li *ngFor="let item of data.value.slice(-5);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i+5)">{{qqq(i)}}</li>
+            </ul>
+         
+            <div class="btn-list">
+                <a href="javascript:;" *ngFor="let detail of common.btn[ii];let j = index" [class.current]="detail.flag" (click)="changeActive(ii,j,detail.name)">{{detail.name}} <span></span></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+

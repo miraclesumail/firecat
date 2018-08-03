@@ -1,0 +1,316 @@
+page-lottory-history {
+  .lh-head{
+    height: 40px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    .lh-Picker{
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .dropdown-icon{
+        width: 12px;
+        height: 6px;
+        margin-left: -5px;
+      }
+      .item-block{
+        min-height: 50%;
+      }
+    }
+    .game-picker{
+      .dropdown-icon{
+        margin-left: 0;
+        position: relative;
+        left: -6vw;
+      }
+    }
+    .mid-line{
+      height: 20px;
+      width: 1px;
+      background-color: #EAEAEA;
+    }
+  }
+  .lh-body{
+    min-height: 50%;
+    .case-content-unit.isSlide{
+      .content-detail{
+        border-top: 2px solid #F08845;
+        height: 249px;
+        padding: 10px 0;
+      }
+
+      .detail-btn{
+        .trangle{
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .switch-case{
+      min-height: 100%;
+      font-size: 14px;
+
+      .case-content{
+        margin-bottom: 5px;
+        margin-top: 10px;
+        .case-content-unit{
+          background-color: #FFFFFF;
+          margin-bottom: 13px;
+        }
+      }
+    }
+    .case-wrap{
+      line-height:34px;
+      display: flex;
+      padding: 0px 16px;
+      .red{
+        color: #FC302B;
+      }
+      .green{
+        color: #25B35F;
+      }
+      .blue{
+        color: #2317FF;
+      }
+      .grey{
+        color: #aaaaaa;
+      }
+      p{
+        width: 100%;
+        flex:1;
+        color: #666666;
+        span{
+          color: #333333;
+        }
+        &:last-child{
+          text-align: right;
+        }
+        .detail-btn{
+          display: inline-block;
+          width: 78px;
+          height: 24px;
+          position: relative;
+          top: -2px;
+          background: #FFE5D0;
+          border-radius: 3px;
+          color: #333333;
+          padding: 0;
+          outline: none;
+          border: none;
+          box-shadow: none;
+        }
+        .concel-btn{
+          background: #F0F0F0!important;
+        }
+        .trangle{
+          margin-right: 4px;
+          position: relative;
+          top: -1px;
+          display: inline-block;
+          border-top: 6px solid #333333;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: none;
+          transition: all 0.5s;
+        }
+      }
+      .ball-list{
+        float: left;
+        height: 30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        span{
+          //background-image: linear-gradient(-180deg, #F9F9F9 0%, #E5E2E2 89%);
+          //border: 0 solid #F3EBEB;
+          //box-shadow: 0 1px 1px 0 rgba(240,236,233,0.50);
+          //font-size: 12px;
+          //color: #333333;
+          //letter-spacing: 0;
+          //text-align: center;
+          //line-height: 23px;
+          //height: 23px;
+          //width: 23px;
+          //border-radius: 50%;
+          //display: block;
+          //margin: 0 3px;
+        }
+      }
+    }
+
+    .content-detail{
+      border-top: 0px solid #F08845;
+      height: 0px;
+      padding: 0;
+      transition: all .5s;
+      overflow: hidden;
+      background-color: #FBF2ED;
+      .case-wrap{
+        line-height: 25px;
+      }
+      .right{
+        text-align: left!important;
+      }
+    }
+    .border-bottom{
+      border-bottom: 1px solid #EAEAEA;
+      padding-bottom: 5px;
+    }
+    .case-wrap-big{
+      display: flex;
+      p:first-child{
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        color: #666666;
+        letter-spacing: 0;
+      }
+    }
+
+    .enpty{
+      p{
+        font-size: 16px;
+        color: #333333;
+        letter-spacing: 0;
+        margin-top: 160px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .fix-sure-btn{
+        height: 47px;
+        padding: 0 16px;
+        button{
+          width: 100%;
+          height: 100%;
+          outline: none;
+          padding: 0;
+          border: none;
+          background: #F98D4B;
+          box-shadow: 0 2px 4px 0 #FFDFC4;
+          color: #FFFFFF;
+          text-align: center;
+          font-size: 18px;
+          letter-spacing: -0.29px;
+          border-radius: 4px;
+        }
+      }
+    }
+    .ball-wrap{
+      //display: block;
+      p{
+        width:auto;
+        &:first-child{
+          float: left;
+
+        }
+      }
+    }
+  }
+  .fix-sure-btn{
+    height: 47px;
+    padding: 0 16px;
+    button{
+      width: 100%;
+      height: 100%;
+      outline: none;
+      padding: 0;
+      border: none;
+      background: #F98D4B;
+      box-shadow: 0 2px 4px 0 #FFDFC4;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: -0.29px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.alert-ios .alert-tappable {
+  &:first-child {
+    .button-inner {
+      height: 44px;
+      line-height:44px;
+    }
+  }
+  .alert-radio-icon {
+    display: none;
+  }
+
+}
+
+.alert-ios .alert-radio-label {
+  width: 100%;
+  height: 40px;
+  line-height:40px;
+  text-align: center;
+  padding: 0;
+}
+.alert-ios .alert-title{
+  height: 40px;
+  line-height:40px;
+}
+
+
+.alert-ios .alert-tappable{
+  width: 50%;
+  float: left;
+}
+.alert-ios [aria-checked=true] .alert-radio-label{
+  width: 95px;
+  height: 34px;
+  line-height:34px;
+  flex: none;
+  color: #FFFFFF;
+  background: #F98D4B;
+  border-radius: 2px;
+}
+.alert-radio-group{
+  max-height: 134px!important;
+  overflow-y: scroll;
+}
+
+.alert-md .alert-radio-icon{
+  display: none;
+}
+.alert-md .alert-tappable{
+  width: 50%!important;
+  float: left!important;
+  margin: 0;
+  outline: none;
+  border: none;
+  text-align: center;
+  outline: none!important;
+}
+.md .alert-radio-group button .button-effect{
+  display: none!important;
+}
+.alert-md [aria-checked=true] .alert-radio-label{
+  width: 80%;
+  height: 90%;
+  background-color: #F98D4B;
+  color: #ffffff;
+  padding: 10px 0;
+  text-align: center;
+  flex: none;
+}
+
+@media screen and (max-width: 375px) {
+  page-lottory-history .lh-body .case-wrap .ball-list{
+    width: 96px;
+  }
+}
+
+
+
+
+
+
+
+

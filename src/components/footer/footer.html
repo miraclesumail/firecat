@@ -1,0 +1,22 @@
+<!-- Generated template for the FooterComponent component -->
+<div class="ion-footer" >
+    <tab-yuan ></tab-yuan>
+    <div class="clear-box"(click)="clearData()">
+          <div class="clear" style="height:30px"></div>
+          <div style="text-align:center;line-height:17px">清空</div>
+    </div>
+    <div class="tab-mode" (click)="common.openTab()" style="z-index:10">
+        <div style="display:flex;align-items:center"><div>{{common.tabYuan}}</div> <div class="l-triangle"></div></div>
+        <div>模式</div>
+    </div>
+    <div id="bet-statistic" [class.can] = "common.count > 0" (click)="addToCart()">
+        <div class="addCart">+</div>
+        <div style="padding-left:10px">
+            <div style="height:25px;line-height:25px">已选{{common.count}}注</div>
+            <div style="height:25px;line-height:25px">共{{common.betPrice}}元</div>
+        </div>
+    </div>
+    <div class="basket" (click)="goToBasket()">
+        <div class="bet-number" *ngIf="basket.betData.length"> {{basket.betData.length}}</div>
+    </div>
+  </div>

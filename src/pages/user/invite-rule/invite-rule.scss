@@ -1,0 +1,28 @@
+page-invite-rule {
+  .scroll-content{
+    background-color: #ffffff;
+  }
+  .rule-list{
+    padding: 8px 16px;
+    p{
+      line-height:22px;
+      margin: 8px 0;
+    }
+  }
+  .info-list{
+    padding:  0 16px;
+    margin-bottom: 40px;
+    h2{
+      font-weight: bold;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #333333;
+      letter-spacing: -0.22px;
+    }
+    p{
+      font-size: 14px;
+      color: #333333;
+      letter-spacing: -0.25px;
+    }
+  }
+}

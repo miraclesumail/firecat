@@ -1,0 +1,317 @@
+<!-- Generated template for the DaxiaodanshuangComponent component -->
+<div class="segment">
+        <ion-segment [(ngModel)]="choose" (ionChange)="ionChange($event)">
+          <ion-segment-button *ngFor="let name of menus;let ii = index" value="{{name}}">{{name}}</ion-segment-button>  
+        </ion-segment>
+      </div>
+      
+      <ion-slides #contentSlides  (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+              <div [ngSwitch]="common.smallMethod">
+                  <div *ngSwitchCase="'后二大小单双'">
+                          <div class="kai-jiang">
+                                  <div>期号</div><div >开奖号码</div><div style="width:32%">十位</div><div style="width:32%">个位</div>
+                          </div>
+                     
+                          <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                              <div class="wait-record">{{item.number}}</div>
+                              <div class="houer"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                              <div style="width:32%">{{item.shi}}</div>
+                              <div style="width:32%">{{item.ge}}</div>
+                              <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                          </div>
+                  </div> 
+      
+                  <div *ngSwitchCase="'后三大小单双'">
+                          <div class="kai-jiang">
+                                  <div>期号</div><div>开奖号码</div><div>百位</div><div>十位</div><div>个位</div><div>后三形态</div>
+                          </div>
+                     
+                          <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                              <div class="wait-record">{{item.number}}</div>
+                              <div class="housan"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                              <div >{{item.bai}}</div>
+                              <div >{{item.shi}}</div>
+                              <div >{{item.ge}}</div>
+                              <div >{{item.xingtai}}</div>
+                              <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                          </div>
+                  </div> 
+      
+                  <div *ngSwitchCase="'前二大小单双'">
+                          <div class="kai-jiang">
+                                  <div >期号</div><div>开奖号码</div><div style="width:32%">万位</div><div style="width:32%">千位</div>
+                          </div>
+                     
+                          <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                              <div class="wait-record">{{item.number}}</div>
+                              <div class="qianer"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                              <div style="width:32%">{{item.wan}}</div>
+                              <div style="width:32%">{{item.qian}}</div>
+                              <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                          </div>
+                  </div> 
+      
+                  <div *ngSwitchCase="'前三大小单双'">
+                          <div class="kai-jiang">
+                                  <div >期号</div><div>开奖号码</div><div>万位</div><div>千位</div><div>百位</div><div>前三形态</div>
+                          </div>
+                     
+                          <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                              <div class="wait-record">{{item.number}}</div>
+                              <div class="qiansan"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                              <div >{{item.wan}}</div>
+                              <div >{{item.qian}}</div>
+                              <div >{{item.bai}}</div>
+                              <div >{{item.xingtai}}</div>
+                              <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                          </div>
+                  </div> 
+      
+                  <div *ngSwitchCase="'中三大小单双'">
+                          <div class="kai-jiang">
+                                  <div >期号</div><div>开奖号码</div><div>千位</div><div>百位</div><div>十位</div><div>中三形态</div>
+                          </div>
+                     
+                          <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                              <div class="wait-record">{{item.number}}</div>
+                              <div class="zhongsan"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                              <div >{{item.qian}}</div>
+                              <div >{{item.bai}}</div>
+                              <div >{{item.shi}}</div>
+                              <div >{{item.xingtai}}</div>
+                              <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                          </div>
+                  </div> 
+              </div>    
+      
+              <div style="display:flex;align-items:center;height:40px">
+                  <div style="color:#333333;font-size:12px">快速选号</div>
+                  
+                  <div *ngFor="let data of common.ballData;let row = index" style="display:flex;align-items:center">
+                          <ul style="display:flex">
+                              <li class="ball-choose ball-tap" *ngFor="let item of data.value;let column = index" [class.current]="item == 1" style="width:25px;height:25px;display:flex;justify-content:center;align-items:center;margin-left:1px;position:relative">
+                                   <span [class.current]="item == 1" (click)="common.componentRef.instance.changeToggle(row,column)">{{judge(column)}}</span>
+                              </li>
+                          </ul>
+                          <div style="width:1px;height:20px;background:#F3F3F3"></div>
+                  </div>
+              </div>
+      
+              <div  style="display:flex;align-items:center;height:20px">
+                      <div style="width:17%;font-size:10px">已选</div>
+                      <div *ngIf="existZuxuan()" style="color:#F84F1E;margin-left:5px">{{common.componentRef.instance.getOriginLotteryText()}}</div>
+              </div>
+      
+          </ion-slide>  
+      
+          <ion-slide>
+              <!-- <div style="width:100%"> -->
+                   <div style="display:flex;position:sticky;width:100%;z-index:10;top:0;">
+                      <div style="width:34%;display:flex;font-size:14px">
+                              <div style="width:50%">
+                                      <ul>
+                                         <li class="qihao-number">期号</li>
+                                         <!-- <li *ngFor="let item of historyRecord" class="left-range qihao" style="border-right:1px solid #F6F6F6">{{item.number}}</li> -->
+                                      </ul>
+                              </div>
+               
+                              <div style="width:50%" *ngIf="common.smallMethod == '后二大小单双'">
+                                  <ul>
+                                      <li class="kaijianghao">开奖号</li>
+                                      <!-- <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(-2).join(' ')}}</li> -->
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '后三大小单双'">
+                                  <ul>
+                                      <li class="kaijianghao">开奖号</li>
+                                      <!-- <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(-3).join(' ')}}</li> -->
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '前二大小单双'">
+                                  <ul>
+                                      <li class="kaijianghao">开奖号</li>
+                                      <!-- <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(0,2).join(' ')}}</li> -->
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '前三大小单双'">
+                                  <ul>
+                                      <li class="kaijianghao">开奖号</li>
+                                      <!-- <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(0,3).join(' ')}}</li> -->
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '中三大小单双'">
+                                  <ul>
+                                      <li class="kaijianghao">开奖号</li>
+                                      <!-- <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(1,4).join(' ')}}</li> -->
+                                  </ul>
+                              </div>
+                      </div>  
+                      
+                      <div style="width:66%;position:relative;overflow:hidden">
+                              <div [ngStyle]="{'width':weiData.length*50 + '%'}" style="display:flex;position:relative" class="union-part">
+                                  <div [ngStyle]="{'width':1/weiData.length*100 + '%'}" *ngFor="let item of weiData;let ii = index" class="trend-container" style="position:relative;background:#E5E8FD;border-right:1px solid #ffffff">
+                                      <ul style="display:block">
+                                      <li style="height:50px">
+                                          <div style="height:25px;line-height:25px;color:#666666;font-size:14px;border-bottom:1px solid #ffffff">{{item}}</div>
+                                          <div style="height:25px;line-height:25px;color:#666666;font-size:14px;display:inline-block;width:25%" *ngFor="let item of rangeData">{{item}}</div>
+                                      </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                      </div>
+      
+                   </div>
+      
+                   <div style="display:flex;position:relative">
+                      <div style="width:34%;display:flex;font-size:14px">
+                              <div style="width:50%">
+                                      <ul>
+                                         <li *ngFor="let item of historyRecord" class="left-range qihao" style="border-right:1px solid #F6F6F6">{{item.number}}</li>
+                                      </ul>
+                              </div>
+               
+                              <div style="width:50%" *ngIf="common.smallMethod == '后二大小单双'">
+                                  <ul>
+                                      <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(-2).join(' ')}}</li>
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '后三大小单双'">
+                                  <ul>
+                                      <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(-3).join(' ')}}</li>
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '前二大小单双'">
+                                  <ul>
+                                      <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(0,2).join(' ')}}</li>
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '前三大小单双'">
+                                  <ul>
+                                      <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(0,3).join(' ')}}</li>
+                                  </ul>
+                              </div>
+              
+                              <div style="width:50%" *ngIf="common.smallMethod == '中三大小单双'">
+                                  <ul>
+                                      <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(1,4).join(' ')}}</li>
+                                  </ul>
+                              </div>
+                      </div>
+      
+                      <div style="width:66%;position:relative;overflow:hidden" #drag>
+                              <div [ngStyle]="{'width':weiData.length*50 + '%'}" style="display:flex;position:relative" class="union-part">
+                                  <div [ngStyle]="{'width':1/weiData.length*100 + '%'}" *ngFor="let item of weiData;let ii = index" class="trend-container" style="position:relative;border-right:1px solid #ffffff">
+                                       <ul style="display:block">
+                                          <li *ngFor="let item of daxiaoData[ii];" class="ball-trend daxiaodanshuang" [class.noShow]="ii > 0 && trueExist(item)" [class.noNumber]="trueExist(item)">
+                                              <div *ngFor="let do of item;let i = index"  class="trend-wrapper"> 
+                                                  <div [class.highlight]="do === true">{{do === true ? qq(i) : do}}</div>     
+                                              </div>
+                                              <div *ngIf="trueExist(item)" [class.noRecord]="trueExist(item)" style="width:100%;font-size:13px;line-height:30px;text-align:center">等待开奖</div>
+                                          </li>
+                                       </ul>
+                                  </div>
+                              </div>
+                      </div>
+                   </div>
+                  
+      
+      
+                   <!-- <div style="width:34%;display:flex;font-size:14px">
+                        
+      
+      
+                        <div style="width:50%">
+                             <ul>
+                                <li class="qihao-number">期号</li>
+                                <li *ngFor="let item of historyRecord" class="left-range qihao" style="border-right:1px solid #F6F6F6">{{item.number}}</li>
+                             </ul>
+                        </div>
+      
+                        <div style="width:50%" *ngIf="common.smallMethod == '后二大小单双'">
+                             <ul >
+                                <li class="kaijianghao">开奖号</li>
+                                <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(-2).join(' ')}}</li>
+                             </ul>
+                        </div>
+      
+                        <div style="width:50%" *ngIf="common.smallMethod == '后三大小单双'">
+                              <ul >
+                                 <li class="kaijianghao">开奖号</li>
+                                 <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(-3).join(' ')}}</li>
+                              </ul>
+                        </div>
+      
+                        <div style="width:50%" *ngIf="common.smallMethod == '前二大小单双'">
+                              <ul >
+                                 <li class="kaijianghao">开奖号</li>
+                                 <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(0,2).join(' ')}}</li>
+                              </ul>
+                        </div>
+      
+                        <div style="width:50%" *ngIf="common.smallMethod == '前三大小单双'">
+                              <ul >
+                                 <li class="kaijianghao">开奖号</li>
+                                 <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(0,3).join(' ')}}</li>
+                              </ul>
+                        </div>
+      
+                        <div style="width:50%" *ngIf="common.smallMethod == '中三大小单双'">
+                              <ul >
+                                 <li class="kaijianghao">开奖号</li>
+                                 <li *ngFor="let item of historyRecord" class="left-range haoma">{{item.history.slice(1,4).join(' ')}}</li>
+                              </ul>
+                        </div>
+                   </div> -->
+      <!-- 
+                   <div style="width:66%;position:relative;overflow:scroll">
+                        <div [ngStyle]="{'width':weiData.length*50 + '%'}" style="display:flex">
+                            <div [ngStyle]="{'width':1/weiData.length*100 + '%'}" *ngFor="let item of weiData;let ii = index" class="trend-container" style="position:relative;background:#E5E8FD;border-right:1px solid #ffffff">
+                                 <ul style="display:block">
+                                    <li style="height:50px">
+                                       <div style="height:25px;line-height:25px;color:#666666;font-size:14px;border-bottom:1px solid #ffffff">{{item}}</div>
+                                       <div style="height:25px;line-height:25px;color:#666666;font-size:14px;display:inline-block;width:25%" *ngFor="let item of rangeData">{{item}}</div>
+                                    </li>
+                                    <li *ngFor="let item of daxiaoData[ii]" style="display:flex" class="ball-trend">
+                                        <div *ngFor="let do of item;let i = index"  class="trend-wrapper"> 
+                                            <div [class.highlight]="do === true">{{do === true ? qq(i) : do}}</div>     
+                                        </div>
+                                    </li>
+                                 </ul>
+                            </div>
+                        </div>
+                   </div> -->
+              
+      
+              <div style="" class="cl bottom-choose">
+                    <div style="display:flex">
+                        <div style="color:#333333;font-size:12px;width:17%;line-height:30px">快速选号</div>
+                        
+                        <div style="min-width:83%;display:flex;overflow:hidden">
+                                <div *ngFor="let data of common.ballData;let row = index" style="display:flex;align-items:center;position:relative" class="union-part">
+                                        <ul style="display:flex">
+                                            <li class="ball-choose ball-tap" *ngFor="let item of data.value;let column = index" [class.current]="item == 1" style="width:25px;height:25px;display:flex;position:relative;justify-content:center;align-items:center;margin-left:1px">
+                                                <span [class.current]="item == 1" (click)="common.componentRef.instance.changeToggle(row,column)">{{judge(column)}}</span>
+                                            </li>
+                                        </ul>
+                                        <div style="width:1px;height:20px;background:#F3F3F3"></div>
+                                </div>
+                        </div>
+                    </div>    
+                     
+                      <div style="display:flex">
+                            <div style="width:17%;font-size:12px;line-height:20px">已选</div>
+                            <div *ngIf="existZuxuan()" style="width:83%;color:#F84F1E;margin-left:5px;text-align:left;line-height:20px">{{common.componentRef.instance.getOriginLotteryText()}}</div>                
+                      </div>
+              </div>
+            
+          </ion-slide>  
+      </ion-slides>      
+      

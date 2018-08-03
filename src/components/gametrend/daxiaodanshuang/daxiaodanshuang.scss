@@ -1,0 +1,25 @@
+daxiaodanshuang {
+      .ball-trend:nth-of-type(2n),.left-range:nth-of-type(2n){background: #ffffff}
+      .ball-trend:nth-of-type(2n+1),.left-range:nth-of-type(2n+1){background: #FFFAF7}
+
+      .ball-trend{
+
+           height:30px;
+           .trend-wrapper{width:25%;height:30px;display: flex;justify-content: center;align-items: center;border-left:1px solid #F6F6F6}
+           .trend-wrapper div{color:#666666;font-size: 14px;width:20px;height: 20px}
+           .trend-wrapper div.highlight{background:#72C193;color:#ffffff;z-index:5 }
+      }
+
+      .left-range{height:30px;line-height:30px}  
+      .haoma{color:#F6374E}
+
+      .qihao-number{height:50px;line-height:50px;background:#D6DAFF;border-right:1px solid #ffffff}
+      .kaijianghao{height:50px;line-height:50px;background:#E5E8FD;border-right:1px solid #ffffff}
+     // div.highlight{}
+     li.daxiaodanshuang{display: flex}
+     .ball-trend.noNumber div:not(.noRecord){display: none}
+     .ball-trend.noNumber{width:200%}
+     li.daxiaodanshuang.noShow{visibility: hidden}
+
+     div.noRecord div:not(.wait-record){display: none}
+}

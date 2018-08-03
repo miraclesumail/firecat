@@ -1,0 +1,28 @@
+
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">接受邀请</h2>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="invite-main cl">
+    <div class="locky-money cl">
+      <h2>¥8</h2>
+      <p>先进红包</p>
+    </div>
+    <h4 class="invite-sup-title">xxx邀请您加入博猫游戏</h4>
+    <div class="text-c">
+      <p>接受邀请，领取8元体验金</p>
+      <p>助力梦想，开启幸运，中奖从这里开始〜</p>
+    </div>
+  </div>
+  <div class="accept-btn" *ngIf="!signFormFlag">
+    <button (click)="acceptInvite()">接受邀请</button>
+  </div>
+  <div class="sign-form" *ngIf="signFormFlag">
+    <div class="sign-wrap"><span>用户名</span><input type="text" [(ngModel)]="sign.username" placeholder="输入手机/用户名/邮箱"></div>
+    <div class="sign-wrap"><span>密码</span><input type="password" [(ngModel)]="sign.psw" placeholder="6-20个字符，可使用字母或数字"></div>
+    <div class="sign-wrap"><span>确认密码</span><input type="password" [(ngModel)]="sign.comfirm_psw" placeholder="6-20个字符，可使用字母或数字"></div>
+    <button (click)="signAction()">注册领取现金红包</button>
+  </div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">用户注册</h2>
+    <button class="kefu-btn" (click)="toLogin()">登录</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="common-form">
+    <div class="cf-row">
+      <label for="username">用户名</label>
+      <input id="username" type="text" [(ngModel)]="signData.data.username" maxlength="40" placeholder="请输入手机/邮箱/用户名" required>
+      <p class="row-info" *ngIf="signData.nameInfoFlag">{{signData.nameInfoText}}<i class="firecat-icon small-dager-close-icon" (click)="clearItemInfo('nameInfoFlag')"></i></p>
+    </div>
+    <div class="cf-row">
+      <label for="password">密&nbsp;&nbsp;&nbsp;码</label>
+      <input id="password" type="password" [(ngModel)]="signData.data.password" maxlength="20" placeholder="6-20个字符，可使用字母或数字" required>
+      <p class="row-info" *ngIf="signData.pswInfoFlag">{{signData.pswInfoText}}<i class="firecat-icon small-dager-close-icon" (click)="clearItemInfo('pswInfoFlag')"></i></p>
+    </div>
+    <div class="cf-row">
+      <label for="comfirm">确认密码</label>
+      <input id="comfirm" type="password" [(ngModel)]="signData.data.confirmPsw" maxlength="20" placeholder="6-20个字符，可使用字母或数字" required>
+      <p class="row-info" *ngIf="signData.checkInfoFlag">{{signData.checkInfoText}}<i class="firecat-icon small-dager-close-icon" (click)="clearItemInfo('checkInfoFlag')"></i></p>
+    </div>
+    <div class="submit-row">
+      <button class="submit-button" (click)="signAction()">注册</button>
+    </div>
+  </div>
+</ion-content>

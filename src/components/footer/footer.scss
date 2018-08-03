@@ -1,0 +1,26 @@
+footer {
+    .ion-footer{position:fixed;height:50px;bottom:0px;display:flex;width:100%;z-index:8}
+
+    #bet-statistic{width:calc(100% - 232px);position:relative;display:flex;background:#f0f0f0}
+    
+      #ball{width:20px;height:20px;background:yellow;position:absolute;top:0px;left:50px;border-radius:50%;}
+      #bet-statistic.can{background: lightblue}
+        
+      .tab-mode{width:70px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;background:#ffffff}
+    
+      .clear{width:10%;background:url('../assets/imgs/games/clear.svg') center center no-repeat;width:70px;border-right:1px solid #f0f0f0;background-color:#ffffff}
+    
+      .basket{width:92px;background:url('../assets/imgs/games/basket.svg') center center no-repeat;background-size:auto 50px;position: relative}
+    
+      .bet-number{width:18px;height:18px;background: #ffffff;text-align: center;line-height: 18px;position: absolute;top:15px;left:15px;border-radius: 50%}
+
+      .l-triangle{  width: 0px;
+        height: 0px;
+        border-color: transparent transparent #222222 transparent; 
+        border-style: solid;
+        border-width: 0 5px 8px 5px;}
+
+      .clear-box{background:#ffffff; border-right:1px solid #f0f0f0;}  
+
+      .addCart{width:30px;padding-left:20px;line-height:50px;font-size:18px}
+}

@@ -1,0 +1,51 @@
+renxuanerzhixuanhezhi {
+    .l-game .r {
+        width: 100%;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding: 0 10px 0 10px;
+    }
+
+    .btn-list {
+        margin-bottom: -3px;
+        width: 100%;
+        height: 30px;
+        border-radius: 30px;
+        padding: 3px 20px;
+        background: #F9F9F9;
+        display: flex;
+        a {
+          width: 100%;
+          flex: 1;
+          color: #0C58CB;
+          font-size: 14px;
+          text-align: center;
+          line-height: 24px;
+          border-left: 1px solid #E5E5E5;
+          position: relative;
+          padding: 0 5px;
+          &:first-child {
+            border-left: none;
+          }
+          &.current {
+            color: #F84A19;
+            span {
+              display: block;
+            }
+          }
+          span {
+            //display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #F84A19;
+            left: 0;
+            bottom: -3px;
+            display: none;
+          }
+        }
+      }
+
+
+}

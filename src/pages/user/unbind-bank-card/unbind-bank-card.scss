@@ -1,0 +1,151 @@
+page-unbind-bank-card {
+  .e-content{
+    padding: 15px 7px 0;
+    background: #FFFFFF;
+  }
+  .card-list{
+    .card-unit{
+      margin: 0 7px 8px;
+      height: 24vw;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100% 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,.35);
+      border-radius: 10px;
+      display: flex;
+      .bank-logo{
+        width: 80px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .firecat-icon{
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background-color: #FFFFFF;
+          background-size: 50% auto;
+        }
+        .s-ABC-icon {
+          background-size: 31px auto;
+        }
+
+        .s-BOCOM-icon {
+          background-size: 36px auto;
+        }
+
+        .s-SPDB-icon {
+          background-size: 33px auto;
+        }
+
+        .s-CITIC-icon {
+          background-size: 31px auto;
+        }
+
+        .s-CEB-icon {
+          background-size: 35px auto;
+        }
+
+        .s-GDB-icon {
+          background-size: 33px auto;
+        }
+
+        .s-BOC-icon {
+          background-size: 31px auto;
+        }
+
+        .s-CMB-icon {
+          background-size: 31px auto;
+        }
+
+        .s-CMBC-icon {
+          background-size: 28px auto;
+        }
+
+        .s-CCB-icon {
+          background-size: 26px auto;
+        }
+        .s-ICBC-icon {
+          background-size: 31px auto;
+        }
+
+        .s-HXB-icon {
+          background-size: 32.8px auto;
+        }
+        .s-CIB-icon {
+          background-size: 34.5px auto;
+        }
+        .s-PSBC-icon {
+          background-size: 31.3px auto;
+        }
+        .s-PAB-icon {
+          background-size: 32px auto;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+      .bank-info{
+        width: 100%;
+        flex: 1;
+        align-content: center;
+        color: #FFFFFF;
+        display: flex;
+        flex-wrap: wrap;
+        h4{
+          width: 100%;
+          font-size: 18px;
+          letter-spacing: 0;
+        }
+        p{
+          width: 100%;
+          font-size: 22px;
+          letter-spacing: 0;
+          &.card-type{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    &.isLocked{
+      .card-unit{
+        filter: grayscale(90%);
+      }
+    }
+  }
+  .user-wrap{
+    height: 40px;
+    line-height:40px;
+    display: flex;
+    padding: 0 16px;
+    p{
+      width: 100%;
+      flex: 1;
+      .unbind-btn{
+        width: 70px;
+        height: 24px;
+        display: block;
+        border-radius: 20px;
+        align-self: flex-end;
+        border: 1px solid #E96A04;
+        font-size: 14px;
+        color: #E96A04;
+        letter-spacing: 0;
+        line-height:22px;
+        text-align: center;
+        margin-top: 8px;
+        float: right;
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+page-lottory-center {
+
+  .k3Head{
+    background-color: #00180D;
+  }
+  .drop-trangle{
+    display: inline-block;
+    border-top: 8px solid #ffffff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: none;
+    transition: all 0.35s;
+    &.current{
+      transform: rotate(180deg) translateY(2px);
+
+    }
+  }
+
+
+
+  .lc-tab-head{
+    height: 35px;
+    line-height:35px;
+    display: flex;
+    color: #333333;
+    text-align: center;
+    background-color: #FFF9F5;
+    z-index:10000;
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    box-shadow: 0 5px 5px rgba(125, 89, 89, 0.35);
+
+    .lc-tab-unit{
+      flex: 1;
+      width: 100%;
+      position: relative;
+      transition: all .35s;
+      .underline{
+        position: absolute;
+        left: 50%;
+        right: 100%;
+        bottom: 0px;
+        background-color: #F6374E;
+        height: 0px;
+        transition: all 0.35s;
+      }
+      &.current{
+        color: #F6374E;
+        .underline{
+          right: 0;
+          left: 0;
+          height: 2px;
+        }
+      }
+    }
+  }
+}
+.ll-mask{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 47px;
+  //padding-top: 44px;
+  z-index: 1000000000000000;
+  background-color: rgba(0,0,0,.5);
+}
+.lottory-list{
+  padding: 0 16px;
+  background-color: #F3F3F3;
+  border-bottom: 2px solid #F08845;
+  .lottory-wrap{
+    display: flex;
+    color: #666666;
+    &:first-child{
+      margin-top: 9px;
+    }
+    .l-title{
+      width: 46px;
+      line-height:25px;
+    }
+    .l-list{
+      flex: 1;
+      width: 100%;
+    }
+    ul{
+      min-height: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &:last-child{
+
+      }
+      li{
+        width: 31%;
+        line-height:26px;
+        text-align: center;
+        background: #FFFFFF;
+        border: 0 solid #E6E6E6;
+        box-shadow: 0 1px 2px 0 #C5C4C4;
+        border-radius: 3px;
+        margin-bottom: 13px;
+        &.current{
+          background-color: #F98D4B;
+          color: #ffffff;
+        }
+      }
+
+    }
+  }
+}

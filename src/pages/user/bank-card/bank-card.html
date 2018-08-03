@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">银行卡</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <!--没有银行卡-->
+  <div class="no-bank-card-content common-form clearfix" *ngIf="bcData.bankList.length==0">
+    <div class="no-bank-card-logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAB6CAMAAAAPtKhWAAAAt1BMVEUAAADGxsbGxsbFxcXGxsbCwsLDw8PHx8fGxsbIyMjGxsbDw8O6urrGxsbHx8fMzMzFxcXDw8PPz8/GxsbHx8fIyMjGxsbGxsbHx8fFxcXJycnAwMDS0tLGxsbGxsbGxsbGxsbGxsbHx8fHx8fJycnGxsbFxcXHx8fFxcXIyMjGxsa2trbExMTGxsbHx8fExMTKysrKysrGxsbOzs7FxcXu7u7GxsbLy8vMzMzGxsbGxsbIyMjHx8cLNMgiAAAAOnRSTlMA/vDkrWAmyfq991IgtO4bqBYKoloIeLqDwWIYBPvy3tGy4icQ18eUiHRsCOucfnFVRTUfLRPmrIhQ6OHBJgAAAm1JREFUeNrt3FmPokAUhuHD0i1Da+HaNDSb4L6vvVTV//9do6MWknQm4UZOJ+e5MV+8eYMh0RgKbtq7aTP5YHrlmJF0ZoceFPUOq1oacRw0PfbW+wDuvK8TWwjJkZBC6CP/CIozZkJwVIRIvwaqb2kjyzsT+uRaOJhEaD7cQuFi2oaTYMYQXr8zGW/Od0pWQ9rHuXBbAPNphDeQdQM4eGj7ToWfDvgx5sBkCx0d5S18IYwp1EKOl2RjMDhi0jaBccwsF3SOmfWHAimwFApEhwIpsCQKROc3BNoCM82D4Udq4BU3oes/YbYFQgghhFTrOXvGK3t2oNM3EWu+gc41xCwPsPzF+bPQw/+bhAIpsAwKRIcCKbAkCkSHAimwJApEhwIpsCQKRIcCKbAkCkSHAimwpF8bKHKSc/m/WfCoQM3OWZKHdk7jhRlWEihi/0UZR6HZVcv3LD7K3+02T/25hwWOBqB8M/s1X+2lxTvzfM/sSgJrDihdZr311Gp1LN5sqTl/xRHYVuu9GNijQAosokAKpMBHBeYJsGH2qqfWYHkKHKgZTKsJTHZO/WK/X+vWOKtfOTsz5I1d/SabVBLIdbffuOj3E0uLG2q6hsaN/N3GMOR36Bt1Tt5eZXHyH2aOriAFVg9/oIv/4dOUIyYjE7wQ8xPabAxL1I+Qx2t4wv4QfubiDZTa5xHmMx1toVhsAoA63pMgpNkCgMBPkRaK4RbOBqsFyhtZpH4P/mlNEJ5HIsXitQ1Xra8U35FCw7wP4Oh7TKA5lUmeUpj73YY7QX3mDo3I0hCwIiNp+E4ARfNsMzG9Ua1yI7e5etmrvL/I67g6bDvCxwAAAABJRU5ErkJggg==" width="80" alt=""></div>
+    <div class="no-bank-card-text">
+      <p>您还未添加任何银行卡</p>
+    </div>
+    <div class="submit-row">
+      <button class="submit-button" (click)="addBankCard()">添加银行卡</button>
+    </div>
+  </div>
+  <!--有银行卡-->
+  <div class="has-bank-card-content common-form" *ngIf="bcData.bankList.length!==0">
+    <div class="lock-info" text-end>{{bcData.isLocked==true?'卡片已锁':"一键锁卡"}} <i class="firecat-icon unlocked-icon" [ngClass]="{'lock-icon':bcData.isLocked}" (click)="toggleLockCard(bank)"></i></div>
+    <div class="card-list" [ngClass]="{'isLocked':bcData.isLocked==true}">
+      <div class="card-unit bank-{{bank.identifier}}" *ngFor="let bank of bcData.bankList"
+           (click)="enterUnbindCard(bank)">
+        <div class="bank-logo"><i class="firecat-icon s-{{bank.identifier}}-icon"></i></div>
+        <div class="bank-info">
+          <h4>{{bank.bank}}</h4>
+          <p class="card-type">储蓄卡</p>
+          <p>{{formatBankNumber(bank.account)}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="submit-row">
+      <button class="submit-button" (click)="addBankCard()">+添加银行卡</button>
+    </div>
+    <div class="common-form-info clearfix">
+      <h4>温馨提示</h4>
+      <ul>
+        <li>卡片锁定后不能进行任何卡片操作，如需解锁，请联系客服</li>
+      </ul>
+      <a href="javascript:;" (click)="http.lineService(bcData.userInfo.username)">联系客服</a>
+    </div>
+  </div>
+</ion-content>
+
+
+
+

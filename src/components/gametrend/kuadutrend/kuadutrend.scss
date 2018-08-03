@@ -1,0 +1,19 @@
+kuadutrend {
+    .ball-line li span{width:20px;height:20px;color:#000000;font-size:13px;text-align:center;line-height:20px}
+    
+    .highlight{background: #7ED321;z-index:5}
+  
+    
+    // .number-header li{padding: 5px 0;text-align: center;background:#DEE2FF;color:#666666;border-right: 1px solid #ffffff}
+    // div{padding: 5px 0;text-align: center;background:#DEE2FF;color:#666666 }
+    ul.kuadu li{display:flex;align-items:center;justify-content:center;border-left:1px solid #f0f0f0;width:8.3%}
+    ul.kuadu li.noNumber{width:83%;font-size:13px}
+
+    div.noRecord div:not(.wait-record){display: none}
+
+    .trend-category li.head-category{width:17%}  
+    .trend-category li.head-category.xuan5{width:14.2%}  
+  
+    .trend-category li.head-content{width:8.3%}  
+    .trend-category li.head-content.xuan5{width:7.8%}  
+}

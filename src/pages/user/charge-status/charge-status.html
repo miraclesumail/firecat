@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">充值助手</h2>
+    <button class="finished-btn" (click)="viewDismiss()">完成</button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="succeed-status" *ngIf="statusData.status==1">
+    <div class="status-head succeed-head clearfix">
+      <h2></h2>
+      <p>充值申请提交成功</p>
+    </div>
+    <div class="status-wrap"><p>充值渠道</p>
+      <p>{{ statusData.bank }}</p></div>
+    <div class="status-wrap"><p>充值金额</p>
+      <p>{{ statusData.money }}</p></div>
+    <a href="javascript:;" class="bottom-link" (click)="viewDismiss()">返回充值页</a>
+  </div>
+  <div class="succeed-status" *ngIf="statusData.status == 0">
+    <div class="status-head fail-head clearfix">
+      <h2></h2>
+      <p>{{statusData.statusText}}</p>
+    </div>
+    <a href="javascript:;" class="bottom-link">遇到问题？</a>
+  </div>
+</ion-content>

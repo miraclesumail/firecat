@@ -1,0 +1,169 @@
+<!-- Generated template for the ZhixuanhezhiComponent component -->
+<div class="segment">
+  <ion-segment [(ngModel)]="choose" (ionChange)="ionChange($event)">
+    <ion-segment-button *ngFor="let name of menus;let ii = index" value="{{name}}">{{name}}</ion-segment-button>  
+  </ion-segment>
+</div>
+
+
+<ion-slides #contentSlides>
+  <ion-slide>
+     
+          <div class="kai-jiang">
+              <div >期号</div><div >开奖号码</div><div style="width:21.33%">和值</div><div style="width:21.33%">大小</div><div style="width:21.33%">单双</div>
+          </div>
+
+          <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+              <div class="wait-record">{{item.number}}</div>
+              <div  [ngClass]="{'qiansan': common.method == '前三', 'zhongsan': common.method == '中三', 'housan': common.method == '后三', 
+                    'qianer': common.smallMethod == '前二和值', 'houer': common.smallMethod == '后二和值'}">
+                  <span *ngFor="let aa of item.history">{{aa}}</span>
+              </div>
+
+              <div style="width:21.33%">{{item.hezhi}}</div>
+              <div style="width:21.33%">{{item.daxiao}}</div>
+              <div style="width:21.33%">{{item.danshuang}}</div>
+              <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+          </div>
+     
+  </ion-slide>
+
+  <ion-slide>
+        <div>
+            <ul style="display:flex">
+                    <li class="head-num" style="width:17%">期号</li>
+                    <li class="head-num" style="width:8.5%">0</li>
+                    <li class="head-num" style="width:8.5%">1</li>
+                    <li class="head-num" style="width:8.5%">2</li>
+                    <li class="head-num" style="width:8.5%">3</li>
+                    <li class="head-num" style="width:8.5%">4</li>
+                    <li class="head-num" style="width:8.5%">5</li>
+                    <li class="head-num" style="width:8.5%">6</li>
+                    <li class="head-num" style="width:8.5%">7</li>
+                    <li class="head-num" style="width:8.5%">8</li>
+                    <li class="head-num" style="width:8.5%">9</li>
+            </ul>
+                <ul *ngFor="let item of trendData" class="ball-line" style="display:flex">
+                    <li *ngFor="let ele of item.slice(0,1)" style="line-height:30px;font-size:12px;width:17%">
+                        {{ele.number}}
+                     </li>
+                    <li *ngFor="let ele of item.slice(1)" [class.noNumber] = "ele.noNumber" class="trendData">
+                       <span [class.highlight]="ele.choose" class="number-code" style="width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px;font-size:13px"> {{ele.number}}</span>
+                       <span class="right-corner" *ngIf="ele.choose > 1">{{ele.choose}}</span>
+                       <span *ngIf="ele.noNumber" style="width:100%"> 等待开奖</span>
+                    </li>
+                </ul>        
+       </div>
+           
+       <ul *ngFor="let item of category;let i =index" class="trend-category">
+            <li class="head-num head-category" style="width:17%;font-size:10px">{{getTitle(item)}}</li>
+            <li class="head-num" style="width:8.3%;border-left:1px solid #f0f0f0" *ngFor="let todo of statisticData[item]">
+                {{todo}}
+            </li>
+       </ul>
+
+        <!-- <div style="display:flex;width:100%">
+            <div style="width:17%">和值选号</div>
+            <div style="width:83%;overflow:hidden">
+                <ul style="width:280%;" #drag [ngStyle]="{'transform': 'translateX(' + gap + 'px)'}">
+                    <li *ngFor="let item of numbers" class="head-num  choose-ball" style="width:3.57%;display:inline-block">
+                        <span [class.current]="checkCurrent(i)" (click)="toggle(i)">{{number}}</span>
+                    </li>
+                </ul>
+            </div>       
+        </div> -->
+  </ion-slide>    
+
+  <ion-slide  style="min-height:100%">
+            <div style="width:100%;">
+                    <div class="top-line" style="display:flex;">
+                        <div class="head-num" style="font-size:12px;width:17%"> 期号 </div>
+                        <div style="width:83%;overflow:hidden">
+                            <ul [ngStyle]="{'width':numbers.length*10 + '%'}" style="display:flex;position:relative" class="union-part">
+                                <li *ngFor="let item of numbers" class="head-num" [ngStyle]="{'width':100/numbers.length + '%'}"> {{item}} </li>
+                            </ul>
+                        </div>  
+                    </div>   
+                    
+                    <!-- <ul *ngFor="let item of sumData[i]" class="ball-line" [ngClass]="common.series_id == 1 ? 'ssc' : 'd5'">
+                            <li *ngFor="let ele of item.slice(0,1)" class="history-num">
+                                {{ele.number.slice(-7)}}
+                             </li>
+                            <li *ngFor="let ele of item.slice(1)" class="history-ball">
+                               <span [class.highlight]="ele.choose"> {{ele.number}}</span>
+                            </li>
+                    </ul> -->
+
+                    <div class="aaaa" style="display:flex;width:100%">
+                        <ul style="display:flex;flex-direction:column;width:17%">
+                            <li *ngFor="let item of qishu"  class="qishu-number" style="font-size:12px;height:30px;line-height:30px"> {{item}} </li>
+                        </ul>
+
+                        <div class="qihao-container" style="width:83%;position:relative;overflow:hidden" #drag>
+                            <div [ngStyle]="{'width':numbers.length*10 + '%'}" style="position:relative" id="hezhi-container" class="union-part">
+                                <div id="trend-container" style="position:relative">
+                                    <ul  *ngFor="let ele of hezhiTrendData" class="ball-line kuadu" style="width:100%;display:flex;height:30px" [class.noNumber] = "ele.length == 2">
+                                        <li *ngFor="let item of ele.slice(1,ele.length)" class="ball-content" [ngStyle]="{'width': ele.length == 2 ? '35%' : 100/numbers.length + '%'}">
+                                            <span *ngIf="ele.length != 2" [class.highlight]="item.choose"> {{item.number}}</span>   
+                                            <span *ngIf="ele.length == 2" style="width:100%"> 等待开奖</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+
+                    <div class="cl bottom-choose" >
+                         <div style="display:flex">
+                            <div style="width:17%;font-size:12px;line-height:30px">和值选号</div>
+                            <div style="width:83%;overflow:hidden"> 
+                                    <ul style="display:flex;height:30px;position:relative" [ngStyle]="{'width':numbers.length*10 + '%'}" class="union-part">
+                                            <li *ngFor="let number of numbers;let i = index" class="head-num ball-choose ball-tap" [ngStyle]="{'width':100/numbers.length + '%'}">
+                                                <span [class.current]="checkCurrent(i)" (click)="toggle(i)">{{number}}</span>
+                                            </li>
+                                    </ul>
+                            </div>
+                         </div>
+                        
+                         <div style="display:flex">
+                            <div style="width:17%;font-size:12px;line-height:20px">已选</div>
+                            <div *ngIf="existZuxuan()" style="width:83%;color:#F84F1E;margin-left:5px;text-align:left;line-height:20px">{{common.componentRef.instance.getLotteryText()}}</div>                
+                         </div>
+                    </div>               
+            </div>        
+            <!-- <div  style="display:flex;width:255%" class="trend-container">
+                    <div style="width:6.7%">
+                         <ul style="display:flex;flex-direction:column">
+                            <li *ngFor="let item of qishu" style="width:100%"> {{item}} </li>
+          
+                         </ul>
+                    </div>
+            
+                    <div style="width:93.3%;overflow:hidden;position:relative" class="hezhi-container">
+                       <div style="width:100%" >
+                          <ul  *ngFor="let ele of hezhiTrendData" style="width:100%" >
+                              <li *ngFor="let item of ele.slice(1,28)" [class.highlight]="item.choose" style="display:inline-block;width:3.57%">{{item.number}}</li>
+                          </ul>
+                       </div>
+                    </div>
+                </div> -->    
+    </ion-slide> 
+
+    <ion-slide> 
+            <div class="menus-head" style="display:flex;font-size:14px">
+                    <div style="width:16%">和值</div> <div style="width:21%">30期冷热</div> <div style="width:21%">60期冷热</div> 
+                    <div style="width:21%">90期冷热</div> <div style="width:21%">遗漏</div>
+            </div>
+            
+                <ul>
+                    <li *ngFor="let item of lengreData" class="list-detail">
+                        <div class="ball-detail">
+                            <span>{{item.number}}</span>
+                        </div> 
+                        <div style="width:21%">{{item.leng30}}</div>  
+                        <div style="width:21%">{{item.leng60}}</div> <div style="width:21%">{{item.leng100}}</div>  <div style="width:21%">{{item.yilou}}</div>   
+                    </li>
+                </ul>    
+   </ion-slide>          
+                    
+</ion-slides>

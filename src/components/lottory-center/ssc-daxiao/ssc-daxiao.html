@@ -1,0 +1,28 @@
+<div class="distribute-style" *ngIf="resultsData.data.length!=0">
+  <div class="ssc-table">
+    <div class="ssc-table-head">
+      <div class="t-qihao">期号</div>
+      <div class="t-qihao-list">
+        <div>万位</div>
+        <div>千位</div>
+        <div>百位</div>
+        <div>十位</div>
+        <div>个位</div>
+      </div>
+    </div>
+    <div class="ssc-table-body">
+      <div class="ssc-table-wrap" *ngFor="let result of resultsData.data" [ngClass]="{'isWaiting-bg':result.code.length<=1}">
+        <div class="t-qihao">{{result.number.slice(-6)}}期</div>
+        <div class="t-qihao-list" *ngIf="result.code.length>1">
+          <div [ngClass]="{'big':result.code[0]>4,'small':result.code[0]<5}">{{result.code[0]>4?'大':'小'}}</div>
+          <div [ngClass]="{'big':result.code[1]>4,'small':result.code[1]<5}">{{result.code[1]>4?'大':'小'}}</div>
+          <div [ngClass]="{'big':result.code[2]>4,'small':result.code[2]<5}">{{result.code[2]>4?'大':'小'}}</div>
+          <div [ngClass]="{'big':result.code[3]>4,'small':result.code[3]<5}">{{result.code[3]>4?'大':'小'}}</div>
+          <div [ngClass]="{'big':result.code[4]>4,'small':result.code[4]<5}">{{result.code[4]>4?'大':'小'}}</div>
+        </div>
+        <div class="t-qihao-list" *ngIf="result.code.length<=1" style="justify-content: center;color: #666">等待开奖...</div>
+      </div>
+    </div>
+  </div>
+</div>
+

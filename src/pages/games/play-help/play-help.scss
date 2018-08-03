@@ -1,0 +1,22 @@
+page-play-help {
+     .choose-game{position: fixed}
+
+     .body-bg{position: fixed}
+
+     .toolbar-title{display: flex;justify-content: center;align-items: center}
+     .t-head th{padding: 8px 0 }
+
+     tr td{text-align: center}
+
+     table tr{border: 1px solid #979797}
+     table td{border-left: 1px solid #979797}
+
+     .game-tr td:nth-of-type(1){width:40px}
+     .game-tr td:nth-of-type(2){width:60px}
+     .game-tr td:nth-of-type(3){width:60px}
+     .game-tr td:nth-of-type(4){width:50px}
+     .game-tr td:nth-of-type(5){width:61px}
+
+     tr.game-tr:nth-of-type(2n+1){background:#FFFAF7 }
+     //tr.game-tr:nth-of-type(2n){background:#FFFAF7 }
+}

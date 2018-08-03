@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">提现申请</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="worming-info"><span class="danger">*为防止套现和洗钱，充值后需购买充值金额的20％方可提现</span></div>
+  <div class="withDraw-info clearfix">
+    <h4>可提现额度 <span>{{formatMoney(withdrewApiData.data.accounts.withdrawable)}}</span></h4>
+    <p>拥有资产：{{formatMoney(withdrewApiData.data.accounts.balance)}}</p>
+  </div>
+  <div class="withDraw-money">
+    <p>提现金额</p>
+    <span class="currency">¥</span>
+    <input type="number" (blur)="formateMoney()" class="showCurrency" [(ngModel)]="withDrawMoney"/>
+  </div>
+  <div class="bank-list">
+    <p class="info">请选择提现银行：</p>
+    <div class="bank-content">
+      <div class="bank-unit" *ngFor="let bank of withdrewApiData.data.bank_cards" (click)="selectBank(bank)" [ngClass]="{'current':bank.flag}">
+        <div class="capture">
+          <!--<img src="../assets/bank-icon/s-{{bank.identifier}}-icon.png" alt="">-->
+          <i class="firecat-icon s-{{bank.identifier}}-icon"></i>
+          <!--<img src="../assets/bank-icon/s-{{bank.identifier}}-icon.png" alt="">-->
+        </div>
+        <div class="bank-text">
+          <h4>{{bank.account_name}}</h4>
+          <p>{{formatBankNumber(bank.account)}} {{bank.bank}}</p>
+        </div>
+        <button class="select-btn"></button>
+      </div>
+      <div class="add-bank-card" (click)="addBankCard()">
+        +添加银行卡
+      </div>
+    </div>
+  </div>
+  <div class="fix-sure-btn" [ngClass]="{'unable':currentBank==null||withDrawMoney==0||withDrawMoney==null}">
+    <button (click)="checkWithdraw()">确认提现</button>
+  </div>
+</ion-content>
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title (click)="triggleMenu()" [ngClass]="{'k3Head':lcData.isK3}">{{lcData.currentLottory.friend_name}} <div class="drop-trangle" [ngClass]="{'current':lcData.isDrop}"></div></ion-title>
+  </ion-navbar>
+</ion-header>
+<div class="ll-mask" *ngIf="lcData.isDrop">
+  <div class="lottory-list clearfix">
+    <div class="lottory-wrap">
+      <div class="l-title">时时彩</div>
+      <div class="l-list">
+        <ul>
+          <li *ngFor="let lottory of homeprv.homeData.lottoryList.SSC;index as i" (click)="switchLottory(lottory)" [ngClass]="{'current':lottory.flag}">{{lottory.friend_name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lottory-wrap">
+      <div class="l-title">11选5</div>
+      <div class="l-list">
+        <ul>
+          <li *ngFor="let lottory of homeprv.homeData.lottoryList['11Y'];index as i" (click)="switchLottory(lottory)" [ngClass]="{'current':lottory.flag}">{{lottory.friend_name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lottory-wrap">
+      <div class="l-title">快3</div>
+      <div class="l-list">
+        <ul>
+          <li *ngFor="let lottory of homeprv.homeData.lottoryList.K3;index as i" (click)="switchLottory(lottory)" [ngClass]="{'current':lottory.flag}">{{lottory.friend_name}}</li>
+        </ul>
+      </div>
+    </div>
+    <!--<div class="lottory-wrap">-->
+    <!--<div class="l-title">PK10</div>-->
+    <!--<div class="l-list">-->
+    <!--<ul>-->
+    <!--<li *ngFor="let lottory of homeprv.homeData.lottoryList.PK10;index as i" (click)="switchLottory(lottory)" [ngClass]="{'current':lottory.flag}">{{lottory.friend_name}}</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="lottory-wrap">
+      <div class="l-title">六合彩</div>
+      <div class="l-list">
+        <ul>
+          <li *ngFor="let lottory of homeprv.homeData.lottoryList.LHC;index as i" (click)="switchLottory(lottory)" [ngClass]="{'current':lottory.flag}">{{lottory.friend_name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div >
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      class="myloading"
+      pullingIcon="arrow-dropdown"
+      pullingText="下拉刷新"
+      refreshingSpinner="circles"
+      refreshingText="正在刷新...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="lc-tab-head">
+    <div class="lc-tab-unit" *ngFor="let nav of navData;index as i" [ngClass]="{'current':nav.flag}" (click)="changeDynComponent(i,nav)">
+      <p>{{nav.name}}</p>
+      <div class="underline"></div>
+    </div>
+  </div>
+
+  <div #dynLottoryComponent></div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<div class="lk-container" *ngIf="resultsData.data.length!=0">
+  <table>
+    <tr>
+      <th class="lk-unit">期号</th>
+      <th class="lk-unit">开奖号码</th>
+      <th class="lk-unit">和值</th>
+      <th class="lk-unit">跨度</th>
+      <th class="lk-unit">大小比</th>
+      <th class="lk-unit">奇偶比</th>
+    </tr>
+    <tr *ngFor="let result of resultsData.data" [ngClass]="{'isWaiting-bg':result.code.length<=1}">
+      <td>{{result.number.slice(-2)}}期</td>
+      <td class="num-list" *ngIf="result.code.length>1"><span *ngFor="let code of result.code">{{code}}</span></td>
+      <td *ngIf="result.code.length>1">{{result.sum}}</td>
+      <td *ngIf="result.code.length>1">{{result.spacing}}</td>
+      <td *ngIf="result.code.length>1">{{result.small}}:{{result.big}}</td>
+      <td *ngIf="result.code.length>1">{{result.odd}}:{{result.even}}</td>
+      <td colspan="5" *ngIf="result.code.length<=1">等待开奖...</td>
+    </tr>
+  </table>
+</div>

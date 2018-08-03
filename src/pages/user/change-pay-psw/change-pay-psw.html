@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">修改支付密码</h2>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="bank-card-content common-form">
+    <div class="cf-row">
+      <label for="oldPsw">原支付密码</label>
+      <input id="oldPsw" type="password" maxlength="16" [(ngModel)]="pswData.old_password" placeholder="6-20个字符，可使用字母或数字" required>
+    </div>
+    <div class="cf-row">
+      <label for="newPsw">新支付密码</label>
+      <input id="newPsw" type="password"  maxlength="16" [(ngModel)]="pswData.password" placeholder="6-20个字符，可使用字母或数字" required>
+    </div>
+    <div class="cf-row">
+      <label for="comfirmPsw">确认密码</label>
+      <input id="comfirmPsw" type="password"  maxlength="16" [(ngModel)]="pswData.password_confirmation" placeholder="6-20个字符，可使用字母或数字" required>
+    </div>
+    <div class="submit-row">
+      <!--<button class="submit-button" (click)="submitPsw()">下一步</button>-->
+      <button *ngIf="pswData.old_password.length==0||pswData.password.length==0||pswData.password_confirmation.length==0" class="submit-button disableBtn">下一步</button>
+      <button *ngIf="pswData.old_password.length!=0&&pswData.password.length!=0&&pswData.password_confirmation.length!=0"class="submit-button " (click)="submitPsw()">下一步</button>
+    </div>
+  </div>
+</ion-content>

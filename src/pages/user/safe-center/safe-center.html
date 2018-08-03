@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">安全中心</h2>
+    <a href="javascript:;" class="firecat-icon question-icon" (click)="toggleInfo()"></a>
+  </ion-navbar>
+  <div class="question-info" [ngClass]="{'current':safeCentData.infoFlag==true}">
+    <p>1.完善下列信息您可以增加安全指数分数！</p>
+    <p>2.安全指数越高，您的资金风险就更低。</p>
+    <div class="trangle"></div>
+  </div>
+</ion-header>
+
+
+<ion-content>
+  <div class="gredient-bg clearfix">
+    <div class="sc-head">
+      <p><span>{{safeCentData.start_grade}}</span>分</p>
+      <canvas class="canvas" id="canvas" width="110" height="110"></canvas>
+    </div>
+    <div class="buttom-bg"></div>
+  </div>
+  <div class="list-title">完善下列信息，安全指数更高：</div>
+  <div class="sc-list clearfix">
+    <div class="sc-list-unit" (click)="pushPage()">
+      <div class="left-icon"><i class="firecat-icon id-icon"></i></div>
+      <div class="list-text">
+        <h4>身份证绑定 <i class="redPoint"></i></h4>
+        <p>领奖提款的重要依据</p>
+      </div>
+      <div class="right-icon"><i class="firecat-icon toRight-icon"></i></div>
+    </div>
+    <div class="sc-list-unit" (click)="pushPage()">
+      <div class="left-icon"><i class="firecat-icon phone-icon"></i></div>
+      <div class="list-text">
+        <h4>手机绑定<i class="redPoint"></i></h4>
+        <p>用户信息及中奖提醒</p>
+      </div>
+      <div class="right-icon"><i class="firecat-icon toRight-icon"></i></div>
+    </div>
+    <div class="sc-list-unit" (click)="pushPage()">
+      <div class="left-icon"><i class="firecat-icon email-icon"></i></div>
+      <div class="list-text">
+        <h4>绑定邮箱<i class="redPoint"></i></h4>
+        <p>用户信息及中奖提醒</p>
+      </div>
+      <div class="right-icon"><i class="firecat-icon toRight-icon"></i></div>
+    </div>
+    <div class="sc-list-unit" (click)="pushPage('BankCardPage')">
+      <div class="left-icon"><i class="firecat-icon bank-card-icon"></i></div>
+      <div class="list-text">
+        <h4>银行卡<i class="redPoint" *ngIf="!safeCentData.status.bank"></i></h4>
+        <p>保障你的账户安全</p>
+      </div>
+      <div class="right-icon"><i class="firecat-icon toRight-icon"></i></div>
+    </div>
+    <div class="sc-list-unit" (click)="pushPage('ChangeLoginPswPage')">
+      <div class="left-icon"><i class="firecat-icon change-login-psw-icon"></i></div>
+      <div class="list-text">
+        <h4>修改登录密码<i class="redPoint" *ngIf="!safeCentData.status.password"></i></h4>
+        <p>用户信息及中奖提醒</p>
+      </div>
+      <div class="right-icon"><i class="firecat-icon toRight-icon"></i></div>
+    </div>
+    <div class="sc-list-unit" (click)="pushPage('ChangePayPswPage')">
+      <div class="left-icon"><i class="firecat-icon change-pay-psw-icon"></i></div>
+      <div class="list-text">
+        <h4>修改支付密码<i class="redPoint" *ngIf="!safeCentData.status.fund_password"></i></h4>
+        <p>提款时验证，资金更安全</p>
+      </div>
+      <div class="right-icon"><i class="firecat-icon toRight-icon"></i></div>
+    </div>
+  </div>
+</ion-content>

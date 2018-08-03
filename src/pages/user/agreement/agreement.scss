@@ -1,0 +1,36 @@
+page-agreement {
+  .agreement-content{
+    text-align: center;
+    padding: 0 16px;
+    color: #333333;
+    .ac-title{
+      margin-top: 27px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .ac-unit{
+      h4{
+        font-size:14px;
+      }
+      margin-top: 15px;
+      font-size: 14px;
+      p{
+        text-align: left;
+        margin-bottom:20px;
+      }
+      ul{
+        margin-left:20px;
+        li{
+          list-style:decimal;
+          text-align:left;
+          margin: 10px;
+        }
+      }
+    }
+  }
+  .luokuan{
+    margin:15px 0 50px 0;
+    font-size:14px;
+    text-align:left;
+  }
+}

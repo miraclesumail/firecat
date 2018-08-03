@@ -1,0 +1,237 @@
+page-game-trend {
+    .segment {
+        width: 100%;
+        height: 35px;
+        background: #FFF9F5;
+        position: fixed;z-index: 10
+      }
+      .swiper-slide {
+         background: none;
+        color: #333;
+        align-items: flex-start;
+        overflow: scroll
+      }
+  
+      ion-slides {
+      background-color: white;
+      height: auto;
+      padding: 0 0 0 0;
+      position: relative;top:35px
+      // div{color:blue};
+    }
+
+    .choose-game{top:0}
+
+    .toolbar-title{display: flex;justify-content: center;align-items: center}
+    
+
+    .slides{height:calc(100% - 75px)}
+
+    .top-line{background:#D6DAFF;display:flex;position:sticky;width:100%;z-index:100;top:0;line-height: 25px}
+    
+    .top-line .head-num:not(:first-child){border-left:1px solid #ffffff}
+
+    ul.trend-category{line-height: 30px}  
+
+    ul.trend-category .head-content{width:8.3%;border-left:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0}  
+
+    .bottom-choose{position:sticky;bottom:0;width:100%;background:#ffffff;z-index:100;box-shadow: 0 -2px 6px rgba(118, 29, 29, 0.1)}
+
+    .ball-line span.right-corner{position:absolute;top:0;right:0;width:10px;height:10px;border-radius:50%;background:#ffffff;font-size:10px;
+        text-align:center;line-height:10px;z-index: 10;color: #E96A04;box-shadow: 0 1px 2px #000000 }
+
+    div.active{background: #25B35E}
+    .swiper-container{height:100%}
+
+
+    .ball-line .highlight{background: #F86338;z-index:5;color:#ffffff}
+
+    .ball-line.kuadu li span{width:20px;height:20px;color:#000000;font-size:13px;border-radius:0%;text-align:center;line-height:20px}
+    
+    .ball-line.kuadu li span.right-corner{width:12px;height:12px;color:#000000;font-size:12px;border-radius:50%;text-align:center;line-height:12px}
+
+    .ball-line.kuadu .highlight{background: #7ED321;z-index:5}
+  
+    canvas{position: absolute;top:0;left:0}
+  
+    .segment-ios ion-segment-button.segment-activated{
+        border-bottom: 2px solid #F6374E;background-color:#FFF9F5 
+    }
+  
+    .segment-ios .segment-button.segment-activated{color:#F6374E}
+    .segment-ios .segment-button{border:none;color:#666666;font-weight: bold;height: 35px;line-height: 35px}
+    .segment-md .segment-button{height: 35px;line-height: 35px}
+  
+    .trend-container ul:not(.special){display:flex;justify-content:space-between}
+    .trend-category{display:flex;justify-content:space-between}
+    //.trend-container li{margin-bottom:25px;width:28px;height:28px;border-radius:50%;line-height: 28px}
+  
+    li.head-num{font-size: 13px;display: flex;justify-content: center;align-items: center}
+  
+    ion-slides div.kai-jiang{display: flex;color:#666;position: sticky;top:0}
+    ion-slides div.kai-jiang div{background: #DEE2FF;padding: 5px 0 5px 0}
+    ion-slides div.kai-jiang-line{display: flex;padding: 5px 0 5px 0}
+    
+    ion-slides div.kai-jiang-line:nth-of-type(2n+1){background: #FFFAF7}
+  
+    ion-slides div.kai-jiang div{width:16%;font-size: 14px}
+    ion-slides div.kai-jiang-line div{width:16%;font-size: 13px}
+
+    ion-slides div.kai-jiang div:nth-of-type(2),ion-slides div.kai-jiang-line div:nth-of-type(2){width:20%}
+
+    ion-slides div.kai-jiang.erxing div{width:25%;font-size: 14px}
+    ion-slides div.kai-jiang-line.erxing  div{width:25%;font-size: 13px}
+
+    ion-slides div.kai-jiang.erxing  div:nth-of-type(2),ion-slides div.kai-jiang-line.erxing  div:nth-of-type(2){width:33%}
+    ion-slides div.kai-jiang.erxing  div:nth-of-type(1),ion-slides div.kai-jiang-line.erxing  div:nth-of-type(1){width:17%}
+  
+    ul.ball-line{background:rgba(255,255,255,.1)}
+    ul.ball-line:nth-of-type(2n){background:#FFFAF7}
+
+    li.qishu-number{background:rgba(255,255,255,.1)}
+    li.qishu-number:nth-of-type(2n){background:#FFFAF7}
+
+    li.qihao-number{background:rgba(255,255,255,.1)}
+    li.qihao-number:nth-of-type(2n+1){background:#FFFAF7}
+    li.qihao-number:nth-of-type(1){background:#D6DAFF}
+
+   .trend-category:nth-of-type(4) {
+        .head-category{color:#9013FE}
+    }
+
+   .trend-category:nth-of-type(3){
+          background: #FFF7E7;
+          .head-category{color:#F6374E}
+    }
+
+    .trend-category:nth-of-type(2){
+       
+        .head-category{color:#000;} 
+    }
+
+    .trend-category:nth-of-type(1){
+        background: #F8FFF0;
+        .head-category{color:#25B35E} 
+    }
+  
+   .fixed-footer{position:fixed;bottom:0;height:40px;z-index:100;background:#ffffff;display:flex;justify-content:space-between;width:100%;
+    align-items:center;padding-right:10px;border-top:1px solid #F6F6F6}
+
+    ul.choose-area{display:flex;flex-direction:column;height:40px;justify-content:center;padding-left:10px}
+    span.little-circle{background:#999999;width:5px;height:5px;border-radius:50%;margin-right:5px}
+
+    #confirm{width:80px;height:30px;background:grey;
+        border-radius: 4px;text-align:center;line-height:30px;color:#ffffff}
+
+    #confirm.active{background: linear-gradient(137deg, #F33318  0%, #EC6432 1%, #F5AD58 100%);}  
+
+
+    //跨度 和值    
+    .menus-head {
+        display:flex;font-size:14px;
+        div{padding: 5px 0;text-align: center;background:#DEE2FF;color:#666666 }
+
+        div:nth-of-type(1), div:nth-of-type(2) , div:nth-of-type(3), div:nth-of-type(4){border-right:1px solid #ffffff}
+    }
+
+    li.list-detail{
+        height:30px;
+        &:nth-of-type(2n+1){background: #ffffff}
+        &:nth-of-type(2n){background: #FFFAF7}
+        div{font-size: 14px;color: #666666;line-height: 30px}
+
+        display:flex;width:100%;
+        .ball-detail{
+            width:16%;display:flex;justify-content:center;align-items:center;
+            span{background:#FC6000;color:#D8D8D8;width:20px;height:20px;border-radius:50%;font-size:14px;line-height:20px;text-align:center}
+        }
+
+        div:nth-of-type(1), div:nth-of-type(2) , div:nth-of-type(3), div:nth-of-type(4){border-right:1px solid #F6F6F6;border-bottom:1px solid #F6F6F6 }
+    }    
+
+    //选球区域
+    li.ball-choose span{
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-image: linear-gradient(-182deg, #FFFFFF 16%, #D5E9F7 100%);
+        box-shadow: 0 1px 2px 0 #A7B5E8;
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #666666;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 18px;
+        &.current {
+          color: #FFFFFF;
+          background-image: linear-gradient(0deg, #F74511 0%, #F98A6A 100%);
+          box-shadow: 0 1px 2px 0 #F3B19F;
+        }
+
+        &.tip{
+           width:25px;height: 25px;line-height:25px;color:#F7643A;position: absolute;left:50%;top:-30px;transform:translateX(-50%);font-size:16px;font-weight: bold ;z-index:10
+        }
+
+        &.tips{
+            width:50px;height:25px;border-radius:0;line-height:25px;color:#F7643A;position: absolute;left:50%;top:-30px;transform:translateX(-50%);font-size:16px;font-weight: bold ;z-index:10
+         }
+      }
+
+      li.ball-choose span.special{
+        width: 30px;
+        height: 20px;
+        border-radius:0;
+        background-image: linear-gradient(-182deg, #FFFFFF 16%, #D5E9F7 100%);
+        box-shadow: 0 1px 2px 0 #A7B5E8;
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #666666;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 20px;
+        &.current {
+          color: #FFFFFF;
+          background-image: linear-gradient(0deg, #F74511 0%, #F98A6A 100%);
+          box-shadow: 0 1px 2px 0 #F3B19F;
+        }
+
+        &.tips{
+           width:50px;height:25px;border-radius:0;line-height:25px;color:#F7643A;position: absolute;left:50%;top:-30px;transform:translateX(-50%);font-size:16px;font-weight: bold ;z-index:10
+        }
+      }
+
+      .ball-choose.special{margin-right: 10px}
+
+      ul.choose-content:nth-of-type(1){display:flex;bottom:0;margin-top:10px;padding-bottom:8px}
+      ul.choose-content{display:flex;bottom:0;padding-bottom:8px}
+
+      div.kai-jiang-line{font-size: 12px}
+      
+           
+      //控制开奖颜色号码   
+            div.wuxing{
+               display: flex;justify-content: space-between;padding: 0 12px;color:#F6374E
+            }
+      
+            div.sixing,div.qiansan,div.zhongsan,div.housan,div.qianer,div.houer{
+              display: flex;justify-content: space-between;
+            }
+      
+            div.sixing span:nth-of-type(2), div.sixing span:nth-of-type(3), div.sixing span:nth-of-type(4), div.sixing span:nth-of-type(5)
+            {color:#F6374E}
+      
+            div.qiansan span:nth-of-type(1), div.qiansan span:nth-of-type(2), div.qiansan span:nth-of-type(3)
+            {color:#F6374E}
+      
+            div.zhongsan span:nth-of-type(2), div.zhongsan span:nth-of-type(3), div.zhongsan span:nth-of-type(4)
+            {color:#F6374E}
+      
+            div.housan span:nth-of-type(3), div.housan span:nth-of-type(4), div.housan span:nth-of-type(5)
+            {color:#F6374E}
+      
+            div.qianer span:nth-of-type(1), div.qianer span:nth-of-type(2)
+            {color:#F6374E}
+      
+            div.houer span:nth-of-type(4), div.houer span:nth-of-type(5)
+            {color:#F6374E}
+}

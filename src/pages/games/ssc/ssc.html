@@ -1,0 +1,81 @@
+<!--
+  Generated template for the SscPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title >
+       <div style="position:relative;z-index:1300" (click)="common.toggle()">{{common.method}} {{common.smallMethod}}</div>
+       <div class="tri-arrow"></div>
+    </ion-title>
+
+    <div class="toggle-menu" (click)="$event.stopPropagation();common.open = !common.open"></div>
+  </ion-navbar>
+
+</ion-header>
+<gamemenu (switch)="methodChange($event)"> </gamemenu>
+
+<rightmenu [menus]="menus" (switch)="change($event)" [open]="common.open"></rightmenu>
+
+<menumodal [hasChoosen]="haveChoosen" (toggle)="changeMenu($event)"></menumodal>
+
+<ion-content id="ssc-content">
+  
+    <div class="body-bg"></div>
+  <p class="l-info" text-center>距{{common.currentNumber}}期截止 {{common.countTime.minutes}}:{{common.countTime.seconds}}</p>
+  <p class="l-info" text-center *ngIf="common.countEnd">本期已截止</p>
+  <div class="table" id="touch">
+    <div class="thead clearfix" style="background:#ffffff">
+      <div class="tr clearfix">
+        <div class="th" ball-touch style='width:22.6%'>期次</div>
+        <div class="th" style='width:24.6%'>开奖号码</div>
+        <div class="th" style='width:17.5%'>十位</div>
+        <div class="th" style='width:17.5%'>个位</div>
+        <div class="th" style='width:17.5%'>后三</div>
+      </div>
+    </div>  
+
+      <div class="tbody clearfix his-box" id="ball-area" (click)="goKaiJiang()">
+        <div class="tr clearfix his-line" *ngFor="let item of list">
+            <div class="td">{{item.number}}期 
+                 <span class="dom" ></span>
+            </div>
+            <div *ngIf="item.balls" style='width:24.6%' class="td color-dager">{{item.balls}}</div>
+            <div *ngIf="item.balls" style='width:17.5%' class="td">{{item.shiwei}}</div>
+            <div *ngIf="item.balls" style='width:17.5%' class="td">{{item.gewei}}</div>
+            <div *ngIf="item.balls" style='width:17.5%' class="td">{{item.housan}}</div>
+
+            <div *ngIf="!item.balls" style='width:77.4%' class="td">等待开奖</div>
+        </div>
+        <div class="see-more"> <div class="notice"></div> <div> 点击以上开奖号码区域可查看更多</div></div>
+      </div>
+     
+    </div>
+   
+   
+    <!-- <div class="bet-box clearfix" [ngStyle]="{'top':(108 + high) + 'px'}" >
+        <div id="qq"></div>
+        <ng-template  #gameContainer>
+              
+        </ng-template>
+       
+    </div> -->
+<div class="modify scroll" style="position:fixed;width:100%">
+    <div class="bet-box clearfix">
+        <div id="qq" style="display:none"></div>
+        <ng-template  #gameContainer>
+              
+        </ng-template>     
+    </div>
+</div>
+   
+    <!-- <div class="loading" style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:10">
+         
+    </div> -->
+</ion-content>
+
+<footer (goBasket)="goToBasket($event)"  (clear)="resetData()"> </footer>    
+

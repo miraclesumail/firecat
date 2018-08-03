@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">消息中心</h2>
+    <button class="clear-btn" (click)="showConfirm(infoCenter)">清除</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="gredient-bg">
+    <ion-segment [(ngModel)]="infoCenter" (ionChange)="infoChanged($event)">
+      <ion-segment-button value="info">
+        公告({{ IcCenter.unreadAnnouncements }})
+        <div class="underline"></div>
+      </ion-segment-button>
+      <ion-segment-button value="msg">
+        站内信({{ IcCenter.unreadLetter }})
+        <div class="underline"></div>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <!--站内信-->
+  <div [ngSwitch]="infoCenter" class="switch-body">
+    <ion-list *ngSwitchCase="'msg'">
+      <div class="msg-content" *ngIf="infoData.letters.data.length!==0">
+        <ion-item-sliding #item *ngFor="let msg of infoData.letters.data;index as i">
+          <ion-item>
+            <h2 (click)="pushPage('InfoDetailPage',msg.id)">
+              <span class="item-title">{{msg.msg_title}} <i class="red-coin" *ngIf="msg.is_readed==0"></i></span>
+              <span class="item-date">{{msg.created_at}}</span>
+            </h2>
+            <p class="item-text" [innerHTML]="msg.content"></p>
+            <i class="firecat-icon stick-icon" *ngIf="msg.is_top==1"></i>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button class="Stick"
+                    (click)="letterSetTop(msg.id,msg.is_top==1?0:1)">
+              {{msg.is_top==1?'取消置顶':'置顶'}}
+            </button>
+            <button ion-button color="danger" class="delete" (click)="letterDelete(msg.id)">删除</button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+      <div class="noInfo" *ngIf="infoData.letters.data.length==0">
+        暂无站内信
+      </div>
+    </ion-list>
+
+    <!--公告-->
+    <ion-list *ngSwitchCase="'info'">
+      <div class="info-content" *ngIf="infoData.announcements.data.length!==0">
+        <ion-item-sliding #item *ngFor="let info of infoData.announcements.data;index as i">
+          <ion-item>
+            <div (click)="pushPage('InfoDetailPage',info.id)" style="width: 100%;height: 100%">
+              <h2>
+                <span class="item-title">{{info.title}} <i class="red-coin" *ngIf="info.is_readed==0"></i></span>
+                <span class="item-date">{{info.created_at}}</span>
+              </h2>
+              <p class="item-text" [innerHTML]='info.content'></p>
+              <i class="firecat-icon stick-icon" *ngIf="info.is_top==1"></i>
+            </div>
+
+          </ion-item>
+          <ion-item-options side="right" *ngIf="userInfo!=null">
+            <button ion-button class="Stick"
+                    (click)="announcementsSetTop(info.id,info.is_top==1?0:1)">
+              {{info.is_top==1?'取消置顶':'置顶'}}
+            </button>
+            <button ion-button color="danger" class="delete" (click)="announcementDelete(info.id)">删除
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+      <div class="noInfo"  *ngIf="infoData.announcements.data.length==0">
+        暂无公告
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

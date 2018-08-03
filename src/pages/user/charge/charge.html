@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">充值中心</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="worming-info">温馨提示：<span class="danger">充值后需购买充值金额的20%方可提现</span></div>
+  <div class="common-form">
+    <div class="cf-row">
+      <label for="username">用户名:</label>
+      <input id="username" type="text" maxlength="40" [(ngModel)]="userInfo.username" disabled>
+    </div>
+    <div class="cf-row">
+      <label for="yue" class="w81">当前金额:</label>
+      <input id="yue" type="text" value="{{formatMoney(userInfo.available)+' 元'}}" disabled>
+    </div>
+  </div>
+
+  <div class="input-value">
+    <p class="info">请输入充值金额：</p>
+    <div class="input-wrap"><input type="number" (blur)="formteMoney()" (input)="inputMoney()" [(ngModel)]="numList.chargeMoney" placeholder="请输入充值金额，最少选择0.01元"></div>
+    <div class="num-list">
+      <span [ngClass]="{'current':numList.status[i]==1}" *ngFor="let num of numList.money;index as i" (click)="selectMoney(num,i)">{{num}}元</span>
+    </div>
+  </div>
+
+  <div class="bank-list">
+    <p class="info">请选择支付方式：</p>
+    <div class="bank-content">
+      <!--repaired  保留，等待后台开发-->
+      <div class="bank-unit" *ngFor="let bank of chargeList.data;index as i" (click)="selectBank(i,bank)" [ngClass]="{'current':chargeList.bankflag==i}">
+        <div class="capture">
+          <img src="assets/bank-icon/{{bank.gateway}}.png" alt="">
+        </div>
+        <div class="bank-text">
+          <h4>{{bank.name}}</h4>
+          <p>单笔限额¥{{bank.currency_min}}-¥{{bank.currency_max}}</p>
+        </div>
+        <!--<div class="repairing">-->
+          <!--维护中-->
+        <!--</div>-->
+        <button class="select-btn"></button>
+      </div>
+      <!--<div class="bank-unit" [ngClass]="{'current':ucPrd.chargeList.bankflag[1]==1}" (click)="selectBank(1,ucPrd.chargeList.data.mobile_alipay)">-->
+        <!--<div class="capture">-->
+          <!--<img src="../../../assets/bank-icon/mobile_alipay.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="bank-text">-->
+          <!--<h4>{{ucPrd.chargeList.data.mobile_alipay.name}}</h4>-->
+          <!--<p>当日最高上限{{ucPrd.chargeList.data.mobile_alipay.currency_max}}元</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="repairing">&ndash;&gt;-->
+        <!--&lt;!&ndash;维护中&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<button class="select-btn"></button>-->
+      <!--</div>-->
+      <!--<div class="bank-unit" [ngClass]="{'current':ucPrd.chargeList.bankflag[2]==1}" (click)="selectBank(2,ucPrd.chargeList.data.unionpay)">-->
+        <!--<div class="capture">-->
+          <!--<img src="../../../assets/bank-icon/unionpay.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="bank-text">-->
+          <!--<h4>{{ucPrd.chargeList.data.unionpay.name}}</h4>-->
+          <!--<p>当日最高上限{{ucPrd.chargeList.data.unionpay.currency_max}}元</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="repairing">&ndash;&gt;-->
+        <!--&lt;!&ndash;维护中&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<button class="select-btn"></button>-->
+      <!--</div>-->
+      <!--<div class="union-bank" *ngIf="ucPrd.chargeList.bankflag[2]==1">-->
+        <!--<div class="capture">-->
+          <!--<img src="../../../assets/bank-icon/s-{{ucPrd.chargeList.data.banks.ABOC.identifier}}-icon.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="bank-text">-->
+          <!--<h4>{{ucPrd.chargeList.data.banks.ABOC.name}}</h4>-->
+        <!--</div>-->
+        <!--<p (click)="pushPage('BankListPage',ucPrd.chargeList.data.banks.ABOC)">选择其他银行>></p>-->
+      <!--</div>-->
+      <!--<div class="bank-unit" [ngClass]="{'current':ucPrd.chargeList.bankflag[3]==1}" (click)="selectBank(3,ucPrd.chargeList.data.mobile_jd)">-->
+        <!--<div class="capture">-->
+          <!--<img src="../../../assets/bank-icon/mobile_jd.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="bank-text">-->
+          <!--<h4>{{ucPrd.chargeList.data.mobile_jd.name}}</h4>-->
+          <!--<p>当日最高上限{{ucPrd.chargeList.data.mobile_jd.currency_max}}元</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="repairing">&ndash;&gt;-->
+        <!--&lt;!&ndash;维护中&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<button class="select-btn"></button>-->
+      <!--</div>-->
+      <!--<div class="bank-unit" [ngClass]="{'current':ucPrd.chargeList.bankflag[4]==1}" (click)="selectBank(4,ucPrd.chargeList.data.mobile_qq)">-->
+        <!--<div class="capture">-->
+          <!--<img src="../../../assets/bank-icon/mobile_qq.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="bank-text">-->
+          <!--<h4>{{ucPrd.chargeList.data.mobile_qq.name}}</h4>-->
+          <!--<p>当日最高上限{{ucPrd.chargeList.data.mobile_qq.currency_max}}元</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="repairing">&ndash;&gt;-->
+        <!--&lt;!&ndash;维护中&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<button class="select-btn"></button>-->
+      <!--</div>-->
+    </div>
+  </div>
+  <div class="fix-sure-btn">
+    <button class="disable-submit"
+            *ngIf="numList.chargeMoney==null||chargeList.currentBank==null||(numList.chargeMoney<chargeList.currentBank.currency_min)">
+      确认充值
+    </button>
+    <button (click)="showModal(chargeList.currentBank.submit)"
+            *ngIf="numList.chargeMoney!=null&&chargeList.currentBank!=null&&(numList.chargeMoney>=chargeList.currentBank.currency_min)">
+      确认充值
+    </button>
+  </div>
+</ion-content>

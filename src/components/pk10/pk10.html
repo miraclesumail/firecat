@@ -1,0 +1,61 @@
+<div class="shakePhone" (click)="randomChoose()"></div>  
+<div>{{common.smallKind.bonus_note}} {{util.formatMoney(common.bonus)}} 元</div>
+
+<div class="l-game" *ngFor="let data of common.ballData;let ii = index" >
+    <div class="l">
+        <p><span></span>{{getWei(data.key)}}</p>
+        <p style="margin-top:18px" *ngIf="check('当前遗漏')"><span></span>遗漏</p>
+        <p style="margin-top:18px" *ngIf="check('30期冷热')"><span></span>冷热</p>
+        <p style="margin-top:18px" *ngIf="check('平均遗漏')"><span></span>平均</p>
+        <p style="margin-top:18px" *ngIf="check('最大遗漏')"><span></span>最大</p>    
+    </div>
+
+    <div class="r">
+        <div class="ball-list">
+            <ul>
+                <li *ngFor="let item of data.value.slice(0,5);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i)">{{i}}</li>
+            </ul>
+
+            <ul class="yilou statistic" *ngIf="check('当前遗漏')">
+                <li *ngFor ="let detail of util.yilou[getWei(data.key)].slice(0,5)" [class.active]="checkMax(detail,util.yilou[getWei(data.key)])">{{detail}}</li>
+            </ul>
+            
+            <ul class="lengre statistic" *ngIf="check('30期冷热')">
+                <li *ngFor ="let detail of util.lengre[getWei(data.key)].slice(0,5)" [ngClass]="checkLengRe(detail,util.lengre[getWei(data.key)])">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('平均遗漏')">
+                <li *ngFor ="let detail of util.avgYi[getWei(data.key)].slice(0,5)">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('最大遗漏')">
+                <li *ngFor ="let detail of util.maxYi[getWei(data.key)].slice(0,5)">{{detail}}</li>
+            </ul>
+  
+            <ul>
+                <li *ngFor="let item of data.value.slice(-5);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i+5)">{{qqq(i)}}</li>
+            </ul>
+
+            <ul class="yilou statistic" *ngIf="check('当前遗漏')">
+                <li *ngFor ="let detail of util.yilou[getWei(data.key)].slice(-5)" [class.active]="checkMax(detail,util.yilou[getWei(data.key)])">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('30期冷热')">
+                <li *ngFor ="let detail of util.lengre[getWei(data.key)].slice(-5)" [ngClass]="checkLengRe(detail,util.lengre[getWei(data.key)])">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('平均遗漏')">
+                <li *ngFor ="let detail of util.avgYi[getWei(data.key)].slice(-5)">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('最大遗漏')">
+                <li *ngFor ="let detail of util.maxYi[getWei(data.key)].slice(-5)">{{detail}}</li>
+            </ul>
+
+            <div class="btn-list">
+                <a href="javascript:;" *ngFor="let detail of common.btn[ii];let j = index" [class.current]="detail.flag" (click)="util.changeActive(ii,j,detail.name)">{{detail.name}} <span></span></a>
+
+            </div>
+        </div>
+    </div>
+</div>

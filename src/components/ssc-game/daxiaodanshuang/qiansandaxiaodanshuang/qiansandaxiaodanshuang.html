@@ -1,0 +1,38 @@
+<!-- Generated template for the QiansandaxiaodanshuangComponent component -->
+<div class="shakePhone" (click)="randomChoose()"></div>  
+
+<div>{{common.smallKind.bonus_note}} {{util.formatMoney(common.bonus)}} 元</div>
+
+<div class="l-game" *ngFor="let data of common.ballData;let ii = index" >
+    <div class="l">
+            <p><span></span>{{data.key}}</p>   
+            <p class="statistic-data" *ngIf="check('当前遗漏')">遗漏</p>
+            <p class="statistic-data" *ngIf="check('30期冷热')">冷热</p>
+            <p class="statistic-data" *ngIf="check('平均遗漏')">平均</p>
+            <p class="statistic-data" *ngIf="check('最大遗漏')">最大</p>
+    </div>
+
+    <div class="r" style="padding-right:83px">
+        <div class="ball-list">
+            <ul>
+                <li *ngFor="let item of data.value;let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i)">{{judge(i)}}</li>
+            </ul>
+
+            <ul class="yilou statistic" *ngIf="check('当前遗漏')">
+                <li *ngFor ="let detail of common.missData.dxds.qsdxds.current[ii].slice(0,5)" [class.active]="checkMax(detail,common.missData.dxds.qsdxds.current[ii])">{{detail}}</li>             
+            </ul>
+                
+            <ul class="lengre statistic" *ngIf="check('30期冷热')">
+                <li *ngFor ="let detail of common.missData.dxds.qsdxds.hot[ii].slice(0,5)" [ngClass]="checkLengRe(detail,common.missData.dxds.qsdxds.hot[ii])">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('平均遗漏')">
+                <li *ngFor ="let detail of common.missData.dxds.qsdxds.average[ii].slice(0,5)">{{detail}}</li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('最大遗漏')">
+                <li *ngFor ="let detail of common.missData.dxds.qsdxds.max[ii].slice(0,5)">{{detail}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

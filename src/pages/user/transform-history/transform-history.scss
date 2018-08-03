@@ -1,0 +1,211 @@
+page-transform-history {
+  .kefu-btn{
+    float: right;
+    color: #FFFFFF;
+    font-size: 16px;
+    letter-spacing: -0.29px;
+    padding: 0;
+    height: 44px;
+    background: none;
+    line-height:44px;
+    border: none;
+    outline: none;
+    margin: 0;
+    position: relative;
+    z-index: 1000;
+  }
+  .switch-head{
+    height: 40px;
+    line-height: 40px;
+    background-color: #FFFFFF;
+    position: sticky;
+    z-index: 1000;
+    box-shadow: 0 1px 6px rgba(66,66,66,.5);
+    top:0;
+    .segment-ios .segment-button,.segment-md .segment-button{
+      border: none;
+      color: #333333;
+      height: 100%;
+      line-height:40px;
+      font-size: 14px;
+    }
+    .mid-line{
+      height: 20px;
+      width: 1px;
+      background-color: #EAEAEA;
+    }
+    ion-segment-button{
+      border: none;
+      color: #333333;
+      border-radius: 0;
+      height: 100%;
+      line-height:40px;
+      position: relative;
+      .underline{
+        position: absolute;
+        height: 3px;
+        background-color: transparent;
+        width: 0%;
+        left: 0;
+        bottom: 0px;
+        transition: all .5s;
+      }
+    }
+    .segment-ios .segment-button.segment-activated,.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+      color: #F6374E;
+      background-color: transparent;
+      font-size: 14px;
+      .underline{
+        width: 100%;
+        background-color: #F6374E;
+      }
+    }
+  }
+  .switch-body{
+    min-height: 100%;
+    .case-content-unit.isSlide{
+      .content-detail{
+        border-top: 2px solid #F08845;
+        height: 131px;
+        padding: 10px 0;
+      }
+
+      .detail-btn{
+        .trangle{
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .switch-case{
+      min-height: 100%;
+      font-size: 14px;
+      .month-title{
+        height: 34px;
+        line-height:32px;
+        padding: 0 16px;
+        color: #333333;
+        letter-spacing: -0.22px;
+      }
+      .case-content{
+        margin-bottom: 5px;
+        .case-content-unit{
+          background-color: #FFFFFF;
+          margin-bottom: 13px;
+        }
+      }
+    }
+    .case-wrap{
+      line-height:34px;
+      display: flex;
+      padding: 0px 16px;
+      .red{
+        color: #FC302B;
+      }
+      .green{
+        color: #25B35F;
+      }
+      p{
+        width: 100%;
+        flex:1;
+        color: #666666;
+        span{
+          color: #333333;
+        }
+        &:last-child{
+          text-align: right;
+        }
+        .detail-btn{
+          display: inline-block;
+          width: 78px;
+          height: 24px;
+          position: relative;
+          top: -2px;
+          background: #FFE5D0;
+          border-radius: 3px;
+          color: #333333;
+          padding: 0;
+          outline: none;
+          border: none;
+          box-shadow: none;
+        }
+        .trangle{
+          margin-right: 4px;
+          position: relative;
+          top: -1px;
+          display: inline-block;
+          border-top: 6px solid #333333;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: none;
+          transition: all 0.5s;
+        }
+      }
+    }
+
+    .content-detail{
+      border-top: 0px solid #F08845;
+      height: 0px;
+      padding: 0;
+      transition: all .5s;
+      overflow: hidden;
+      background-color: #FBF2ED;
+
+
+      .case-wrap{
+        line-height: 28px;
+      }
+      .right{
+        text-align: left!important;
+      }
+    }
+    .border-bottom{
+      border-bottom: 1px solid #EAEAEA;
+      padding-bottom: 5px;
+    }
+    .case-wrap-big{
+      display: flex;
+      p:first-child{
+        width: 70%;
+        height: 100%;
+        flex: none;
+        color: #666666;
+        letter-spacing: 0;
+      }
+    }
+
+    .case-all{
+
+    }
+    .enpty{
+      p{
+        font-size: 16px;
+        color: #333333;
+        letter-spacing: 0;
+        margin-top: 160px;
+        text-align: center;
+        margin-bottom: 110px;
+      }
+      .fix-sure-btn{
+        height: 47px;
+        padding: 0 16px;
+        button{
+          width: 100%;
+          height: 100%;
+          outline: none;
+          padding: 0;
+          border: none;
+          background: #F98D4B;
+          box-shadow: 0 2px 4px 0 #FFDFC4;
+          color: #FFFFFF;
+          text-align: center;
+          font-size: 18px;
+          letter-spacing: -0.29px;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+
+
+
+}

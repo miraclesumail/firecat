@@ -1,0 +1,24 @@
+wuxing {
+  // .trend-container ul li{width:8.5%;height:30px}
+  // .trend-container ul li:nth-of-type(1){width:17%}
+     
+         //,span:nth-of-type(3),span:nth-of-type(4),span:nth-of-type(5)
+
+  .trend-category li.head-category{width:17%}  
+  .trend-category li.head-category.xuan5{width:14.2%}  
+
+  .trend-category li.head-content{width:8.3%}  
+  .trend-category li.head-content.xuan5{width:7.8%}  
+
+  ul.ssc .history-num{line-height:30px;font-size:12px;width:17%;}      
+  ul.d5 .history-num{line-height:30px;font-size:12px;width:14.2%;}      
+
+  ul.ssc .history-ball{display:flex;align-items:center;justify-content:center;width:8.3%;border-left:1px solid #f0f0f0;font-size:12px}    
+  ul.d5 .history-ball{display:flex;align-items:center;justify-content:center;width:7.8%;border-left:1px solid #f0f0f0}  
+  
+  ul.d5 li.noNumber{width:85.8%}
+  ul.ssc li.noNumber{width:83%;font-size:13px}
+  .ball-line li span{width:20px;height:20px;color:#000000;font-size:13px;border-radius:50%;text-align:center;line-height:20px}
+  div.noRecord div:not(.wait-record){display: none}
+
+}

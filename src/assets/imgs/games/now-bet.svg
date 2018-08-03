@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="99px" height="49px" viewBox="0 0 99 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 4/1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="103.020134%" x2="84.588671%" y2="11.2401633%" id="linearGradient-1">
+            <stop stop-color="#F3361B" offset="0%"></stop>
+            <stop stop-color="#EC6432" offset="1.24412934%"></stop>
+            <stop stop-color="#F5AD58" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Rectangle-4/1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <rect id="Rectangle-4" fill="url(#linearGradient-1)" x="0" y="0" width="99" height="49"></rect>
+            <g id="确认投注" transform="translate(18.000000, 14.000000)" fill="#FFFFFF" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal">
+                <text>
+                    <tspan x="0" y="17">确认投注</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

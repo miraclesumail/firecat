@@ -1,0 +1,42 @@
+lottory-11-ykaijiang {
+  table {
+    width: 100%;
+    td {
+      text-align: center;
+      line-height: 31px;
+      color: #666666;
+      font-size: 12px;
+    }
+    tr:nth-child(2n-1) {
+      background-color: #FFFAF7;
+    }
+    tr:nth-child(2n) {
+      background-color: #ffffff;
+    }
+  }
+  .lk-unit {
+    line-height: 25px;
+    color: #666666;
+    font-weight: normal;
+    background: #DEE2FF;
+    border-bottom: 1px solid #D8D8D8;
+    &:first-child {
+      width: 16%;
+    }
+    &:nth-child(2) {
+      width: 24%;
+    }
+    &:nth-child(3), &:nth-child(4), &:nth-child(5) , &:nth-child(5){
+      width: 15%;
+    }
+  }
+  .num-list {
+    display: flex;
+    span {
+      display: block;
+      margin: 0 1px;
+      color: #F6374E;
+    }
+  }
+
+}

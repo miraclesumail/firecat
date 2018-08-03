@@ -1,0 +1,77 @@
+page-push-set {
+  .set-unit{
+    height: 71px;
+    border-bottom: 1px solid #EAEAEA;
+    background-color: #FFFFFF;
+    display: flex;
+    padding: 0 16px;
+    .set-icon{
+      width: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .push-win-icon{
+        width: 15px;
+        height: 19px;
+      }
+      .push-msg-icon{
+        width: 18px;
+        height: 14px;
+      }
+      .push-voice-icon{
+        width: 16px;
+        height: 18px;
+      }
+      .push-time-icon{
+        width: 18px;
+        height: 18px;
+      }
+    }
+    .set-text{
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      h4{
+        width: 100%;
+        font-size: 16px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height:24px;
+      }
+      p{
+        font-size: 12px;
+        color: #999999;
+        letter-spacing: 0;
+        line-height:20px;
+      }
+    }
+    .toggle-btn{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .toggle{
+        width: 35px;
+        height: 17.5px;
+      }
+
+      .toggle-inner{
+        width: 14px;
+        height: 14px;
+        left: 0;
+        background-color: #FFFFFF;
+      }
+    }
+  }
+
+
+
+  .toggle-md .toggle-inner{
+    top: 2px;
+    left: 2px!important;
+  }
+  .toggle-md.toggle-checked .toggle-icon,.toggle-ios.toggle-checked .toggle-icon{
+    background-color: #F85222;
+  }
+}

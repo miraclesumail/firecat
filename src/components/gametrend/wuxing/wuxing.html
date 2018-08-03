@@ -1,0 +1,238 @@
+<!-- Generated template for the WuxingComponent component -->
+
+<div class="segment">
+    <ion-segment [(ngModel)]="choose" (ionChange)="ionChange($event)">
+      <ion-segment-button *ngFor="let name of menus;let ii = index" value="{{name}}">{{name}}</ion-segment-button>  
+    </ion-segment>
+</div>
+
+<ion-slides #contentSlides  (ionSlideDidChange)="slideChanged()">
+
+  <ion-slide>
+        <!--<ng-template #alertContainer></ng-template>-->
+        
+        <div [ngSwitch]="true">
+                <div *ngSwitchCase="['五星','一星','任选','三码','二码','定位胆'].includes(common.method)">
+                        <div class="kai-jiang">
+                                <div >期号</div><div >开奖号码</div><div >和值</div><div >跨度</div>
+                                <div >大小比</div><div >奇偶比</div>
+                             </div>
+                   
+                             <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                                  <div class="wait-record">{{item.number.slice(-7)}}</div>
+                                  <div class="wuxing" *ngIf="!['三码','二码','定位胆'].includes(common.method)"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                                  <div class="qiansan" *ngIf="['三码','定位胆'].includes(common.method)"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                                  <div class="qianer" *ngIf="common.method == '二码'"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                                  <div >{{item.sum}}</div>
+                                  <div >{{item.gap}}</div>
+                                  <div >{{item.daxiao}}</div>
+                                  <div >{{item.oddeven}}</div>
+                                  <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                             </div>
+                </div> 
+
+                <div *ngSwitchCase="common.method == '四星'">
+                        <div class="kai-jiang">
+                                <div >期号</div><div >开奖号码</div> <div>千位</div><div >百位</div>
+                                <div >十位</div><div >个位</div>
+                        </div>
+                   
+                        <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                            <div class="wait-record">{{item.number}}</div>
+                            <div class="sixing"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                            <div >{{item.qian}}</div>
+                            <div >{{item.bai}}</div>
+                            <div >{{item.shi}}</div>
+                            <div >{{item.ge}}</div>
+                            <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                        </div>
+                </div>   
+
+                <div *ngSwitchCase="['前三'].includes(common.method)">
+                        <div class="kai-jiang">
+                                <div >期号</div><div >开奖号码</div> <div>万位</div><div >千位</div>
+                                <div >百位</div><div >前三形态</div>
+                        </div>
+                   
+                        <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                            <div class="wait-record">{{item.number}}</div>
+                            <div class="qiansan"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                            <div >{{item.wan}}</div>
+                            <div >{{item.qian}}</div>
+                            <div >{{item.bai}}</div>
+                            <div >{{item.zu}}</div>
+                            <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                        </div>
+                </div> 
+                
+                <div *ngSwitchCase="common.method == '中三'">
+                        <div class="kai-jiang">
+                                <div >期号</div><div >开奖号码</div> <div>千位</div><div >百位</div>
+                                <div >十位</div><div >中三形态</div>
+                        </div>
+                   
+                        <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                            <div class="wait-record">{{item.number}}</div>
+                            <div class="zhongsan"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                            <div >{{item.qian}}</div>
+                            <div >{{item.bai}}</div>
+                            <div >{{item.shi}}</div>
+                            <div >{{item.zu}}</div>
+                            <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                        </div>
+                </div>   
+
+                <div *ngSwitchCase="common.method == '后三'">
+                        <div class="kai-jiang">
+                                <div >期号</div><div >开奖号码</div> <div>百位</div><div >十位</div>
+                                <div >个位</div><div >后三形态</div>
+                        </div>
+                   
+                        <div *ngFor ="let item of kaijiangData" class="kai-jiang-line" [class.noRecord] = "!item.history[0]">
+                            <div class="wait-record">{{item.number}}</div>
+                            <div class="housan"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                            <div >{{item.bai}}</div>
+                            <div >{{item.shi}}</div>
+                            <div >{{item.ge}}</div>
+                            <div >{{item.zu}}</div>
+                            <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                        </div>
+                </div>  
+                
+                <div *ngSwitchCase="common.method == '二星'">
+                     <div *ngIf="common.smallMethod == '前二复式'" >
+                            <div class="kai-jiang erxing">
+                                    <div >期号</div><div >开奖号码</div> <div>万位</div><div>千位</div>
+                            </div>
+                       
+                            <div *ngFor ="let item of kaijiangData" class="kai-jiang-line erxing" [class.noRecord] = "!item.history[0]">
+                                <div class="wait-record">{{item.number}}</div>
+                                <div class="qianer"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                                <div >{{item.wan}}</div>
+                                <div >{{item.qian}}</div>
+                                <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                            </div>
+                     </div>
+
+                     <div *ngIf="common.smallMethod == '后二复式'">
+                            <div class="kai-jiang erxing">
+                                    <div >期号</div><div >开奖号码</div> <div>十位</div><div>个位</div>
+                            </div>
+                       
+                            <div *ngFor ="let item of kaijiangData" class="kai-jiang-line erxing" [class.noRecord] = "!item.history[0]">
+                                <div class="wait-record">{{item.number}}</div>
+                                <div class="houer"><span *ngFor="let aa of item.history">{{aa}}</span></div>
+                                <div >{{item.shi}}</div>
+                                <div >{{item.ge}}</div>
+                                <div *ngIf="!item.history[0]" class="wait-record" style="width:84%">等待开奖</div>
+                            </div>
+                     </div>         
+                </div>         
+        </div> 
+
+     
+  </ion-slide>  
+  <!-- swiper-slide-active -->
+  <ion-slide *ngFor="let ii of menus.slice(1,menus.length);let i = index" style="min-height:100%" class="swiper-slide-active" style="-webkit-overflow-scrolling:touch">
+      <div class="trend-container">
+          <ul *ngIf="common.series_id == 1" class="top-line">
+              <li class="head-num" style="width:17%">期号</li>
+              <li class="head-num" style="width:8.5%">0</li>
+              <li class="head-num" style="width:8.5%">1</li>
+              <li class="head-num" style="width:8.5%">2</li>
+              <li class="head-num" style="width:8.5%">3</li>
+              <li class="head-num" style="width:8.5%">4</li>
+              <li class="head-num" style="width:8.5%">5</li>
+              <li class="head-num" style="width:8.5%">6</li>
+              <li class="head-num" style="width:8.5%">7</li>
+              <li class="head-num" style="width:8.5%">8</li>
+              <li class="head-num" style="width:8.5%">9</li>
+          </ul>
+
+          <ul *ngIf="common.series_id == 2" class="top-line">
+            <li class="head-num" style="width:14.2%">期号</li>
+            <li class="head-num" style="width:7.8%">01</li>
+            <li class="head-num" style="width:7.8%">02</li>
+            <li class="head-num" style="width:7.8%">03</li>
+            <li class="head-num" style="width:7.8%">04</li>
+            <li class="head-num" style="width:7.8%">05</li>
+            <li class="head-num" style="width:7.8%">06</li>
+            <li class="head-num" style="width:7.8%">07</li>
+            <li class="head-num" style="width:7.8%">08</li>
+            <li class="head-num" style="width:7.8%">09</li>
+            <li class="head-num" style="width:7.8%">10</li>
+            <li class="head-num" style="width:7.8%">11</li>
+         </ul>
+       
+          <ul *ngFor="let item of sumData[i]" class="ball-line" [ngClass]="common.series_id == 1 ? 'ssc' : 'd5'">
+            <li *ngFor="let ele of item.slice(0,1)" class="history-num">
+                {{ele.number.slice(-7)}}
+             </li>
+            <li *ngFor="let ele of item.slice(1)" class="history-ball" [class.noNumber] = "ele.noNumber">
+               <span [class.highlight]="ele.choose" *ngIf="!ele.noNumber"> {{ele.number}}</span>
+               <span *ngIf="ele.noNumber" style="width:100%"> {{ele.noNumber}}</span>
+            </li>
+          </ul>
+      </div>
+     
+            
+              <ul *ngFor="let item of category" class="trend-category">
+                    <li class="head-num head-category" [class.xuan5]="common.series_id == 2" style="font-size:10px">{{getTitle(item)}}</li>
+                    <li class="head-num head-content"  *ngFor="let todo of common.missData[weiData[i]][item]" [class.xuan5]="common.series_id == 2" style="border-left:1px solid #f0f0f0">
+                        {{todo}}
+                    </li>
+              </ul>
+              <div class="cl bottom-choose">
+                <div *ngIf="(common.method != '任选') || (common.method == '任选' && common.smallMethod == '直选复式')" >
+                    <div *ngIf="common.bigKind == '直选' || common.method == '一星' || common.method == '定位胆' || common.method == '任选' ">
+                            <ul class="choose-content">
+                                    <li class="head-num" style="width:17%;font-size:10px">{{ii}}</li>
+                
+                                    <li class="head-num ball-choose ball-tap" style="width:8.5%;position:relative" *ngFor="let item of common.ballData[i].value;let j=index" >
+                                        <span *ngIf="common.series_id == 1" [class.current]="item == 1" id="ball" (click)="toggle(i,j)">{{j}}</span>
+                                        <span *ngIf="common.series_id == 2" [class.current]="item == 1" id="ball" (click)="toggle(i,j)">{{j+1}}</span>
+                                    </li>
+                            </ul>
+                    
+                            <div style="display:flex;align-items:center;height:20px">
+                                    <div style="width:17%;font-size:10px">已选</div>
+                                    <div *ngIf="existNumber(common.ballData[i].value)" >
+                                        <div *ngIf="common.series_id == 1" style="display:flex;align-items:center">
+                                            <div  *ngFor="let item of common.componentRef.instance.getCommonData()[i]" style="color:#F84F1E;margin-left:5px">{{item}}</div>            
+                                        </div>
+                
+                                        <div *ngIf="common.series_id == 2" style="display:flex;align-items:center">
+                                            <div  *ngFor="let item of common.componentRef.instance.getCommonData()[i]" style="color:#F84F1E;margin-left:5px">{{('0' + (item+1)).slice(-2)}}</div>            
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                
+                    <div  *ngIf="common.bigKind != '直选' && common.method != '一星' && common.method != '定位胆' && common.method != '任选'">
+                        <ul class="choose-content" *ngFor="let item of common.ballData;let row=index">
+                            <li class="head-num" style="width:17%;color:#333333;font-size:12px">{{processName(item.key)}}</li>
+                            <li class="head-num ball-choose ball-tap" style="width:8.5%;position:relative"  *ngFor="let item of item.value;let column=index" >
+                                <span [class.current]="item == 1" id="ball" (click)="common.componentRef.instance.changeToggle(row,column)">{{column}}</span>
+                            </li>
+                        </ul>
+                
+                        <div  style="display:flex;align-items:center;height:20px">
+                            <div style="width:17%;font-size:10px">已选</div>
+                            <div *ngIf="existZuxuan()" style="color:#F84F1E;margin-left:5px">{{common.componentRef.instance.getLotteryText()}}</div>
+                        </div>
+                    </div>
+                </div> 
+               
+              </div>
+             
+           
+  </ion-slide> 
+</ion-slides> 
+
+ 
+  <!-- <ion-infinite-scroll  *ngIf="!finish" (ionInfinite)="doInfinite($event)" immediate-check="false" >
+            <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="加载更多。。。。">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll> -->

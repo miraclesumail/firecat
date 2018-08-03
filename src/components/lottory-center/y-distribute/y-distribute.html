@@ -1,0 +1,63 @@
+<div class="distribute-style" *ngIf="resultsData.data.length!=0">
+  <div class="ssc-table">
+    <div class="ssc-table-head">
+      <div class="t-qihao">期号</div>
+      <div class="t-qihao-list">
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+        <div>04</div>
+        <div>05</div>
+        <div>06</div>
+        <div>07</div>
+        <div>08</div>
+        <div>09</div>
+        <div>10</div>
+        <div>11</div>
+      </div>
+    </div>
+    <div class="ssc-table-body">
+      <div class="ssc-table-wrap" *ngFor="let result of resultsData.data" [ngClass]="{'isWaiting-bg':result.code.length<=1}">
+        <div class="t-qihao">{{result.number.slice(-2)}}期</div>
+        <div class="t-qihao-list" *ngIf="result.code.length>1">
+          <div [ngClass]="{'current':result['code'].indexOf('01')!=-1}"><span>01</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('02')!=-1}"><span>02</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('03')!=-1}"><span>03</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('04')!=-1}"><span>04</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('05')!=-1}"><span>05</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('06')!=-1}"><span>06</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('07')!=-1}"><span>07</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('08')!=-1}"><span>08</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('09')!=-1}"><span>09</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('10')!=-1}"><span>10</span></div>
+          <div [ngClass]="{'current':result['code'].indexOf('11')!=-1}"><span>11</span></div>
+        </div>
+        <div class="t-qihao-list" *ngIf="result.code.length<=1" style="justify-content: center;color: #666">等待开奖...</div>
+      </div>
+      <div class="ssc-table-wrap">
+        <div class="t-qihao">出现次数</div>
+        <div class="t-qihao-list">
+          <div class="small" *ngFor="let num of distribute.missed.current">{{resultsData.data.length-num}}</div>
+        </div>
+      </div>
+      <div class="ssc-table-wrap">
+        <div class="t-qihao">平均遗漏</div>
+        <div class="t-qihao-list">
+          <div class="big" *ngFor="let num of distribute.missed.average">{{num}}</div>
+        </div>
+      </div>
+      <div class="ssc-table-wrap">
+        <div class="t-qihao">最大遗漏</div>
+        <div class="t-qihao-list">
+          <div class="small" *ngFor="let num of distribute.missed.max">{{num}}</div>
+        </div>
+      </div>
+      <div class="ssc-table-wrap">
+        <div class="t-qihao">当前遗漏</div>
+        <div class="t-qihao-list">
+          <div class="big" *ngFor="let num of distribute.missed.current">{{num}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

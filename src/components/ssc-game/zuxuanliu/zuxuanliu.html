@@ -1,0 +1,25 @@
+<!-- Generated template for the ZuxuanliuComponent component -->
+<div *ngIf="common.smallMethod != '乱选和值' && common.smallMethod != '组选和值'">
+    <div class="l-game" *ngFor="let data of common.ballData;let ii = index" >
+        <div class="l">
+            <p><span></span>{{data.key}}</p>
+        </div>
+
+        <div class="r">
+            <div class="ball-list">
+                <ul>
+                    <li *ngFor="let item of data.value.slice(0,5);let i = index" [class.current]="item == 1"  (click)="util.changeToggle(ii,i)">{{i}}</li>
+                </ul>
+                   
+                 <ul>
+                    <li *ngFor="let item of data.value.slice(-5);let i = index" [class.current]="item == 1" (click)="util.changeToggle(ii,i+5)">{{qqq(i)}}</li>
+                </ul>
+                   
+                <div class="btn-list">
+                    <a href="javascript:;" *ngFor="let detail of common.btn[ii];let j = index" [class.current]="detail.flag" (click)="util.changeActive(ii,j,detail.name)">{{detail.name}} <span></span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

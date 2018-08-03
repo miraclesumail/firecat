@@ -1,0 +1,28 @@
+<div class="distribute-style" *ngIf="resultsData.data.length!=0">
+  <div class="ssc-table">
+    <div class="ssc-table-head">
+      <div class="t-qihao">期号</div>
+      <div class="t-tema">特码</div>
+      <div class="t-qihao-list">
+        <div>大小</div>
+        <div>单双</div>
+        <div>波色</div>
+      </div>
+    </div>
+    <div class="ssc-table-body">
+      <div class="ssc-table-wrap" *ngFor="let result of resultsData.data" [ngClass]="{'isWaiting-bg':result.code.length<=1}">
+        <div class="t-qihao">{{result.number}}期</div>
+        <div class="t-qihao">{{result.code[6]}}</div>
+        <div class="t-qihao-list" *ngIf="result.code.length>1">
+          <div [ngClass]="{'big':result.code[6]>24,'small':result.code[6]<25}">{{result.code[0]>24?'大':'小'}}</div>
+          <div [ngClass]="{'double':result.code[6]%2==0,'single':result.code[6]%2==1}">{{result.code[6]%2==0?'双':'单'}}</div>
+          <div class="redBall"
+               [ngClass]="{'redBall':bose.red.indexOf(result.code[6])!=-1,'greenBall':bose.green.indexOf(result.code[6])!=-1,'blueBall':bose.blue.indexOf(result.code[6])!=-1}">
+            {{bose.red.indexOf(result.code[6])!=-1?'红波':''}}{{bose.green.indexOf(result.code[6])!=-1?'绿波':''}}{{bose.blue.indexOf(result.code[6])!=-1?'蓝波':''}}
+          </div>
+        </div>
+        <div class="t-qihao-list" *ngIf="result.code.length<=1" style="justify-content: center;color: #666">等待开奖...</div>
+      </div>
+    </div>
+  </div>
+</div>

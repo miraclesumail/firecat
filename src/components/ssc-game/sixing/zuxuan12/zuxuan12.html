@@ -1,0 +1,33 @@
+<!-- Generated template for the Zuxuan12Component component -->
+<div class="shakePhone" (click)="randomChoose()"></div>  
+
+<div>{{common.smallKind.bonus_note}} {{util.formatMoney(common.bonus)}} 元</div>
+<div class="l-game" *ngFor="let data of common.ballData;let ii = index" >
+                <div class="l">
+                    <p *ngIf="ii == 0"><span></span>二重号</p>
+                    <p *ngIf="ii == 1"><span></span>单号</p>
+                </div>
+
+                <div class="r">
+                    <div class="ball-list">
+                            <ul class="ball-choose">
+                                    <li *ngFor="let item of data.value.slice(0,5);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i)">
+                                        {{i}}
+                                        <span class="tip-block">{{i}}</span>
+                                    </li>
+                                </ul>
+        
+                                <ul class="ball-choose">
+                                    <li *ngFor="let item of data.value.slice(-5);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,qqq(i))">
+                                        {{qqq(i)}}
+                                        <span class="tip-block">{{qqq(i)}}</span>
+                                    </li>
+                                </ul>
+                    
+                        <div class="btn-list">
+                            <a href="javascript:;" *ngFor="let detail of common.btn[ii];let j = index" [class.current]="detail.flag" (click)="changeActive(ii,j,detail.name)">{{detail.name}} <span></span></a>
+                        </div>
+                    </div>
+                </div>
+</div>
+

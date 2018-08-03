@@ -1,0 +1,7 @@
+<!-- Generated template for the RightmenuComponent component -->
+<div [style.height]="open? '200px':'0px'" class="right-menu">
+   <div class="pop-arrow"></div>
+   <ul id="menu">
+      <li class="small-menu" *ngFor="let aa of menus" (click)="switch(aa)">{{aa}}</li>
+   </ul>
+</div>

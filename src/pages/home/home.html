@@ -1,0 +1,96 @@
+<!--<ion-header>-->
+<!--<ion-navbar>-->
+<!--<ion-title text-center>购彩大厅 </ion-title>-->
+<!--</ion-navbar>-->
+
+<!--</ion-header>-->
+
+<ion-content>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let banner of homePrv.homeData.banner;index as i;">
+        <a title="banner.title" href="javascript:;">
+          <img src="{{banner.pic_url}}" alt="{{banner.name}}">
+        </a>
+      </div>
+      <!--<div class="swiper-slide">-->
+        <!--<a title="banner.title" href="">-->
+          <!--<img src="assets/home/banner0.jpg">-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<div class="swiper-slide">-->
+        <!--<a title="banner.title" href="">-->
+          <!--<img src="assets/home/banner0.jpg">-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<div class="swiper-slide">-->
+        <!--<a title="banner.title" href="">-->
+          <!--<img src="assets/home/banner0.jpg">-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<div class="swiper-slide">-->
+        <!--<a title="banner.title" href="">-->
+          <!--<img src="assets/home/banner0.jpg">-->
+        <!--</a>-->
+      <!--</div>-->
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="index-info" (click)="pushPage('InfoCenterPage','消息中心')">
+    <div class="info-title">
+      <i class="voice-icon"></i>
+      消息({{homePrv.infoData.unreadAnnouncements>99?'99+':homePrv.infoData.unreadAnnouncements}})
+    </div>
+    <div class="info-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let info of homePrv.infoData.announcements;index as i;">
+          <a href="javascript:;">{{info.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lotory-list">
+    <h2><i></i>热门彩种</h2>
+    <ul>
+
+      <!-- <li *ngFor="let lottory of homeData.lottorys.slice(0,15)">
+        <a href="{{lottory.url}}" title="{{lottory.title}}">
+          <img src="{{lottory.imgSrc}}" alt="{{lottory.title}}">
+          <p>{{lottory.title}}</p>
+
+        </a>
+      </li>     -->
+      <li *ngFor="let hots of homePrv.homeData.lottorys.hot" (click)=toLottory(hots)>
+        <a href="javascript:;">
+          <img src="./assets/home/{{hots.identifier}}.png" alt="">
+          <p>{{hots.friend_name}}</p>
+          <!--<span *ngIf="lottory.stopSale">停售</span>-->
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;" (click)="pushPage('HotGmageListPage')">
+        <!--<a href="javascript:;" (click)="allGameModel(homeData.lottorys)">-->
+          <img src="assets/home/lotory-more.png" alt="">
+          <p>更多彩种</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>
+<div class="alert-pop-mask" (click)="closePop()" *ngIf="showData.is_pop==1"></div>
+<div class="e-alert-main cl" (click)="closePop()" *ngIf="showData.is_pop==1">
+  <div class="close-wrap">
+    <span class="close-span"></span>
+  </div>
+  <div class="e-alert-content">
+    <h2>{{showData.title}}</h2>
+    <p [innerHTML]="showData.content"></p>
+  </div>
+
+
+</div>
+
+
+
+

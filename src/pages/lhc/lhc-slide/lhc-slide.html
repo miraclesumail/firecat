@@ -1,0 +1,1529 @@
+<ion-header>
+
+  <ion-navbar>
+    <!--<ion-title>-->
+    <!--<div class="header-select" (click)="dropdownClick();">-->
+    <!--<i class="lottery">{{lottery}}</i>-->
+    <!--<i class="wanfa">特码</i>-->
+    <!--<ion-icon name="md-arrow-dropdown" style="margin-top: 5px;-->
+    <!--position: absolute;-->
+    <!--margin-left: 4px;">-->
+    <!--</ion-icon>-->
+    <!--</div>-->
+    <!--</ion-title>-->
+    <div class="header-select" (click)="dropdownClick();">
+      <!--<i class="lottery">{{lottery}}</i>-->
+      <i class="wanfa">特码</i>
+      <ion-icon name="md-arrow-dropdown" style="margin-top: 5px;
+    position: absolute;
+    margin-left: 4px;">
+      </ion-icon>
+    </div>
+    <div class="trend-div">
+      <img src="./assets/imgs/ks/trend.png"/>
+    </div>
+  </ion-navbar>
+
+
+  <!--<div class="popover-wrapper hide">-->
+    <!--<div class="popover-arrow"></div>-->
+    <!--<div class="popover-content">-->
+      <!--<div class="popover-viewport">-->
+        <!--<div nav-viewport=""></div>-->
+        <!--<div class="side-nav">-->
+          <!--<a class="side-nav-a j-btn" href="#">走势图</a>-->
+          <!--<a class="side-nav-a j-btn" href="#">近期开奖</a>-->
+          <!--<a class="side-nav-a j-btn" href="#">玩法说明</a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+  <div class="status-title cl">
+    <p class="currentdate">1041期开奖</p>
+  </div>
+  <div class="status-time cl">
+    <div class="l nextdate">12080期截止:</div>
+    <div class="r r-time">
+      <span>00</span>:<span>45</span>:<span>12</span>
+    </div>
+    <span class="time-bar"></span>
+  </div>
+  <!--<header class="lhc-header cl">-->
+  <div class="status-box cl">
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-plus">
+      <span>+</span>
+    </div>
+    <div class="status-unit status-number"><span class="red-ball">8</span>
+      <p>猪</p>
+    </div>
+    <div class="status-unit status-plus"><span>=</span>
+    </div>
+    <div class="status-unit "><span id="score">168</span>
+    </div>
+  </div>
+  <!--<div class="status-time cl">-->
+  <!--<div class="l">121080期投注截止</div>-->
+  <!--<div class="r">-->
+  <!--<span>00</span> : <span>45</span> : <span>12</span>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</header>-->
+
+
+  <div class="pageMenuSlides">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide {{i==0?'bottomLine':''}}" *ngFor="let item of menus;let i=index;" tappable
+             (click)="selectPageMenu($event,i)">
+          {{item}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-header>
+
+<div class="right-popover">
+  <div class="popover-arrow"></div>
+  <ul id="menu">
+    <li class="side-nav-a j-btn"  (click)="pushToTrend()">走势图</li>
+    <li class="side-nav-a j-btn"  (click)="pushToTrend()">近期开奖</li>
+    <li class="side-nav-a j-btn"  (click)="pushToIntroduce()">玩法说明</li>
+  </ul>
+</div>
+
+
+<ion-content class="lhc-content">
+
+  <ion-slides class="slide_one" #contentSlides (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide>
+
+      <ion-content id="lhc-content-child" class="lhc-content-child" name="contents">
+
+        <div class="his-box">
+          <ul>
+            <li class="top-line">
+              <span>期号</span>
+              <span>一</span>
+              <span>二</span>
+              <span>三</span>
+              <span>四</span>
+              <span>五</span>
+              <span>六</span>
+              <span>特码</span>
+            </li>
+          </ul>
+          <ul class="his-ul">
+            <li class="his-line">
+              <span>020</span>
+              <span>23</span>
+              <span>15</span>
+              <span>13</span>
+              <span>12</span>
+              <span>11</span>
+              <span>09</span>
+              <span>78</span>
+            </li>
+            <li class="his-line">
+              <span>013</span>
+              <span>23</span>
+              <span>15</span>
+              <span>13</span>
+              <span>12</span>
+              <span>11</span>
+              <span>09</span>
+              <span>78</span>
+            </li>
+            <li class="his-line">
+              <span>013</span>
+              <span>23</span>
+              <span>15</span>
+              <span>13</span>
+              <span>12</span>
+              <span>11</span>
+              <span>09</span>
+              <span>78</span>
+            </li>
+            <li class="his-line">
+              <span>013</span>
+              <span>23</span>
+              <span>15</span>
+              <span>13</span>
+              <span>12</span>
+              <span>11</span>
+              <span>09</span>
+              <span>78</span>
+            </li>
+          </ul>
+        </div>
+
+        <!--特码彩种 特码，正码，不中-->
+        <section class="section lhc-tm active">
+
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">当期开出的最后一位号码位特码，猜中即中奖</span>
+          </div>
+
+          <section class="b-box cl">
+            <p class="peilv-tip bz">赔率  *46.55</p>
+            <ul>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">01</span>
+                <span class="ball red-ball">01</span>
+              </li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">02</span>
+                <span class="ball red-ball">02</span>
+              </li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">03</span>
+                <span class="ball blue-ball">03</span>
+              </li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">04</span>
+                <span class="ball blue-ball">04</span>
+              </li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">05</span>
+                <span class="ball green-ball">05</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">06</span>
+                <span class="ball green-ball">06</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">07</span>
+                <span class="ball red-ball">07</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">08</span>
+                <span class="ball red-ball">08</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">09</span>
+                <span class="ball blue-ball">09</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">10</span>
+                <span class="ball blue-ball">10</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">11</span>
+                <span class="ball green-ball">11</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">12</span>
+                <span class="ball red-ball">12</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">13</span>
+                <span class="ball red-ball">13</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">14</span>
+                <span class="ball blue-ball">14</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">15</span>
+                <span class="ball blue-ball">15</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">16</span>
+                <span class="ball green-ball">16</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">17</span>
+                <span class="ball green-ball">17</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">18</span>
+                <span class="ball red-ball">18</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">19</span>
+                <span class="ball red-ball">19</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">20</span>
+                <span class="ball blue-ball">20</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">21</span>
+                <span class="ball green-ball">21</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">22</span>
+                <span class="ball green-ball">22</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">23</span>
+                <span class="ball red-ball">23</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">24</span>
+                <span class="ball red-ball">24</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">25</span>
+                <span class="ball blue-ball">25</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">26</span>
+                <span class="ball blue-ball">26</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">27</span>
+                <span class="ball green-ball">27</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">28</span>
+                <span class="ball green-ball">28</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">29</span>
+                <span class="ball red-ball">29</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">30</span>
+                <span class="ball red-ball">30</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">31</span>
+                <span class="ball blue-ball">31</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">32</span>
+                <span class="ball green-ball">32</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">33</span>
+                <span class="ball green-ball">33</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">34</span>
+                <span class="ball red-ball">34</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">35</span>
+                <span class="ball red-ball">35</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">36</span>
+                <span class="ball blue-ball">36</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">37</span>
+                <span class="ball blue-ball">37</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">38</span>
+                <span class="ball green-ball">38</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">39</span>
+                <span class="ball green-ball">39</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">40</span>
+                <span class="ball red-ball">40</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">41</span>
+                <span class="ball blue-ball">41</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">42</span>
+                <span class="ball blue-ball">42</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">43</span>
+                <span class="ball green-ball">43</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">44</span>
+                <span class="ball green-ball">44</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">45</span>
+                <span class="ball red-ball">45</span></li>
+              <li class="tm-unit">
+                <span class="topball red-ball hide">46</span>
+                <span class="ball red-ball">46</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">47</span>
+                <span class="ball blue-ball">47</span></li>
+              <li class="tm-unit">
+                <span class="topball blue-ball hide">48</span>
+                <span class="ball blue-ball">48</span></li>
+              <li class="tm-unit">
+                <span class="topball green-ball hide">49</span>
+                <span class="ball green-ball">49</span></li>
+            </ul>
+
+            <!--<p style="color: #FC302B;-->
+            <!--font-size: 14px;-->
+            <!--text-align: left;-->
+            <!--margin-bottom: 8px;-->
+            <!--font-weight: 500;">快速选号</p>-->
+          </section>
+
+          <section class="t-box">
+
+            <p style="
+            color: #FC302B;
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 12px;
+            font-weight: 500;
+            margin-left: 6px;"
+            >快速选号</p>
+
+            <ul class="cl">
+              <li class="dxds da">大</li>
+              <li class="dxds xiao">小</li>
+              <li class="dxds dan">单</li>
+              <li class="dxds ou">双</li>
+
+              <li class="ani shu">鼠</li>
+              <li class="ani niu">牛</li>
+              <li class="ani hu">虎</li>
+              <li class="ani tu">兔</li>
+              <li class="ani long">龙</li>
+              <li class="ani she">蛇</li>
+              <li class="ani ma">马</li>
+              <li class="ani yang">羊</li>
+              <li class="ani hou">猴</li>
+              <li class="ani ji">鸡</li>
+              <li class="ani gou">狗</li>
+              <li class="ani pig">猪</li>
+            </ul>
+          </section>
+        </section>
+
+        <!--半波彩种-->
+        <section class="section lhc-bb">
+
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="bb-tips">猜当期特码及其色波和单双大小组合。注意：若开出特码为49号时，视为和局，系统自动返回全部本金（不派发返点）</span>
+          </div>
+          <ul class="bb-tops">
+            <li class="red-ball red-active">红波</li>
+            <li class="green-ball">绿波</li>
+            <li class="blue-ball ">蓝波</li>
+          </ul>
+          <div data-index="1" class="bb-unit red">
+            <h2>红大<span class="pl"> 赔率 6.51</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="red-ball">29</span></li>
+                <li class="bb"><span class="red-ball">30</span></li>
+                <li class="bb"><span class="red-ball">34</span></li>
+                <li class="bb"><span class="red-ball">35</span></li>
+                <li class="bb"><span class="red-ball">40</span></li>
+                <li class="bb"><span class="red-ball">45</span></li>
+                <li class="bb"><span class="red-ball">46</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="3" class="bb-unit red">
+            <h2>红小<span class="pl"> 赔率 4.55</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="red-ball">01</span></li>
+                <li class="bb"><span class="red-ball">02</span></li>
+                <li class="bb"><span class="red-ball">07</span></li>
+                <li class="bb"><span class="red-ball">08</span></li>
+                <li class="bb"><span class="red-ball">12</span></li>
+                <li class="bb"><span class="red-ball">13</span></li>
+                <li class="bb"><span class="red-ball">18</span></li>
+                <li class="bb"><span class="red-ball">19</span></li>
+                <li class="bb"><span class="red-ball">23</span></li>
+                <li class="bb"><span class="red-ball">24</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="5" class="bb-unit red">
+            <h2>红单<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="red-ball">01</span></li>
+                <li class="bb"><span class="red-ball">07</span></li>
+                <li class="bb"><span class="red-ball">13</span></li>
+                <li class="bb"><span class="red-ball">19</span></li>
+                <li class="bb"><span class="red-ball">23</span></li>
+                <li class="bb"><span class="red-ball">29</span></li>
+                <li class="bb"><span class="red-ball">35</span></li>
+                <li class="bb"><span class="red-ball">45</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="7" class="bb-unit red">
+            <h2>红双<span class="pl"> 赔率 5.06</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="red-ball">02</span></li>
+                <li class="bb"><span class="red-ball">08</span></li>
+                <li class="bb"><span class="red-ball">12</span></li>
+                <li class="bb"><span class="red-ball">18</span></li>
+                <li class="bb"><span class="red-ball">24</span></li>
+                <li class="bb"><span class="red-ball">30</span></li>
+                <li class="bb"><span class="red-ball">34</span></li>
+                <li class="bb"><span class="red-ball">40</span></li>
+                <li class="bb"><span class="red-ball">46</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="9" class="bb-unit red">
+            <h2>红合单<span class="pl"> 赔率 5.06</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="red-ball">01</span></li>
+                <li class="bb"><span class="red-ball">07</span></li>
+                <li class="bb"><span class="red-ball">12</span></li>
+                <li class="bb"><span class="red-ball">18</span></li>
+                <li class="bb"><span class="red-ball">23</span></li>
+                <li class="bb"><span class="red-ball">29</span></li>
+                <li class="bb"><span class="red-ball">30</span></li>
+                <li class="bb"><span class="red-ball">34</span></li>
+                <li class="bb"><span class="red-ball">45</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="11" class="bb-unit red">
+            <h2>红合双<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="red-ball">02</span></li>
+                <li class="bb"><span class="red-ball">08</span></li>
+                <li class="bb"><span class="red-ball">13</span></li>
+                <li class="bb"><span class="red-ball">19</span></li>
+                <li class="bb"><span class="red-ball">24</span></li>
+                <li class="bb"><span class="red-ball">35</span></li>
+                <li class="bb"><span class="red-ball">40</span></li>
+                <li class="bb"><span class="red-ball">46</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div data-index="13" class="bb-unit green">
+            <h2>绿大<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="green-ball">27</span></li>
+                <li class="bb"><span class="green-ball">28</span></li>
+                <li class="bb"><span class="green-ball">32</span></li>
+                <li class="bb"><span class="green-ball">33</span></li>
+                <li class="bb"><span class="green-ball">38</span></li>
+                <li class="bb"><span class="green-ball">39</span></li>
+                <li class="bb"><span class="green-ball">43</span></li>
+                <li class="bb"><span class="green-ball">44</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="15" class="bb-unit green">
+            <h2>绿小<span class="pl"> 赔率 6.51</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="green-ball">05</span></li>
+                <li class="bb"><span class="green-ball">06</span></li>
+                <li class="bb"><span class="green-ball">11</span></li>
+                <li class="bb"><span class="green-ball">16</span></li>
+                <li class="bb"><span class="green-ball">17</span></li>
+                <li class="bb"><span class="green-ball">21</span></li>
+                <li class="bb"><span class="green-ball">22</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="17" class="bb-unit green">
+            <h2>绿单<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="green-ball">05</span></li>
+                <li class="bb"><span class="green-ball">11</span></li>
+                <li class="bb"><span class="green-ball">17</span></li>
+                <li class="bb"><span class="green-ball">21</span></li>
+                <li class="bb"><span class="green-ball">27</span></li>
+                <li class="bb"><span class="green-ball">33</span></li>
+                <li class="bb"><span class="green-ball">39</span></li>
+                <li class="bb"><span class="green-ball">43</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="2" class="bb-unit green">
+            <h2>绿双<span class="pl"> 赔率 6.51</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="green-ball">06</span></li>
+                <li class="bb"><span class="green-ball">16</span></li>
+                <li class="bb"><span class="green-ball">22</span></li>
+                <li class="bb"><span class="green-ball">28</span></li>
+                <li class="bb"><span class="green-ball">32</span></li>
+                <li class="bb"><span class="green-ball">38</span></li>
+                <li class="bb"><span class="green-ball">44</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="4" class="bb-unit green">
+            <h2>绿合单<span class="pl"> 赔率 6.51</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="green-ball">05</span></li>
+                <li class="bb"><span class="green-ball">16</span></li>
+                <li class="bb"><span class="green-ball">21</span></li>
+                <li class="bb"><span class="green-ball">27</span></li>
+                <li class="bb"><span class="green-ball">32</span></li>
+                <li class="bb"><span class="green-ball">38</span></li>
+                <li class="bb"><span class="green-ball">43</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="6" class="bb-unit green">
+            <h2>绿合双<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="green-ball">06</span></li>
+                <li class="bb"><span class="green-ball">11</span></li>
+                <li class="bb"><span class="green-ball">17</span></li>
+                <li class="bb"><span class="green-ball">22</span></li>
+                <li class="bb"><span class="green-ball">28</span></li>
+                <li class="bb"><span class="green-ball">33</span></li>
+                <li class="bb"><span class="green-ball">39</span></li>
+                <li class="bb"><span class="green-ball">44</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="8" class="bb-unit blue">
+            <h2>蓝大<span class="pl"> 赔率 5.06</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="blue-ball">25</span></li>
+                <li class="bb"><span class="blue-ball">26</span></li>
+                <li class="bb"><span class="blue-ball">31</span></li>
+                <li class="bb"><span class="blue-ball">36</span></li>
+                <li class="bb"><span class="blue-ball">37</span></li>
+                <li class="bb"><span class="blue-ball">41</span></li>
+                <li class="bb"><span class="blue-ball">42</span></li>
+                <li class="bb"><span class="blue-ball">47</span></li>
+                <li class="bb"><span class="blue-ball">48</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="10" class="bb-unit blue">
+            <h2>蓝小<span class="pl"> 赔率 6.51</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="blue-ball">03</span></li>
+                <li class="bb"><span class="blue-ball">04</span></li>
+                <li class="bb"><span class="blue-ball">09</span></li>
+                <li class="bb"><span class="blue-ball">10</span></li>
+                <li class="bb"><span class="blue-ball">14</span></li>
+                <li class="bb"><span class="blue-ball">15</span></li>
+                <li class="bb"><span class="blue-ball">20</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="12" class="bb-unit blue">
+            <h2>蓝单<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="blue-ball">03</span></li>
+                <li class="bb"><span class="blue-ball">09</span></li>
+                <li class="bb"><span class="blue-ball">15</span></li>
+                <li class="bb"><span class="blue-ball">25</span></li>
+                <li class="bb"><span class="blue-ball">31</span></li>
+                <li class="bb"><span class="blue-ball">37</span></li>
+                <li class="bb"><span class="blue-ball">41</span></li>
+                <li class="bb"><span class="blue-ball">47</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="14" class="bb-unit blue">
+            <h2>蓝双<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="blue-ball">04</span></li>
+                <li class="bb"><span class="blue-ball">10</span></li>
+                <li class="bb"><span class="blue-ball">14</span></li>
+                <li class="bb"><span class="blue-ball">20</span></li>
+                <li class="bb"><span class="blue-ball">26</span></li>
+                <li class="bb"><span class="blue-ball">36</span></li>
+                <li class="bb"><span class="blue-ball">42</span></li>
+                <li class="bb"><span class="blue-ball">48</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="16" class="bb-unit blue">
+            <h2>蓝合单<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="blue-ball">03</span></li>
+                <li class="bb"><span class="blue-ball">09</span></li>
+                <li class="bb"><span class="blue-ball">10</span></li>
+                <li class="bb"><span class="blue-ball">14</span></li>
+                <li class="bb"><span class="blue-ball">25</span></li>
+                <li class="bb"><span class="blue-ball">36</span></li>
+                <li class="bb"><span class="blue-ball">41</span></li>
+                <li class="bb"><span class="blue-ball">47</span></li>
+              </ul>
+            </div>
+          </div>
+          <div data-index="18" class="bb-unit blue">
+            <h2>蓝合双<span class="pl"> 赔率 5.69</span></h2>
+            <div class="ball-box">
+              <ul class="cl">
+                <li class="bb"><span class="blue-ball">04</span></li>
+                <li class="bb"><span class="blue-ball">15</span></li>
+                <li class="bb"><span class="blue-ball">20</span></li>
+                <li class="bb"><span class="blue-ball">26</span></li>
+                <li class="bb"><span class="blue-ball">31</span></li>
+                <li class="bb"><span class="blue-ball">37</span></li>
+                <li class="bb"><span class="blue-ball">42</span></li>
+                <li class="bb"><span class="blue-ball">48</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!--生肖-->
+        <section class="section lhc-animals lhc-sx">
+
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">以特码和生肖为一个投注组合。当开出的特码出现在其投注组合中，即视为中奖</span>
+          </div>
+
+          <div class="animate-sec">
+
+            <div data-index="11,23,35,47" class="animals-unit">
+              <h2>鼠<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="green-ball">11</span></li>
+                  <li><span class="red-ball">23</span></li>
+                  <li><span class="red-ball">35</span></li>
+                  <li><span class="blue-ball">47</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="10,22,34,46" class="animals-unit">
+              <h2>牛<span class="pl"> 赔率 11.63</span></h2>
+
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">10</span></li>
+                  <li><span class="green-ball">22</span></li>
+                  <li><span class="red-ball">34</span></li>
+                  <li><span class="red-ball">46</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="09,21,33,45" class="animals-unit">
+              <h2>虎<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">09</span></li>
+                  <li><span class="green-ball">21</span></li>
+                  <li><span class="green-ball">33</span></li>
+                  <li><span class="blue-ball">45</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="08,20,32,44" class="animals-unit">
+              <h2>兔<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">08</span></li>
+                  <li><span class="blue-ball">20</span></li>
+                  <li><span class="green-ball">32</span></li>
+                  <li><span class="green-ball">44</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="07,19,31,43" class="animals-unit">
+              <h2>龙<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">07</span></li>
+                  <li><span class="red-ball">19</span></li>
+                  <li><span class="blue-ball">31</span></li>
+                  <li><span class="green-ball">43</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="06,18,30,42" class="animals-unit">
+              <h2>蛇<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="green-ball">06</span></li>
+                  <li><span class="red-ball">18</span></li>
+                  <li><span class="red-ball">30</span></li>
+                  <li><span class="blue-ball">42</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="05,17,29,41" class="animals-unit">
+              <h2>马<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="green-ball">05</span></li>
+                  <li><span class="green-ball">17</span></li>
+                  <li><span class="red-ball">29</span></li>
+                  <li><span class="blue-ball">41</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="04,16,28,40" class="animals-unit">
+              <h2>羊<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="green-ball">04</span></li>
+                  <li><span class="green-ball">16</span></li>
+                  <li><span class="red-ball">28</span></li>
+                  <li><span class="blue-ball">40</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="03,15,27,39" class="animals-unit">
+              <h2>猴<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">03</span></li>
+                  <li><span class="blue-ball">15</span></li>
+                  <li><span class="green-ball">27</span></li>
+                  <li><span class="green-ball">39</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="02,14,26,38" class="animals-unit">
+              <h2>鸡<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">02</span></li>
+                  <li><span class="blue-ball">14</span></li>
+                  <li><span class="blue-ball">26</span></li>
+                  <li><span class="green-ball">38</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="01,13,25,37,49" class="animals-unit">
+              <h2>狗<span class="pl"> 赔率 9.30</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">01</span></li>
+                  <li><span class="red-ball">13</span></li>
+                  <li><span class="blue-ball">25</span></li>
+                  <li><span class="blue-ball">37</span></li>
+                  <li><span class="green-ball">49</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="12,24,36,48" class="animals-unit">
+              <h2>猪<span class="pl"> 赔率 11.63</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">12</span></li>
+                  <li><span class="red-ball">24</span></li>
+                  <li><span class="blue-ball">36</span></li>
+                  <li><span class="blue-ball">48</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--尾数-->
+        <section class="section lhc-animals lhc-ws">
+
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">以特码和生肖为一个投注组合。当开出的特码出现在其投注组合中，即视为中奖</span>
+          </div>
+
+          <div class="animate-sec">
+
+            <div data-index="0" class="animals-unit">
+              <h2>0尾<span class="pl"> 赔率 2.01</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">10</span></li>
+                  <li><span class="blue-ball">20</span></li>
+                  <li><span class="red-ball">30</span></li>
+                  <li><span class="red-ball">40</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="1" class="animals-unit">
+              <h2>1尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">01</span></li>
+                  <li><span class="green-ball">11</span></li>
+                  <li><span class="green-ball">21</span></li>
+                  <li><span class="blue-ball">31</span></li>
+                  <li><span class="blue-ball">41</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="2" class="animals-unit">
+              <h2>2尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">02</span></li>
+                  <li><span class="red-ball">12</span></li>
+                  <li><span class="green-ball">22</span></li>
+                  <li><span class="green-ball">32</span></li>
+                  <li><span class="blue-ball">42</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="3" class="animals-unit">
+              <h2>3尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">03</span></li>
+                  <li><span class="red-ball">13</span></li>
+                  <li><span class="red-ball">23</span></li>
+                  <li><span class="green-ball">33</span></li>
+                  <li><span class="green-ball">43</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="4" class="animals-unit">
+              <h2>4尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">04</span></li>
+                  <li><span class="blue-ball">14</span></li>
+                  <li><span class="red-ball">24</span></li>
+                  <li><span class="red-ball">34</span></li>
+                  <li><span class="green-ball">44</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="5" class="animals-unit">
+              <h2>5尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="green-ball">05</span></li>
+                  <li><span class="blue-ball">15</span></li>
+                  <li><span class="blue-ball">25</span></li>
+                  <li><span class="red-ball">35</span></li>
+                  <li><span class="red-ball">45</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="6" class="animals-unit">
+              <h2>6尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="green-ball">06</span></li>
+                  <li><span class="green-ball">16</span></li>
+                  <li><span class="blue-ball">26</span></li>
+                  <li><span class="blue-ball">36</span></li>
+                  <li><span class="red-ball">46</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="7" class="animals-unit">
+              <h2>7尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">07</span></li>
+                  <li><span class="green-ball">17</span></li>
+                  <li><span class="green-ball">27</span></li>
+                  <li><span class="blue-ball">37</span></li>
+                  <li><span class="blue-ball">47</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="8" class="animals-unit">
+              <h2>8尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="red-ball">08</span></li>
+                  <li><span class="red-ball">18</span></li>
+                  <li><span class="green-ball">28</span></li>
+                  <li><span class="green-ball">38</span></li>
+                  <li><span class="blue-ball">48</span></li>
+                </ul>
+              </div>
+            </div>
+            <div data-index="9" class="animals-unit">
+              <h2>9尾<span class="pl"> 赔率 1.71</span></h2>
+              <div class="ball-box">
+                <ul>
+                  <li><span class="blue-ball">09</span></li>
+                  <li><span class="red-ball">19</span></li>
+                  <li><span class="red-ball">29</span></li>
+                  <li><span class="green-ball">39</span></li>
+                  <li><span class="green-ball">49</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--总分-->
+        <section class="section lhc-points">
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">以特码和生肖为一个投注组合。当开出的特码出现在其投注组合中，即视为中奖</span>
+          </div>
+          <div class="points-sec">
+            <div index="1" class="points-unit">
+              <span class="pl"> 赔率 1.95</span>
+              <h2>大</h2>
+              <p>总分大于等于175的，即视为中奖。</p>
+            </div>
+            <div index="2" class="points-unit">
+              <span class="pl"> 赔率 1.95</span>
+              <h2>小</h2>
+              <p>总分小于等于174的，即视为中奖。</p>
+            </div>
+            <div index="3" class="points-unit">
+              <span class="pl"> 赔率 1.95</span>
+              <h2>单</h2>
+              <p>总分是单数的，即视为中奖。</p>
+            </div>
+            <div index="4" class="points-unit">
+              <span class="pl"> 赔率 1.95</span>
+              <h2>双</h2>
+              <p>总分是双数的，即视为中奖。</p>
+            </div>
+
+            <div index="5" class="points-unit">
+              <span class="pl"> 赔率 3.92</span>
+              <h2>大单</h2>
+              <p>总分小于等于175且为单数的，即视为中奖。</p>
+            </div>
+            <div index="6" class="points-unit">
+              <span class="pl"> 赔率 3.82</span>
+              <h2>大双</h2>
+              <p>总分大于等于175且为双数的，即视为中奖。</p>
+            </div>
+            <div index="7" class="points-unit">
+              <span class="pl"> 赔率 3.82</span>
+              <h2>小单</h2>
+              <p>总分是双数的，即视为中奖。</p>
+            </div>
+            <div index="8" class="points-unit">
+              <span class="pl"> 赔率 3.82</span>
+              <h2>小双</h2>
+              <p>总分小于等于174且为双数的，即视为中奖。</p>
+            </div>
+          </div>
+          <!--<div class="points-unit points-big current">-->
+          <!--<h2>大单<span> 赔率 3.90</span></h2>-->
+          <!--<p>总分小于等于175且为单数的，即视为中奖。</p>-->
+          <!--</div>-->
+          <!--<div class="points-unit points-big">-->
+          <!--<h2>大双<span> 赔率 3.90</span></h2>-->
+          <!--<p>总分大于等于175且为双数的，即视为中奖。</p>-->
+          <!--</div>-->
+          <!--<div class="points-unit points-big">-->
+          <!--<h2>小单<span> 赔率 3.90</span></h2>-->
+          <!--<p>总分小于等于174且为单数的，即视为中奖。</p>-->
+          <!--</div>-->
+          <!--<div class="points-unit points-big">-->
+          <!--<h2>小双<span> 赔率 3.90</span></h2>-->
+          <!--<p>总分小于等于174且为双数的，即视为中奖。</p>-->
+          <!--</div>-->
+
+        </section>
+
+
+      </ion-content>
+    </ion-slide>
+
+    <!--自选-->
+    <ion-slide>
+
+      <!--<div style="background: red;width: 100%;height: 400px;">1111</div>-->
+      <!--<div class="ball-cont">-->
+
+      <ion-content>
+
+        <!--自选特码 特码，正码，不中-->
+        <section class="section self-tm active">
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">当期开出的最后一位号码位特码，猜中即中奖</span>
+          </div>
+
+          <div class="ball-cont">
+            <ul class="self-ball animated ball-show">
+              <li class="animated">
+                <h5 class="red a" index="1">01</h5>
+                <span class="b">x<span class="odds animated">11.94</span>
+                </span>
+                <input type="number"  class="c r-input">
+              </li>
+
+              <li class="animated"><h5 class="red a" index="2">02</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="purple a" index="3">03</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="purple a" index="4">04</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="5">05</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="6">06</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="7">07</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="red a" index="8">08</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="9">09</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="purple a" index="10">10</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="11">11</h5>
+                <span class="b">x<span class="odds animated">11.94</span>
+              </span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="12">12</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="red a" index="13">13</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="purple a" index="14">14</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="purple a" index="15">15</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="16">16</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="17">17</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="18">18</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="19">19</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="20">20</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="21">21</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="22">22</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="23">23</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="24">24</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="25">25</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="26">26</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="27">27</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="28">28</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="29">29</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="30">30</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="31">31</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="32">32</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="33">33</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="34">34</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="35">35</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="36">36</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="37">37</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="38">38</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="39">39</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="40">40</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="41">41</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="42">42</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="43">43</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="44">44</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="45">45</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="46">46</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="47">47</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="48">48</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="49">49</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+
+            </ul>
+          </div>
+        </section>
+
+        <!--自选 半波-->
+        <section class="section self-bb">
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="bb-tips">猜当期特码及其色波和单双大小组合。注意：若开出特码为49号时，视为和局，系统自动返回全部本金（不派发返点）</span>
+          </div>
+
+          <div class="ball-cont">
+
+            <!--<img class="rgb" src="../../../assets/imgs/red-arrow.png" />-->
+
+            <ul class="self-ball animated ball-show">
+
+              <li class="animated">
+                <img class="rgb r" src="./assets/imgs/red-arrow.png"/>
+                <h5 class="red a" index="1">红大</h5>
+                <span class="b">x<span class="odds animated">6.68</span>
+                </span>
+                <input type="number" class="c r-input">
+              </li>
+
+              <li class="animated"><h5 class="purple a" index="3">红小</h5><span class="b">x<span
+                class="odds animated">4.68</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="5">红单</h5><span class="b">x<span class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="purple a" index="7">红双</h5><span class="b">x<span
+                class="odds animated">5.19</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="9">红合单</h5><span class="b">x<span
+                class="odds animated">5.19</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="red a" index="11">红合双</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated">
+                <img class="rgb g" src="./assets/imgs/green-arrow.png"/>
+                <h5 class="red a" index="13">绿大</h5>
+                <span class="b">x<span class="odds animated">5.85</span>
+                </span>
+                <input type="number" class="c r-input">
+              </li>
+
+              <li class="animated"><h5 class="purple a" index="15">绿小</h5><span class="b">x<span
+                class="odds animated">6.68</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="17">绿单</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="red a" index="2">绿双</h5><span class="b">x<span
+                class="odds animated">6.68</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="4">绿合单</h5><span class="b">x<span
+                class="odds animated">6.68</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="6">绿合双</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated">
+                <img class="rgb b" src="./assets/imgs/blue-arrow.png"/>
+                <h5 class="red a" index="12">蓝大</h5><span class="b">x<span
+                class="odds animated">5.19</span></span>
+                <input type="number" class="c r-input">
+              </li>
+
+              <li class="animated"><h5 class="purple a" index="10">蓝小</h5><span class="b">x<span
+                class="odds animated">6.68</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="12">蓝单</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="red a" index="14">蓝双</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="16">蓝合单</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+              <li class="animated"><h5 class="green a" index="18">蓝合双</h5><span class="b">x<span
+                class="odds animated">5.85</span></span><input type="number" class="c r-input"></li>
+
+            </ul>
+          </div>
+        </section>
+
+        <!--自选 生肖-->
+        <section class="section self-animals self-sx">
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">以特码和生肖为一个投注组合。当开出的特码出现在其投注组合中，即视为中奖</span>
+          </div>
+
+          <div class="ball-cont">
+            <ul class="self-ball animated ball-show">
+              <li class="animated">
+                <h5 class="red a" index="11,23,35,47">鼠</h5>
+                <span class="b">x<span class="odds animated">11.94</span>
+            </span>
+                <input type="number" class="c r-input">
+              </li>
+              <li class="animated">
+                <h5 class="green a" index="10,22,34,46">牛</h5>
+                <span class="b">x<span class="odds animated">11.94</span>
+              </span>
+                <input type="number" class="c r-input">
+              </li>
+              <li class="animated"><h5 class="green a" index="09,21,33,45">虎</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="08,20,32,44">兔</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="07,19,31,43">龙</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="06,18,30,42">蛇</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="05,17,29,41">马</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="04,16,28,40">羊</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="03,15,27,39">猴</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="02,14,26,38">鸡</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="01,13,25,37,49">狗</h5><span class="b">x<span
+                class="odds animated">9.65</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="12,24,36,48">猪</h5><span class="b">x<span
+                class="odds animated">11.94</span></span><input type="number" class="c r-input"></li>
+            </ul>
+          </div>
+        </section>
+
+        <!--自选 尾数-->
+        <section class="section self-animals self-ws">
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">以特码和生肖为一个投注组合。当开出的特码出现在其投注组合中，即视为中奖</span>
+          </div>
+          <div class="ball-cont">
+            <ul class="self-ball animated ball-show">
+              <li class="animated">
+                <h5 class="red a" index="0">0尾</h5>
+                <span class="b">x<span class="odds animated">2.01</span>
+            </span>
+                <input type="number" class="c r-input">
+              </li>
+              <li class="animated">
+                <h5 class="green a" index="1">1尾</h5>
+                <span class="b">x<span class="odds animated">1.71</span>
+              </span>
+                <input type="number" class="c r-input">
+              </li>
+              <li class="animated"><h5 class="green a" index="2">2尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="3">3尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="4">4尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="5">5尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="6">6尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="7">7尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="8">8尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="9">9尾</h5><span class="b">x<span
+                class="odds animated">1.71</span></span><input type="number" class="c r-input"></li>
+            </ul>
+          </div>
+        </section>
+
+        <!--自选 总分-->
+        <section class="section self-points">
+          <div class="sm-div">
+            <span class="shuoming">说明</span>
+            <span class="top-tips">以特码和生肖为一个投注组合。当开出的特码出现在其投注组合中，即视为中奖</span>
+          </div>
+
+          <div class="ball-cont">
+            <ul class="self-ball animated ball-show">
+              <li class="animated">
+                <h5 class="red a" index="1">大</h5>
+                <span class="b">x<span class="odds animated">1.90</span>
+              </span>
+                <input type="number" class="c r-input">
+              </li>
+              <li class="animated">
+                <h5 class="green a" index="2">小</h5>
+                <span class="b">x<span class="odds animated">1.90</span>
+              </span>
+                <input type="number" class="c r-input">
+              </li>
+              <li class="animated"><h5 class="green a" index="3">单</h5><span class="b">x<span
+                class="odds animated">1.90</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="4">双</h5><span class="b">x<span
+                class="odds animated">1.90</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="purple a" index="5">大单</h5><span class="b">x<span
+                class="odds animated">3.80</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="6">大双</h5><span class="b">x<span
+                class="odds animated">3.80</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="red a" index="7">小单</h5><span class="b">x<span
+                class="odds animated">3.80</span></span><input type="number" class="c r-input"></li>
+              <li class="animated"><h5 class="green a" index="8">小双</h5><span class="b">x<span
+                class="odds animated">3.80</span></span><input type="number" class="c r-input"></li>
+            </ul>
+          </div>
+        </section>
+
+      </ion-content>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>
+
+<!--页脚内容-->
+<ion-footer>
+  <ion-icon id="cleanBtn" style="color:rgb(51,51,51);" name="ios-trash-outline">
+    <p class="clean">清空</p>
+  </ion-icon>
+  <p class="line"></p>
+  <div class="confirm-bet">
+    <!--<span class="total">共 11注</span>-->
+    <!--<span class="total-money">￥111</span>-->
+    <a class="confirm-btn">
+      <span>下注</span>
+      <!--<span class="confirm-number">{{badge}}</span>-->
+    </a>
+    <!--<a class="add-btn">添加注单</a>-->
+  </div>
+</ion-footer>
+
+<!--弹窗-->
+<section class="lhc-popup hide">
+  <div class="pupop-container">
+    <!--<span class="lhc-close">x</span>-->
+    <!--<h2>确认信息</h2>-->
+    <!--<h4>共计：¥<span>34/30</span>注，您确认要下注吗？</h4>-->
+    <ul class="box">
+      <!--<li class="box-ball ">特码02</li>-->
+      <!--<li class="box-ball ">特码02</li>-->
+    </ul>
+    <input placeholder="输入购买金额" type="number" class="buy-input"/>
+    <p class="yuan">元</p>
+    <!--<h2>确认信息</h2>-->
+    <h4 class="money-text hide">
+      <span class="zhu">5</span>注 共<span class="money">10元</span>，若中奖，奖金为<span class="bonus">10</span>元，盈利<span
+      class="profit">1000元</span>
+    </h4>
+
+    <h4 class="balace-text">余额：¥ <span id="yue">333333</span></h4>
+    <!--<button class="offhand-btn">取消</button>-->
+    <!--<div class="offhand-btn">-->
+    <div class="offhand-btn cancel-btn">取消</div>
+    <div class="offhand-btn bet-btn" (click)="betClick()" >下注</div>
+    <!--</div>-->
+  </div>
+  <div class="second-popup hide">
+    <span class="lhc-close">x</span>
+    <h2>投注成功</h2>
+    <p>您可以通过”游戏记录“查询您的投注记录！</p><a href="">查看投注记录</a>
+  </div>
+</section>
+
+
+<div class="body-bg"></div>
+<!-- 玩法选择 ------------------------------------------------->
+<div class="alert-con">
+  <div class="play-select">
+    <div class="play-title">玩法选择</div>
+    <ul class="play-list clear">
+      <li><i class="play-black play-yellow">特码</i></li>
+      <li><i class="play-black">正码</i></li>
+      <li><i class="play-black">半波</i></li>
+      <li><i class="play-black">生肖</i></li>
+      <li><i class="play-black">尾数</i></li>
+      <li><i class="play-black">总分</i></li>
+      <li><i class="play-black">不中</i></li>
+
+    </ul>
+  </div>
+  <p class="pp"></p>
+  <div class="after-select">
+    <!--<p class="pp">玩法选择</p>-->
+    <div class="after-con active">
+      <div class="after-list clear after-list-3">
+        <div class="after-l"><i class="after-text">特码:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity play-yellow">特码</i></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="after-con">
+      <div class="after-list clear after-list-3">
+        <div class="after-l"><i class="after-text">正码:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity">正码1</i></li>
+          <li><i class="play-black play-opacity">正码2</i></li>
+          <li><i class="play-black play-opacity">正码3</i></li>
+          <li><i class="play-black play-opacity">正码4</i></li>
+          <li><i class="play-black play-opacity">正码5</i></li>
+          <li><i class="play-black play-opacity">正码6</i></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="after-con">
+      <div class="after-list clear after-list-3">
+        <div class="after-l"><i class="after-text">半波:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity">半波</i></li>
+        </ul>
+      </div>
+
+
+    </div>
+    <div class="after-con">
+      <div class="after-list clear after-list-3">
+        <div class="after-l"><i class="after-text">生肖:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity">特肖</i></li>
+          <li><i class="play-black play-opacity">一肖</i></li>
+          <li><i class="play-black play-opacity">六肖</i></li>
+        </ul>
+      </div>
+
+
+    </div>
+    <div class="after-con">
+      <div class="after-list clear after-list-3">
+        <div class="after-l"><i class="after-text">尾数:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity">尾数</i></li>
+        </ul>
+      </div>
+
+
+    </div>
+    <div class="after-con">
+      <div class="after-list clear after-list-3">
+        <div class="after-l"><i class="after-text">总分:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity">总分</i></li>
+        </ul>
+      </div>
+      <!--<div class="after-list clear after-list-3">-->
+      <!--<div class="after-l"><i class="after-text">组选:</i></div>-->
+      <!--<ul class="lastchina">-->
+      <!--<li><i class="play-black play-opacity">后二复式</i></li>-->
+      <!--<li><i class="play-black play-opacity">后二和值</i></li>-->
+      <!--<li><i class="play-black play-opacity">后二包胆</i></li>-->
+      <!--<li><i class="play-black play-opacity">前二复式</i></li>-->
+      <!--<li><i class="play-black play-opacity">前二和值</i></li>-->
+      <!--<li><i class="play-black play-opacity">前二包胆</i></li>-->
+      <!--</ul>-->
+      <!--</div>-->
+    </div>
+    <div class="after-con">
+      <div class="after-list clear after-list-4">
+        <div class="after-l"><i class="after-text">不中:</i></div>
+        <ul class="lastchina">
+          <li><i class="play-black play-opacity">五不中</i></li>
+          <li><i class="play-black play-opacity">6不中</i></li>
+          <li><i class="play-black play-opacity">7不中</i></li>
+          <li><i class="play-black play-opacity">8不中</i></li>
+          <li><i class="play-black play-opacity">9不中</i></li>
+          <li><i class="play-black play-opacity">10不中</i></li>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

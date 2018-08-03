@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">{{statusData.title}}</h2>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="status-content clearfix">
+    <div class="content-head" *ngIf="statusData.status=='succeed'"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAMAAAAPzWOAAAAAV1BMVEUAAAAltF8ntWEruGQltGA6xHMntGAls18mtGAmtGAmtGAltF8mt2IltF8ls2AmtF8ntGAntGAms2AntGEouGEmtGAmtGAmtWEmtGD///8ltF8mtV8ls1/cI5siAAAAHHRSTlMA+VYjdAZT7reV36s98ePMmISAXTHPiHGgAb+hsxXD/wAAAaFJREFUWMO1mO1ugzAMRW/GQijfFNja7r7/c27qpLlUTU3i7vxGRzYh5DqIU8xTs9bBuVCvzTQXSMWXp5539KfSYz/LGPiQMC7YR1vxCVULnaKiQqW9HX90VHFH/7SMgbsYnhRTdtxJVyLCJxP4xEM+mMSHxSGWaC+mjkpmUN6tbccMus1K+4FZDB7CkZkcxVE4ZuKkoYrZVH97nwZaKcRcykITy1Uy0sSIH3xgIpdDTSH4nA/+HfD13cf/le4AJgonAH2GAw2FHihyHG+8pcBsdnDGZHZwQmN2sMFqdnBFzQ1Dn+xgjUAKroUfUx0McNvugPMh0UG3lVwgFt0hksBb3q7PHpIcDKi3UrE8cDg+pMbKO4t0pNUhS9yQkVrUOmQ5JioW1cFJNmCkI93BGQUZq2WngwXQxy37HD2AE+MWxSG/x5JRy7n9degpxYe4RalDjgyMjFt0B0c5RiMW3cHl6YHuyj2OSokW3bzoUb99Zcixxy178LNH0FeHYXsstw8I9lHFPjTZxzf7IPmykdY+XNvHfPuFg/3q4z8vYezXQd/0nGqs9t/XrwAAAABJRU5ErkJggg==" width="34" alt=""></div>
+    <div class="content-head" *ngIf="statusData.status!=='succeed'"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAMAAAAPzWOAAAAAh1BMVEUAAADecXbgc3jecnfecXfecnfdcnfecnjecXbgeXndcXbecXfecnbieHjrg4Pfcnfec3nfc3jgdXrfd3j/kJDecXbecXfec3fecXfecnfecnbecnfecnbecnffcnbecnjfc3jecXfdcnfecnfecnbjdYDfcnffcXffc3ngdHjgenrfdHjdcXZ/ZbjrAAAALHRSTlMA+EmVh8n6gu0Ozb7gEQdUTTEmHwPVrHfxppyZ6J99aV0s5NC1F41xQzkZQJLJHqoAAAIaSURBVFjDpdXpcqJAFIbhD0FsA8O+6bhvUfPd//VNVaYMSXfDAfL8PEW9HlrLRrdrXG+DMlQqLIN1nVwxVjFzS2pK915guONtQ6uTl2GYtGKP1RGyXE+Ymad0FrVDUfNe9K4x5yDBFZ0SxYE2d3TYczj/AKsdR3mHxYL8dWXP0Yw3Sjier51urjjB5opvojknCQrhixl7uLnDiZonXi6cbPVqPKjx2cVc+dixyD5aurR5O+IR2ldJbWOPpvkSQExN9hnRP3WBtmI0kFLjAUCk9IeLtmI0zF/DqbDtRxdtRW8kPnV3AFsKFbNhPh1SqrSNmaXBEshIoSI0yCsOFCpigwkWFCptw6FdjYpCRWxwjTOFyl5qMEBIqSI1WEJRqIgNhvApVMQGVX/kbTnk71NB9TX+DLrZQoRSQ66UOEuNVKwEqITGzPkrVbbwpAYpVWocxIZYiZFJDbnyBE5CQ6yUAFZCQ6y4AGKhIVZmAKJGG25sDXKNT1tqNgUArI3bqG2YlZSam3Xstg1L5dFxowf8oTkCsUOLbYRloM0q/Pehzf1gTrvTZUNNCrSrTFThJfM5kZPji8eJarSiMyeZF/gmaziByvFDzAkSaGqOtofhxpF2wK8rC1jVE97FFDccSCXolJ05yDxHj8jzKXJ2EfplAQWXHLKPoDfxwDDpuqGVclMMF8WrEzXhNokwVnbwqnOofF+Fb9XikKPTP+voJHVS4giMAAAAAElFTkSuQmCC" width="34" alt=""></div>
+    <div class="content-text">{{statusData.text}}</div>
+  </div>
+</ion-content>

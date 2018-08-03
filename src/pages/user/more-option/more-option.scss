@@ -1,0 +1,60 @@
+page-more-option {
+  .optiong-list{
+    .option{
+      height: 45px;
+      line-height:45px;
+      border-bottom: 1px solid #EAEAEA;
+      padding: 0 15px;
+      background-color: #FFFFFF;
+      color: #333333;
+      letter-spacing: 0;
+      display: flex;
+      align-items: center;
+      p{
+        width: 100%;
+        flex: 1;
+      }
+      .firecat-icon{
+        height: 100%;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+      }
+      .toggle{
+        width: 35px;
+        height: 17.5px;
+      }
+      .toggle-inner{
+        width: 14px;
+        height: 14px;
+        left: 0;
+        background-color: #FFFFFF;
+      }
+    }
+  }
+  .toggle-md .toggle-inner{
+    top: 2px;
+    left: 2px!important;
+  }
+  .toggle-md.toggle-checked .toggle-icon,.toggle-ios.toggle-checked .toggle-icon{
+    background-color: #F85222;
+  }
+  .mt-14{
+    margin-top: 14px;
+  }
+  .disable-quit{
+    background-color: #B4B4B4!important;
+  }
+}
+.quitModel{
+  .alert-button-group{
+    height: auto!important;
+  }
+  .alert-message{
+    height: 0!important;
+    padding: 0!important;
+  }
+  .alert-title{
+    line-height:50px!important;
+  }
+}
+

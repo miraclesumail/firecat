@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">充提记录</h2>
+    <button class="kefu-btn" (click)="http.lineService(userInfo.username)">客服</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="switch-head">
+    <ion-segment [(ngModel)]="transformHistory" (ionChange)="switchTab(transformHistory)">
+      <ion-segment-button value="all">
+        全部
+        <div class="underline"></div>
+      </ion-segment-button>
+      <div class="mid-line"></div>
+      <ion-segment-button value="charge">
+        充值
+        <div class="underline"></div>
+      </ion-segment-button>
+      <div class="mid-line"></div>
+      <ion-segment-button value="withdraw">
+        提款
+        <div class="underline"></div>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="transformHistory" id="switchBody" class="switch-body">
+    <div class="switch-case case-all" *ngSwitchCase="'all'">
+      <div class="month"  *ngIf="transData.all.length!=0">
+        <!--<div class="month-title">本月</div>-->
+        <div class="case-content" (scroll)="scrolling()">
+          <div class="case-content-unit" [ngClass]="{'isSlide':allData.flag==true}" *ngFor="let allData of transData.all">
+            <div class="case-wrap">
+              <p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 70%;flex: none;">编号：<span>{{allData.serial_number}}{{allData.company_order_num}}</span></p>
+              <p style="width: 30%;flex: none;"><span>{{allData.is_withDraw==1?'账户提现':''}}{{allData.is_deposits==1?'账户充值':''}}</span></p>
+            </div>
+            <div class="case-wrap border-bottom">
+              <p style="text-align: left">金额：<span [ngClass]="{'green':allData.is_withDraw==1,'red':allData.is_deposits==1}">{{allData.is_withDraw==1?'-':''}}{{allData.is_deposits==1?'+':''}}{{formatMoney(allData.amount)}}</span></p>
+              <!--<p>余额：<span class="red">1800.00</span></p>-->
+            </div>
+            <div class="content-detail" *ngIf="allData.is_withDraw==1">
+              <div class="case-wrap ">
+                <p class="right">提现银行： <span>{{allData.bank}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <p class="right">提现账户： <span>尾号{{allData.account.slice(-4)}} {{allData.account_name}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <p class="right">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额： <span class="red">{{formatMoney(allData.amount)}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">提现状态： <span class="red">{{transData.withDrawStatus[allData.status]}}</span></p>
+              </div>
+            </div>
+            <div class="case-wrap case-wrap-big">
+              <p class="wp70">发起时间: <span>{{allData.created_at}}</span></p>
+              <p>
+                <span *ngIf="allData.is_deposits==1">充值成功</span>
+                <button class="detail-btn" *ngIf="allData.is_withDraw==1" (click)="toggleDetail(allData)"><i class="trangle"></i>{{allData.flag==true?'收起':'详情'}}</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="enpty" *ngIf="transData.all.length==0">
+        <p>暂无可浏览记录</p>
+      </div>
+    </div>
+    <div class="switch-case case-charge" *ngSwitchCase="'charge'">
+      <div class="month"  *ngIf="transData.charge.length!=0">
+        <!--<div class="month-title">本月</div>-->
+        <div class="case-content">
+          <div class="case-content-unit" *ngFor="let charge of transData.charge">
+            <div class="case-wrap">
+              <p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 70%;flex: none;">编号：<span>{{charge.company_order_num}}</span></p>
+              <p style="width: 30%;flex: none;"><span>账户充值</span></p>
+            </div>
+            <div class="case-wrap border-bottom">
+              <p style="text-align: left">金额：<span class="green">+{{charge.amount}}</span></p>
+              <!--<p>余额：<span class="red">1800.00</span></p>-->
+            </div>
+            <div class="case-wrap case-wrap-big">
+              <p class="wp70">发起时间: <span>{{charge.created_at}}</span></p>
+              <p>
+                <span>{{charge.status==1?'充值成功':'充值失败'}}</span>
+                <!--<button class="detail-btn"><i class="trangle"></i>详情</button>-->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="enpty" *ngIf="transData.charge.length==0">
+        <p>暂无可浏览记录</p>
+        <div class="fix-sure-btn">
+          <button (click)="pushPage('ChargePage')">立即充值</button>
+        </div>
+      </div>
+    </div>
+    <div class="switch-case case-withdraw" *ngSwitchCase="'withdraw'">
+      <div class="enpty" *ngIf="transData.withdraw.length==0">
+        <p>暂无可浏览记录</p>
+      </div>
+      <div class="month"  *ngIf="transData.withdraw.length!=0">
+        <!--<div class="month-title">本月</div>-->
+        <div class="case-content">
+          <div class="case-content-unit" [ngClass]="{'isSlide':withdraw.flag==true}" *ngFor="let withdraw of transData.withdraw">
+            <div class="case-wrap">
+              <p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;width: 70%;flex: none;">编号：<span>{{withdraw.serial_number}}</span></p>
+              <p><span>账户提现</span></p>
+            </div>
+            <!--<div class="case-wrap border-bottom">-->
+              <!--<p style="text-align: left">金额：<span class="red">-{{withdraw.amount}}</span></p>-->
+              <!--<p>余额：<span class="red">1800.00</span></p>-->
+            <!--</div>-->
+            <div class="content-detail">
+              <div class="case-wrap ">
+                <p class="right">提现银行： <span>{{withdraw.bank}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <p class="right">提现账户： <span>尾号{{withdraw.account.slice(-4)}} {{withdraw.account_name}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <p class="right">金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额： <span class="red">{{withdraw.amount}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">提现状态： <span class="red">{{transData.withDrawStatus[withdraw.status]}}</span></p>
+              </div>
+            </div>
+            <div class="case-wrap case-wrap-big">
+              <p class="wp70">发起时间: <span>{{withdraw.created_at}}</span></p>
+              <p><button class="detail-btn" (click)="toggleDetail(withdraw)"><i class="trangle"></i>{{withdraw.flag==true?'收起':'详情'}}</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite(transformHistory))">
+    <ion-infinite-scroll-content class="myloading" loadingSpinner="bubbles" loadingText="努力加载中…"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

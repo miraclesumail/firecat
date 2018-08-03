@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">修改昵称</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="common-form">
+    <div class="cf-row">
+      <label for="username">用户名</label>
+      <input id="username" type="text" maxlength="40" [(ngModel)]="userData.data.nickname" required>
+      <p class="row-info" *ngIf="userData.nameInfoFlag">{{userData.nameInfo}}<i class="firecat-icon small-dager-close-icon"></i></p>
+    </div>
+    <div class="submit-row">
+      <button class="submit-button" (click)="changeNane()">确认修改</button>
+    </div>
+  </div>
+</ion-content>

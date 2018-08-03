@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">请选择充值银行</h2>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div class="bank-list">
+    <ul class="">
+      <li *ngFor="let bank of bankList" [ngClass]="{'current':currentBank.identifier==bank.identifier}" (click)="selectBank(bank)">
+        <img src="../../../assets/bank-icon/{{bank.identifier}}-icon.png" alt="">
+      </li>
+
+    </ul>
+  </div>
+</ion-content>

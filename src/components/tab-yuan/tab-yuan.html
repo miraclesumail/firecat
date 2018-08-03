@@ -1,0 +1,4 @@
+<!-- Generated template for the TabYuanComponent component -->
+<ul [@show]="common.tabVisible" style="border-radius:5px;border:1px solid #cccccc;background:#ffffff;width:40px">
+  <li *ngFor="let item of tabYuan" [class.active]="common.tabYuan == item" (click)="changeMode(item)">{{item}}</li>
+</ul>

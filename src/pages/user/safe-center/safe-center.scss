@@ -1,0 +1,178 @@
+page-safe-center {
+  .question-icon{
+    position: relative;
+    z-index: 100;
+    width: 19px;
+    height: 19px;
+    margin-top:11.5px;
+    float: right;
+    margin-right: 3px;
+  }
+  .question-info{
+    width: 286px;
+    height: 66px;
+    background: rgba(178,77,22,.27);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.17);
+    border-radius: 5px;
+    position: absolute;
+    top: 40px;
+    right: 16px;
+    color: #FFFFFF;
+    padding: 10px;
+    line-height:24px;
+    transform: scale(0);
+    transition: all .5s;
+    transform-origin: right top;
+    &.current{
+      transform: scale(1);
+    }
+    .trangle{
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -8px;
+      right: 4px;
+      border-top: none;
+      border-bottom: 8px solid rgba(178,77,22,.27);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+    }
+  }
+  .gredient-bg{
+    height: 138px;
+    background-image: linear-gradient(69deg, #F3361B 0%, #EC6432 1%, #F5AD58 100%);
+    position: relative;
+    .buttom-bg{
+      width: 100%;
+      background-image: url('data:image/png;base64,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');
+      background-size: 100% 62px;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 62px;
+      z-index: 0;
+    }
+    .sc-head{
+      width: 110px;
+      height: 110px;
+      margin: 9px auto 0;
+      background: url("../../../assets/imgs/safe-center-head-bg.png") center top no-repeat;
+      background-size: 100% 100%;
+      box-shadow: 0 2px 4px 0 rgba(200,82,15,0.50);
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+      p{
+        text-align: center;
+        line-height:110px;
+        font-size: 12px;
+        color: #ED8043;
+        letter-spacing: 0;
+        span{
+          font-size: 28px;
+          color: #D45B1B;
+          letter-spacing: -2px;
+        }
+      }
+      .canvas{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  .list-title{
+    height: 46px;
+    line-height:50px;
+    text-indent: 10px;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+  }
+  .sc-list{
+    background: #FFFFFF;
+    .sc-list-unit{
+      height: 71px;
+      border-top: 1px solid #EAEAEA;
+      display: flex;
+      padding: 0 16px;
+      .left-icon{
+        width: 35px;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .id-icon{
+           width:23px;
+          height: 18px;
+         }
+        .phone-icon{
+          width: 15px;
+          height: 22.2px;
+        }
+        .email-icon{
+          width: 21px;
+          height:15.5px;
+        }
+        .bank-card-icon{
+          width:22px;
+          height:16.6px;
+        }
+        .change-login-psw-icon{
+          width:16.6px;
+          height: 23px;
+        }
+        .change-pay-psw-icon{
+          width: 24px;
+          height: 23px;
+        }
+
+
+
+
+
+
+
+
+      }
+      .list-text{
+        width: 100%;
+        flex: 1;
+        padding: 13px 0;
+        h4{
+          font-size: 16px;
+          color: #333333;
+          letter-spacing: 0;
+          font-weight: normal;
+          line-height:24px;
+          .redPoint{
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background-color: #ff0000;
+            border-radius: 10px;
+            position: relative;
+            top: -10px;
+            left: 2px;
+          }
+        }
+        p{
+          font-size: 12px;
+          color: #999999;
+          letter-spacing: 0;
+          line-height:20px;
+        }
+      }
+      .right-icon{
+        width: 21px;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+  }
+}

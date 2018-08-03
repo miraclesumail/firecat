@@ -1,0 +1,12 @@
+<!-- Generated template for the ZuxuanhezhiComponent component -->
+<div class="ball-list hezhi">
+    <ul *ngFor="let item of common.ballData;let i = index">
+      <li *ngFor="let todo of item;let j = index" [class.current]="todo == 1" (click)="changeToggle(i,j)">{{7*i + j}}</li>
+    </ul>
+
+     <div class="btn-list">
+       <a href="javascript:;" *ngFor="let detail of common.singleBtn;let j = index" [class.current]="detail.flag" (click)="util.changeActive(null,j,detail.name)">{{detail.name}} <span></span></a>
+
+    </div>
+   
+</div> 

@@ -1,0 +1,29 @@
+page-info-detail {
+  .toolbar-content{
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .back-button{
+    z-index: 10;
+  }
+  .info-detail{
+    padding: 16px 16px 24px 16px;
+    background-color: #FFFFFF;
+  }
+  .info-detail-title{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+
+  }
+  .date-info{
+    font-size: 12px;
+    color: #aaaaaa;
+  }
+  .hello,.info-detail-content,.info-detail-group,.info-detail-date{
+    font-size: 16px;
+    color: #000000;
+    line-height:26px;
+  }
+}

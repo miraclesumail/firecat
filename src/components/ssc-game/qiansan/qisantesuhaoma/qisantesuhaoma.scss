@@ -1,0 +1,29 @@
+qisantesuhaoma {
+    .l-game .ball-list
+
+        ul.teshuhaoma{
+            // width:auto;
+            // height: 33px;
+            border-radius: 0;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            li {
+            width:50px;height: 40px;
+            padding: 5px 5px;
+            background-image: linear-gradient(-182deg, #FFFFFF 16%, #D5E9F7 100%);
+            box-shadow: 0 1px 2px 0 #A7B5E8;
+            font-family: PingFangSC-Regular;
+            font-size: 15px;
+            color: #666666;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 30px;
+            &.current {
+                color: #FFFFFF;
+                background-image: linear-gradient(0deg, #F74511 0%, #F98A6A 100%);
+                box-shadow: 0 1px 2px 0 #F3B19F;
+            }
+            }
+        }
+}

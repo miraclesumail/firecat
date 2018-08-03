@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">意见反馈</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="feedBack-form">
+    <textarea name="feedBack-text" id="" [(ngModel)]="content" cols="30" rows="10" placeholder="想跟我们说些什么呢？"></textarea>
+    <input type="number" maxlength="11" [(ngModel)]="contact" placeholder="联系方式"/>
+    <input type="submit" value="提交" (click)="feedBack()">
+  </div>
+</ion-content>

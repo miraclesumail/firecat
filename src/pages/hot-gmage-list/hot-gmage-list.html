@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">更多彩种</h2>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="lotory-list clearfix">
+    <h4 class="info"><i class="disc"></i>我的常用彩种<span class="edit" (click)="toggleEdit()">{{lottorys.editable?'完成':'编辑'}}</span></h4>
+    <ul>
+      <li *ngFor="let lottory of lottorys.data.hot;index as i">
+        <a href="javascript:;" title="{{lottory.friend_name}}" (click)="decreament(lottory,i)">
+          <img src="assets/home/{{lottory.identifier}}.png" alt="{{lottory.friend_name}}" alt="{{lottory.friend_name}}">
+          <p>{{lottory.friend_name}}</p>
+          <!--<span class="stop-sale" *ngIf="lottory.time!=null">停售</span>-->
+          <span class="delete-lottory" *ngIf="lottorys.editable">-</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="lotory-list mt-12 clearfix">
+    <h4 class="info"><i class="disc"></i>更多彩种</h4>
+    <ul *ngIf="lottorys.data.more.length!==0">
+      <li *ngFor="let lottory of lottorys.data.more;index as i">
+        <a href="javascript:;" title="{{lottory.friend_name}}" (click)="increament(lottory,i)">
+          <img src="assets/home/{{lottory.identifier}}.png" alt="{{lottory.friend_name}}">
+          <p>{{lottory.friend_name}}</p>
+          <!--<span class="stop-sale" *ngIf="lottory.time!=null">停售</span>-->
+          <span class="delete-lottory" *ngIf="lottorys.editable">+</span>
+        </a>
+      </li>
+    </ul>
+    <div class="empty-lottory" *ngIf="lottorys.data.more.length==0">
+      彩种都被掏空了～～～
+    </div>
+  </div>
+</ion-content>

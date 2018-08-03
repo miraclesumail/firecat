@@ -1,0 +1,41 @@
+lottory-daxiao {
+  text-align: center;
+  .ssc-table-head {
+    color: #666666;
+    letter-spacing: -0.22px;
+    display: flex;
+    line-height:25px;
+    background: #DEE2FF;
+    border: 1px solid #D8D8D8;
+  }
+  .t-qihao {
+    width: 60px;
+  }
+  .t-qihao-list {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    & > div {
+      flex: 1;
+      width: 100%;
+    }
+  }
+  .ssc-table-wrap{
+    display: flex;
+    line-height:31px;
+    font-size: 12px;
+    background-color: #ffffff;
+    .t-qihao{
+      color: #666666;
+    }
+    &:nth-child(2n){
+      background-color: #FFFAF7;
+    }
+    .big{
+      color: #E96A04;
+    }
+    .small{
+      color: #4455C6;
+    }
+  }
+}

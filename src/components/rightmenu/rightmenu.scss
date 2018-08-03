@@ -1,0 +1,25 @@
+rightmenu {
+ div.right-menu{position:absolute;top:35px;z-index:1000;right:20px;transition:all .5s;overflow: hidden}
+    ul{ background: #FA7E4C;
+        margin-top:10px;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px #E8A387;position: relative}
+
+    li{display: block;margin:0 10px 10px 10px;color:#ffffff}
+
+  div.pop-arrow{
+    left: 50px;
+    top: 5px;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 10;
+    width: 13px;
+    height: 11px;
+    background-color: #FA7E4C;
+    content: "";
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  //  margin-left: 60px;
+  }
+}

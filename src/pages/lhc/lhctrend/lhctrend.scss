@@ -1,0 +1,121 @@
+page-lhctrend {
+  .toolbar-background-ios, .toolbar-background-md {
+    background-color: rgb(74, 140, 192);
+    background-image: none
+  }
+
+
+  .nav-title {
+    font-weight: 600;
+  }
+  .lhc-tab-top {
+    height: 35px;
+    line-height: 35px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    color: #333333;
+    text-align: center;
+    background-color: #FFF9F5;
+
+    .lhc-tab-unit {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      width: 100%;
+      position: relative;
+
+      .underline {
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 0px;
+        background-color: #F6374E;
+        height: 2px;
+      }
+    }
+    .lhc-tab-unit.current {
+      color: #F6374E;
+      .underline {
+        right: 0;
+      }
+    }
+  }
+
+  .top-ul, .his-ul {
+    text-align: center;
+  }
+
+  span{
+    display: inline-block;
+  }
+  .top-line span, .his-line span {
+    width: 10.5%;
+    color: #666666;
+  }
+  .top-line {
+    height: 25px;
+    line-height: 25px;
+    background: rgb(222, 226, 255);
+  }
+  .top-line span {
+    font-size: 14px;
+  }
+  .his-line {
+    height: 28px;
+    line-height: 28px;
+  }
+  .his-line span {
+    font-size: 12px;
+  }
+  .his-line .kj-ing {
+    width: 25.5%;
+  }
+  .his-line .kj-issue {
+    float: left;
+    margin-left: 3.5%;
+  }
+
+
+  .his-line:nth-child(odd) {
+    background: rgb(255, 255, 255);
+  }
+  .his-line:nth-child(even) {
+    background: rgb(255, 249, 245);
+  }
+
+  .his-line.ani {
+    span{
+      font-size: 12px;
+      width: 12%;
+    }
+    .kj-ing {
+      width: 25.5%;
+    }
+    .kj-issue {
+      float: left;
+      margin-left: 2.3%;
+    }
+  }
+
+  .top-line.bose, .his-line.bose {
+
+    span{
+      font-size: 14px;
+      width: 18.5%;
+    }
+    .kj-ing {
+      width: 25.5%;
+    }
+    .kj-issue {
+      float: left;
+      margin-left: 1%;
+    }
+
+  }
+
+
+
+}

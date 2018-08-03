@@ -1,0 +1,5 @@
+tab-yuan {
+  ul{  transform:translate3d(0, 100%, 0);transition: all .5s;position:absolute;left:90px;bottom:50px; }
+  li{display: block;text-align: center;line-height: 20px}
+  li.active{background: #cccccc}
+}

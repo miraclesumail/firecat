@@ -1,0 +1,765 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>
+      <div class="header-select" (click)="addCover();">
+        <i class="lottery">{{lottery}}</i>
+        <i class="wanfa">和值</i>
+        <ion-icon name="md-arrow-dropdown" style="margin-top: 5px;
+      position: absolute;
+      margin-left: 4px;">
+        </ion-icon>
+      </div>
+    </ion-title>
+
+  </ion-navbar>
+
+  <div class="select-d">
+
+    <div class="ks-tab-top">
+      <div class="ks-tab-unit current">
+        <p>开奖</p>
+        <div class="underline"></div>
+      </div>
+      <div class="ks-tab-unit">
+        <p>基本走势</p>
+        <div class="underline"></div>
+      </div>
+      <div class="ks-tab-unit ">
+        <p>和值走势</p>
+        <div class="underline"></div>
+      </div>
+      <div class="ks-tab-unit">
+        <p>冷热</p>
+        <div class="underline"></div>
+      </div>
+    </div>
+
+
+    <!--开奖次级tab  分和值，其他-->
+    <!--<ul class="ks-tab-head-kj  ks-tab-second hezhi">-->
+    <!--<li class="top-line">-->
+    <!--<p class="t-issue">期号</p>-->
+    <!--<p class="t-num">开奖号码</p>-->
+    <!--<p class="t-total">和值</p>-->
+    <!--<p class="t-big">大小</p>-->
+    <!--<p class="t-odd">单双</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+
+    <!--<ul class="ks-tab-head-kj ks-tab-second others">-->
+    <!--<li class="top-line">-->
+    <!--<p class="t-issue">期号</p>-->
+    <!--<p class="t-num">开奖号码</p>-->
+    <!--<p class="t-xt">形态</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--开奖 次级tab    end-->
+
+
+    <!--基本走势 次级tab   相同-->
+    <!--<ul class="ks-tab-head-jbzs ks-tab-second">-->
+    <!--<li class="top-line">-->
+    <!--<p class="t-issue">期号</p>-->
+    <!--<p class="t-num">开奖号</p>-->
+    <!--<p class="t-total">和值</p>-->
+    <!--<p class="t-kuadu">跨度</p>-->
+    <!--<p class="t-1">1</p>-->
+    <!--<p class="t-2">2</p>-->
+    <!--<p class="t-3">3</p>-->
+    <!--<p class="t-4">4</p>-->
+    <!--<p class="t-5">5</p>-->
+    <!--<p class="t-6">6</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--基本走势 次级tab  end-->
+
+
+    <!--冷热 次级tab   end-->
+    <!--<ul class="ks-tab-head-lr ks-tab-second ">-->
+    <!--<li class="top-line">-->
+    <!--<p class="t-hz">和值</p>-->
+    <!--<p class="t-30lr">30期冷热</p>-->
+    <!--<p class="t-60lr">60期冷热</p>-->
+    <!--<p class="t-100lr">100期冷热</p>-->
+    <!--<p class="t-yl">遗漏</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--冷热 次级tab   end-->
+
+    <!--形态走势 次级tab   相同-->
+    <!--<ul class="ks-tab-head-xtzs ks-tab-second ">-->
+    <!--<li class="top-line">-->
+    <!--<p class="t-issue">期号</p>-->
+    <!--<p class="t-kjh">开奖号</p>-->
+    <!--<p class="t-sant">三同号</p>-->
+    <!--<p class="t-sanbt">三不同</p>-->
+    <!--<p class="t-ert">二同号</p>-->
+    <!--<p class="t-erbt">二不同</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--形态走势 次级tab   end-->
+
+
+    <!--号码分布 次级tab   分二同号，二不同-->
+    <!--<ul class="ks-tab-head-hmfb ks-tab-second erth">-->
+    <!--<li class="top-line">-->
+    <!--<p class="t-issue">期号</p>-->
+    <!--<p class="t-kjh">开奖号</p>-->
+    <!--<p class="t-1">11</p>-->
+    <!--<p class="t-2">22</p>-->
+    <!--<p class="t-3">33</p>-->
+    <!--<p class="t-4">44</p>-->
+    <!--<p class="t-5">55</p>-->
+    <!--<p class="t-6">66</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--号码分布 次级tab   end-->
+
+
+    <!--号码分布 次级tab   分二同号，二不同-->
+    <ul class="ks-tab-head-hmfb ks-tab-second erbth">
+    <li class="top-line">
+    <p class="t-issue">期号</p>
+    <p class="t-kjh">开奖号</p>
+      <p class="t t-12"><span>12</span></p>
+      <p class="t t-13"><span>13</span></p>
+      <p class="t t-14"><span>14</span></p>
+      <p class="t t-15"><span>15</span></p>
+      <p class="t t-16"><span>16</span></p>
+      <p class="t t-23"><span>23</span></p>
+      <p class="t t-24"><span>24</span></p>
+      <p class="t t-25"><span>25</span></p>
+      <p class="t t-26"><span>26</span></p>
+      <p class="t t-34"><span>12</span></p>
+      <p class="t t-35"><span>12</span></p>
+      <p class="t t-36"><span>12</span></p>
+      <p class="t t-45"><span>12</span></p>
+      <p class="t t-46"><span>12</span></p>
+      <p class="t t-56"><span>12</span></p>
+    </li>
+    </ul>
+    <!--号码分布 次级tab   end-->
+
+    <!--和值走势 次级tab   和值-->
+    <!--<ul class="ks-tab-head-hzzs ks-tab-second ">-->
+      <!--<li class="top-line">-->
+        <!--<p class="t-issue">期号</p>-->
+        <!--<p class="t-3">3</p>-->
+        <!--<p class="t-4">4</p>-->
+        <!--<p class="t-5">5</p>-->
+        <!--<p class="t-6">6</p>-->
+        <!--<p class="t-7">7</p>-->
+        <!--<p class="t-8">8</p>-->
+        <!--<p class="t-9">9</p>-->
+        <!--<p class="t-10">10</p>-->
+        <!--<p class="t-11">11</p>-->
+        <!--<p class="t-12">12</p>-->
+        <!--<p class="t-13">13</p>-->
+        <!--<p class="t-14">14</p>-->
+        <!--<p class="t-15">15</p>-->
+        <!--<p class="t-16">16</p>-->
+        <!--<p class="t-17">17</p>-->
+        <!--<p class="t-18">18</p>-->
+      <!--</li>-->
+    <!--</ul>-->
+    <!--和值走势 次级tab   end-->
+
+  </div>
+
+</ion-header>
+
+
+<ion-content class="ion-con" padding>
+
+  <div class="trend-content">
+  <!--</div>-->
+    <!--和值走势-->
+
+
+
+    <!--<div style="" id="canvas">-->
+    <!--</div>-->
+    <!--<div class="content-d hzzs-container">-->
+      <!--<ul>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期<span></span></p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期<span></span></p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期<span></span></p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期<span></span></p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期<span></span></p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期<span></span></p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+        <!--<li class="his-line">-->
+          <!--<p class="t-issue">12345期</p>-->
+          <!--<p class="t-3">3</p>-->
+          <!--<p class="t-4">4</p>-->
+          <!--<p class="t-5">5</p>-->
+          <!--<p class="t-6">6</p>-->
+          <!--<p class="t-7">7</p>-->
+          <!--<p class="t-8">8</p>-->
+          <!--<p class="t-9">9</p>-->
+          <!--<p class="t-10">10</p>-->
+          <!--<p class="t-11">11</p>-->
+          <!--<p class="t-12">12</p>-->
+          <!--<p class="t-13">13</p>-->
+          <!--<p class="t-14">14</p>-->
+          <!--<p class="t-15">15</p>-->
+          <!--<p class="t-16">16</p>-->
+          <!--<p class="t-17">17</p>-->
+          <!--<p class="t-18">18</p>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+
+
+
+
+  </div>
+
+
+  <!--&lt;!&ndash;开奖  hezhi&ndash;&gt;-->
+  <!--<div class="content-d kj-container hezhi">-->
+  <!--<ul class="kj-ul">-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-issue">02000期</p>-->
+  <!--<p class="cutline"><span class="dom"></span></p>-->
+  <!--<p class="t-num">-->
+  <!--<span class="saizi-span">-->
+  <!--<i class="saizi saizi-1"></i>-->
+  <!--<i class="saizi saizi-2"></i>-->
+  <!--<i class="saizi saizi-3"></i>-->
+  <!--</span>-->
+  <!--2 3 2</p>-->
+  <!--<p class="t-total">15</p>-->
+  <!--<p class="t-big">13</p>-->
+  <!--<p class="t-odd">12</p>-->
+  <!--</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+
+  <!--开奖 others-->
+  <!--<div class="content-d kj-container others">-->
+  <!--<ul class="kj-ul">-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-issue">12345期</p>-->
+  <!--<p class="cutline"><span class="dom"></span></p>-->
+  <!--<p class="t-num">-->
+  <!--<span class="saizi-span">-->
+  <!--<i class="saizi saizi-1"></i>-->
+  <!--<i class="saizi saizi-2"></i>-->
+  <!--<i class="saizi saizi-3"></i>-->
+  <!--</span>-->
+  <!--2 3 2</p>-->
+  <!--<p class="t-xt">点点滴</p>-->
+  <!--</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+
+
+  <!--&lt;!&ndash;基本走势&ndash;&gt;-->
+  <!--<div class="content-d jbzs-container">-->
+    <!--<ul class="jbzs-ul">-->
+      <!--<li class="his-line">-->
+        <!--<p class="t-issue">12345期</p>-->
+        <!--<p class="t-num">123</p>-->
+        <!--<p class="t-total">15</p>-->
+        <!--<p class="t-kuadu">6</p>-->
+        <!--<p class="t-1">-->
+          <!--<span class="t">1</span>-->
+          <!--<span class="corner">1</span>-->
+        <!--</p>-->
+        <!--<p class="t-2">-->
+          <!--<span class="t">2</span>-->
+          <!--<span class="corner">1</span>-->
+        <!--</p>-->
+        <!--<p class="t-3">-->
+          <!--<span class="t">3</span>-->
+          <!--<span class="corner">1</span>-->
+        <!--</p>-->
+        <!--<p class="t-4">-->
+          <!--<span class="t">4</span>-->
+          <!--<span class="corner">1</span>-->
+        <!--</p>-->
+        <!--<p class="t-5">-->
+          <!--<span class="t">5</span>-->
+          <!--<span class="corner">1</span>-->
+        <!--</p>-->
+        <!--<p class="t-6"><span class="t">6</span>-->
+          <!--<span class="corner">1</span></p>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+
+    <!--&lt;!&ndash;底部统计&ndash;&gt;-->
+    <!--<ul class="bottom-jbzs">-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">出现次数</p>-->
+        <!--<p class="t-1">1</p>-->
+        <!--<p class="t-2">2</p>-->
+        <!--<p class="t-3">3</p>-->
+        <!--<p class="t-4">4</p>-->
+        <!--<p class="t-5">5</p>-->
+        <!--<p class="t-6">6</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">平均遗漏</p>-->
+        <!--<p class="t-1">1</p>-->
+        <!--<p class="t-2">2</p>-->
+        <!--<p class="t-3">3</p>-->
+        <!--<p class="t-4">4</p>-->
+        <!--<p class="t-5">5</p>-->
+        <!--<p class="t-6">6</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">最大遗漏</p>-->
+        <!--<p class="t-1">1</p>-->
+        <!--<p class="t-2">2</p>-->
+        <!--<p class="t-3">3</p>-->
+        <!--<p class="t-4">4</p>-->
+        <!--<p class="t-5">5</p>-->
+        <!--<p class="t-6">6</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">当前遗漏</p>-->
+        <!--<p class="t-1">1</p>-->
+        <!--<p class="t-2">2</p>-->
+        <!--<p class="t-3">3</p>-->
+        <!--<p class="t-4">4</p>-->
+        <!--<p class="t-5">5</p>-->
+        <!--<p class="t-6">6</p>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+  <!--</div>-->
+
+
+  <!--&lt;!&ndash;形态走势&ndash;&gt;-->
+  <!--<div class="content-d xtzs-container">-->
+    <!--<ul class="xtzs-ul">-->
+      <!--<li class="his-line">-->
+        <!--<p class="t-issue">12345</p>-->
+        <!--<p class="t-kjh">1 2 3</p>-->
+        <!--<p class="t-sant">2 2 2</p>-->
+        <!--<p class="t-sanbt">1 2 3</p>-->
+        <!--<p class="t-ert">2 2</p>-->
+        <!--<p class="t-erbt">1 1 1</p>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+    <!--&lt;!&ndash;底部统计&ndash;&gt;-->
+    <!--<ul class="bottom-xtzs">-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">出现次数</p>-->
+        <!--<p class="t">1</p>-->
+        <!--<p class="t">2</p>-->
+        <!--<p class="t">3</p>-->
+        <!--<p class="t">4</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">平均遗漏</p>-->
+        <!--<p class="t">1</p>-->
+        <!--<p class="t">2</p>-->
+        <!--<p class="t">3</p>-->
+        <!--<p class="t">4</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">最大遗漏</p>-->
+        <!--<p class="t">1</p>-->
+        <!--<p class="t">2</p>-->
+        <!--<p class="t">3</p>-->
+        <!--<p class="t">4</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">当前遗漏</p>-->
+        <!--<p class="t">1</p>-->
+        <!--<p class="t">2</p>-->
+        <!--<p class="t">3</p>-->
+        <!--<p class="t">4</p>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+  <!--</div>-->
+
+  <!--号码分布-->
+  <!--<div class="content-d hmfb-container erth">-->
+    <!--<ul class="hmfb-ul">-->
+      <!--<li class="top-line">-->
+        <!--<p class="t-issue">12345期</p>-->
+        <!--<p class="t-kjh">1 2 3</p>-->
+        <!--<p class="t-1">11</p>-->
+        <!--<p class="t-2">22</p>-->
+        <!--<p class="t-3">33</p>-->
+        <!--<p class="t-4">44</p>-->
+        <!--<p class="t-5">55</p>-->
+        <!--<p class="t-6">66</p>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--号码分布-->
+  <!--<div class="content-d hmfb-container erbth">-->
+  <!--<ul class="hmfb-ul">-->
+    <!--<li class="his-line">-->
+      <!--<p class="t-issue">期号</p>-->
+      <!--<p class="t-kjh">开奖号</p>-->
+      <!--<p class="t  t-12"><span class="active">12</span></p>-->
+      <!--<p class="t  t-13"><span class="active">12</span></p>-->
+      <!--<p class="t t-14"><span>12</span></p>-->
+      <!--<p class="t t-15"><span>12</span></p>-->
+      <!--<p class="t t-16"><span>12</span></p>-->
+      <!--<p class="t t-23"><span>12</span></p>-->
+      <!--<p class="t t-24"><span>12</span></p>-->
+      <!--<p class="t t-25"><span>12</span></p>-->
+      <!--<p class="t t-26"><span>12</span></p>-->
+      <!--<p class="t t-34"><span>12</span></p>-->
+      <!--<p class="t t-35"><span>12</span></p>-->
+      <!--<p class="t t-36"><span>12</span></p>-->
+      <!--<p class="t t-45"><span>12</span></p>-->
+      <!--<p class="t t-46"><span>12</span></p>-->
+      <!--<p class="t t-56"><span>12</span></p>-->
+    <!--</li>-->
+    <!--<li class="his-line">-->
+      <!--<p class="t-issue">期号</p>-->
+      <!--<p class="t-kjh">开奖号</p>-->
+      <!--<p class="t t-12"><span>12</span></p>-->
+      <!--<p class="t t-13"><span>12</span></p>-->
+      <!--<p class="t t-14"><span>12</span></p>-->
+      <!--<p class="t t-15"><span>12</span></p>-->
+      <!--<p class="t t-16"><span>12</span></p>-->
+      <!--<p class="t t-23"><span>12</span></p>-->
+      <!--<p class="t t-24"><span>12</span></p>-->
+      <!--<p class="t t-25"><span>12</span></p>-->
+      <!--<p class="t t-26"><span>12</span></p>-->
+      <!--<p class="t t-34"><span>12</span></p>-->
+      <!--<p class="t t-35"><span>12</span></p>-->
+      <!--<p class="t t-36"><span>12</span></p>-->
+      <!--<p class="t t-45"><span>12</span></p>-->
+      <!--<p class="t t-46"><span>12</span></p>-->
+      <!--<p class="t t-56"><span>12</span></p>-->
+    <!--</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+
+
+
+    <!--底部统计-->
+    <!--<ul class="bottom-hmfb">-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">出现次数</p>-->
+        <!--<p class="t t-12">12</p>-->
+        <!--<p class="t t-13">13</p>-->
+        <!--<p class="t t-14">14</p>-->
+        <!--<p class="t t-15">15</p>-->
+        <!--<p class="t t-16">16</p>-->
+        <!--<p class="t t-23">23</p>-->
+        <!--<p class="t t-24">24</p>-->
+        <!--<p class="t t-25">25</p>-->
+        <!--<p class="t t-26">26</p>-->
+        <!--<p class="t t-34">34</p>-->
+        <!--<p class="t t-35">35</p>-->
+        <!--<p class="t t-36">36</p>-->
+        <!--<p class="t t-45">45</p>-->
+        <!--<p class="t t-46">46</p>-->
+        <!--<p class="t t-56">56</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">平均遗漏</p>-->
+        <!--<p class="t t-12">12</p>-->
+        <!--<p class="t t-13">13</p>-->
+        <!--<p class="t t-14">14</p>-->
+        <!--<p class="t t-15">15</p>-->
+        <!--<p class="t t-16">16</p>-->
+        <!--<p class="t t-23">23</p>-->
+        <!--<p class="t t-24">24</p>-->
+        <!--<p class="t t-25">25</p>-->
+        <!--<p class="t t-26">26</p>-->
+        <!--<p class="t t-34">34</p>-->
+        <!--<p class="t t-35">35</p>-->
+        <!--<p class="t t-36">36</p>-->
+        <!--<p class="t t-45">45</p>-->
+        <!--<p class="t t-46">46</p>-->
+        <!--<p class="t t-56">56</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">最大遗漏</p>-->
+        <!--<p class="t t-12">12</p>-->
+        <!--<p class="t t-13">13</p>-->
+        <!--<p class="t t-14">14</p>-->
+        <!--<p class="t t-15">15</p>-->
+        <!--<p class="t t-16">16</p>-->
+        <!--<p class="t t-23">23</p>-->
+        <!--<p class="t t-24">24</p>-->
+        <!--<p class="t t-25">25</p>-->
+        <!--<p class="t t-26">26</p>-->
+        <!--<p class="t t-34">34</p>-->
+        <!--<p class="t t-35">35</p>-->
+        <!--<p class="t t-36">36</p>-->
+        <!--<p class="t t-45">45</p>-->
+        <!--<p class="t t-46">46</p>-->
+        <!--<p class="t t-56">56</p>-->
+      <!--</li>-->
+      <!--<li class="his-line">-->
+        <!--<p class="txt">当前遗漏</p>-->
+        <!--<p class="t t-12">12</p>-->
+        <!--<p class="t t-13">13</p>-->
+        <!--<p class="t t-14">14</p>-->
+        <!--<p class="t t-15">15</p>-->
+        <!--<p class="t t-16">16</p>-->
+        <!--<p class="t t-23">23</p>-->
+        <!--<p class="t t-24">24</p>-->
+        <!--<p class="t t-25">25</p>-->
+        <!--<p class="t t-26">26</p>-->
+        <!--<p class="t t-34">34</p>-->
+        <!--<p class="t t-35">35</p>-->
+        <!--<p class="t t-36">36</p>-->
+        <!--<p class="t t-45">45</p>-->
+        <!--<p class="t t-46">46</p>-->
+        <!--<p class="t t-56">56</p>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;冷热&ndash;&gt;-->
+  <!--<div class="content-d lr-container">-->
+  <!--<ul>-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-hz">1</p>-->
+  <!--<p class="t-30lr">7</p>-->
+  <!--<p class="t-60lr">13</p>-->
+  <!--<p class="t-100lr">21</p>-->
+  <!--<p class="t-yl">13</p>-->
+  <!--</li>-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-hz">1</p>-->
+  <!--<p class="t-30lr">7</p>-->
+  <!--<p class="t-60lr">13</p>-->
+  <!--<p class="t-100lr">21</p>-->
+  <!--<p class="t-yl">13</p>-->
+  <!--</li>-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-hz">1</p>-->
+  <!--<p class="t-30lr">7</p>-->
+  <!--<p class="t-60lr">13</p>-->
+  <!--<p class="t-100lr">21</p>-->
+  <!--<p class="t-yl">13</p>-->
+  <!--</li>-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-hz">1</p>-->
+  <!--<p class="t-30lr">7</p>-->
+  <!--<p class="t-60lr">13</p>-->
+  <!--<p class="t-100lr">21</p>-->
+  <!--<p class="t-yl">13</p>-->
+  <!--</li>-->
+  <!--<li class="his-line">-->
+  <!--<p class="t-hz">1</p>-->
+  <!--<p class="t-30lr">7</p>-->
+  <!--<p class="t-60lr">13</p>-->
+  <!--<p class="t-100lr">21</p>-->
+  <!--<p class="t-yl">13</p>-->
+  <!--</li>-->
+  <!--</ul>-->
+  <!--</div>-->
+
+
+</ion-content>
+
+
+<ion-footer class="kstrend-footer">
+
+  <div class="bottom-1">
+
+    <ul class="ks-bom-ul">
+      <span class="bom_title">和值选号</span>
+      <li class="hezhi hide">
+        <p class="active">3</p>
+        <p class="">4</p>
+        <p class="">5</p>
+        <p class="">6</p>
+        <p class="">7</p>
+        <p class="">8</p>
+        <p class="">9</p>
+        <p class="">10</p>
+        <p class="">11</p>
+        <p class="">12</p>
+        <p class="">13</p>
+        <p class="">14</p>
+        <p class="">15</p>
+        <p class="">16</p>
+        <p class="">17</p>
+        <p class="">18</p>
+      </li>
+      <li class="santh hide">
+        <p class="active">111</p>
+        <p class="">222</p>
+        <p class="">333</p>
+        <p class="">444</p>
+        <p class="">555</p>
+        <p class="">666</p>
+      </li>
+      <li class="erth hide">
+        <p class="active">11*</p>
+        <p class="">22*</p>
+        <p class="">33*</p>
+        <p class="">44*</p>
+        <p class="">55*</p>
+        <p class="">66*</p>
+      </li>
+      <li class="sanl hide">
+        <p class="active">123</p>
+        <p class="">234</p>
+        <p class="">345</p>
+        <p class="">456</p>
+      </li>
+      <li class="sanbth erbth dtys ">
+        <p class="active">1</p>
+        <p class="">2</p>
+        <p class="">3</p>
+        <p class="">4</p>
+        <p class="">5</p>
+        <p class="">6</p>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="bottom-2" (click)="pushToBasket()">
+
+    <p>距离<span class="ks-nextissue">16</span>期 截止<span class="ks-cuttime">09:56</span></p>
+    <a class="confirm-btn">
+      <span>确定</span>
+    </a>
+
+  </div>
+
+</ion-footer>
+
+<div class="body-bg hide"></div>
+
+<!-- 玩法选择 ------------------------>
+
+<div class="alert-con hide kstrend-alert">
+  <div class="play-select">
+    <div class="play-title">玩法选择</div>
+    <ul class="play-list clear">
+      <li><i class="play-black play-yellow">和值</i></li>
+      <li><i class="play-black">三同号</i></li>
+      <li><i class="play-black">二同号</i></li>
+      <li><i class="play-black">三不同号</i></li>
+      <li><i class="play-black">二不同号</i></li>
+      <li><i class="play-black">三连号</i></li>
+      <li><i class="play-black">单挑一骰</i></li>
+    </ul>
+  </div>
+  <p class="pp"></p>
+  <div class="after-select">
+  </div>
+</div>

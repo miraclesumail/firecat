@@ -1,0 +1,14 @@
+zhixuanhezhi {
+   .qihao-number::-webkit-scrollbar {
+      display: none;
+   }
+
+   .qihao-number{width:100%;height:30px;line-height:30px;font-size:15px}
+
+   .qihao-head{background:#D6DAFF;border-right:1px solid #ffffff}
+
+   ul.ball-line li.trendData{position:relative;display:flex;width:8.3%;align-items:center;justify-content:center;border-left:1px solid #f0f0f0}
+   ul.ball-line li.trendData.noNumber{width:83%;font-size:13px}
+   .ball-content{display:flex;align-items:center;justify-content:center;border-left:1px solid #f0f0f0}
+   div.noRecord div:not(.wait-record){display: none}
+}

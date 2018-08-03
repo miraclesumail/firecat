@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">添加银行卡</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="bank-card-content common-form">
+    <div class="cf-row">
+      <label for="username">持卡人姓名</label>
+      <input id="username" type="text" (focus)="dismissModel('searchFlag')" [(ngModel)]="bcData.subData.userName"
+             placeholder="请输入持卡人姓名" required/>
+    </div>
+    <div class="cf-row">
+      <label for="cardnum">卡&nbsp;&nbsp;&nbsp;号</label>
+      <input id="cardnum" minlength="16" maxlength="20" type="tel" (focus)="dismissModel('searchFlag')"
+             (ionInput)="getValue($event)" [(ngModel)]="cardNum" placeholder="请输入银行卡号"/>
+    </div>
+    <div class="cf-row" style="margin-top: 15px;" (click)="showBankModel()">
+      <label for="bankname">开户银行</label>
+      <input id="bankname" type="text" [(ngModel)]="bcData.subData.bank.name" class="select-input toRight-icon"
+             placeholder="请选择" disabled required>
+    </div>
+    <div class="cf-row" (click)="showModel()">
+      <label for="bankAdress">银行所在地</label>
+      <input id="bankAdress" type="text" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;"
+             value="{{bcData.subData.bankAddress[0].name}} {{bcData.subData.bankAddress[1].name}}"
+             class="select-input toRight-icon" disabled placeholder="请选择" required>
+    </div>
+    <div class="cf-row">
+      <label for="branchName">支行名称</label>
+      <p id="branchName" text-end style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;"
+         (click)="showBranch()">{{bcData.subData.branchName}}</p>
+      <div class="search-container clearfix" [@flyUp] *ngIf="bcData.searchFlag&&bcData.searchData.length!=0">
+        <p *ngFor="let branch of bcData.searchData.slice(0,20)" (click)="selectBranch(branch,$event)">
+          {{branch.text}}</p>
+      </div>
+    </div>
+    <div class="submit-row">
+      <button class="submit-button"
+              [ngClass]="{' disable-submit-button':bcData.subData.userName.length == 0||cardNum.length==0||bcData.subData.bank.name.length == 0||bcData.subData.bankAddress[0].name.length == 0||bcData.subData.bankAddress[1].name.length == 0||bcData.subData.branchName.length == 0}"
+              (click)="submitData()">下一步
+      </button>
+    </div>
+    <div class="common-form-info">
+      <h4>温馨提示</h4>
+      <ul>
+        <li>1. 开户姓名必须与注册的真实姓名一致，否则提款申请将被退回；</li>
+        <li>2.目前暂不支持信用卡和存折账号提款，绑定时请使用银行借记卡（储蓄卡)；</li>
+        <li>3.银行卡绑定信息审核可能有延迟，请您耐心等待几分钟；</li>
+        <li>4.请在上面下拉列表查询结果中选择开户账户所属网点，如列表中未收录开户行网点，请联系博猫客服</li>
+      </ul>
+      <a href="javascript:;" (click)="http.lineService(userInfo.username)">联系客服</a>
+    </div>
+  </div>
+</ion-content>
+
+<!--银行卡列表-->
+<div class="bankList-model" *ngIf="bcData.bankModelFlag">
+  <div class="mask" (click)="dismissModel('bankModelFlag')"></div>
+  <div class="bankList-model-content" [@flyUp]>
+    <h4>开户行名称</h4>
+    <div class="bank-list">
+      <p *ngFor="let bank of bcData.bank;index as i" (click)="selectBank(bank)"><i
+        class="firecat-icon s-{{bank.identifier}}-icon"></i>{{bank.name}}</p>
+    </div>
+  </div>
+</div>
+
+<!--地区选择-->
+<div class="bankList-model" *ngIf="bcData.cityModelFlag">
+  <div class="mask" (click)="dismissModel('cityModelFlag')"></div>
+  <div class="bankList-model-content" [@flyUp]>
+    <h4>所在地区</h4>
+    <div class="bank-list bank-address">
+      <div class="bank-address-head">
+        <ion-segment [(ngModel)]="bcData.bankAddress">
+          <ion-segment-button value="province">
+            {{bcData.subData.bankAddress[0].name==''?'请选择省份':bcData.subData.bankAddress[0].name}}
+            <div class="underline"></div>
+          </ion-segment-button>
+          <ion-segment-button value="cities" [ngClass]="{'visible':bcData.subData.bankAddress[1].children.length==0}">
+            {{bcData.subData.bankAddress[1].name==''?'请选择城市':bcData.subData.bankAddress[1].name}}
+            <div class="underline"></div>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div class="bank-address-body">
+        <div [ngSwitch]="bcData.bankAddress" class="switch-body">
+          <!--省份-->
+          <div *ngSwitchCase="'province'">
+            <p *ngFor="let province of bcData.province;index as i" (click)="selectProvince(province)">{{province}}</p>
+          </div>
+          <!--城市-->
+          <div *ngSwitchCase="'cities'">
+            <p *ngFor="let city of bcData.subData.bankAddress[1].children;index as i" (click)="selectCity(city)">
+              {{city}}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="k3-component k3-kaijiang" *ngIf="resultsData.data.length!=0">
+  <div class="kj-head">
+    <div class="kj-unit kj-unit1">期号</div>
+    <div class="kj-unit kj-unit2">开奖号码</div>
+    <div class="kj-unit kj-unit3">形态</div>
+  </div>
+  <div class="kj-body">
+    <div class="kj-list" *ngFor="let result of resultsData.data">
+      <div class="kj-unit kj-unit1">{{result.number.slice(-6)}}期</div>
+      <div class="kj-unit kj-unit2" *ngIf="result.code.length>1">
+        <div class="saizi-list">
+          <span class="kj-saizi kj-saizi-{{result.code[0]}}"></span>
+          <span class="kj-saizi kj-saizi-{{result.code[1]}}"></span>
+          <span class="kj-saizi kj-saizi-{{result.code[2]}}"></span>
+        </div>
+        <div class="num">{{result.code[0]}} {{result.code[1]}} {{result.code[2]}}</div>
+      </div>
+      <div class="kj-unit kj-unit3" *ngIf="result.code.length>1">{{result.shapeData.length<=1?'三同号':(result.shapeData.length<=2?'二同号':(result.shapeData.length<=3?'三不同':'二不同'))}}</div>
+      <div class="t-qihao-list" *ngIf="result.code.length<=1" style="width:100%;flex:1;text-align: center;color: #fff">等待开奖...</div>
+    </div>
+  </div>
+</div>

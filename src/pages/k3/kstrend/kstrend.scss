@@ -1,0 +1,806 @@
+page-kstrend {
+
+  .hide {
+    display: none;
+  }
+  a, b, em, i, img, input, span, strong {
+    display: inline-block;
+    vertical-align: middle;
+    font-style: normal;
+  }
+  .toolbar-background-ios, .toolbar-background-md {
+    background-color: rgb(0, 23, 13);
+    background-image: none
+  }
+  .wanfa {
+    font-style: normal;
+    font-weight: 800;
+  }
+
+  .ks-tab-top {
+    height: 35px;
+    line-height: 35px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    color: #333333;
+    text-align: center;
+    background-color: #FFF9F5;
+
+    .ks-tab-unit {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      width: 100%;
+      position: relative;
+
+      .underline {
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 0px;
+        background-color: #F6374E;
+        height: 2px;
+      }
+    }
+    .ks-tab-unit.current {
+      color: #F6374E;
+      .underline {
+        right: 0;
+      }
+    }
+
+  }
+
+  // 开奖css  次顶级tab 和 内容css
+  .ks-tab-head-kj, .kj-container {
+    overflow: hidden;
+    .saizi-span .saizi {
+      border-radius: 3px;
+      background-color: #FFF;
+      border: 0;
+      background-size: 100% auto;
+      display: inline-block;
+      width: 19px;
+      height: 19px;
+      text-align: center;
+      line-height: 20px;
+      font-style: normal;
+      //margin: 0 1px;
+      color: #b2a789;
+      font-size: 14px;
+    }
+    .saizi-span .saizi.saizi-1 {
+      background-image: url(../assets/imgs/ks/one.png);
+    }
+    .saizi-span .saizi.saizi-2 {
+      background-image: url(../assets/imgs/ks/two.png);
+    }
+    .saizi-span .saizi.saizi-3 {
+      background-image: url(../assets/imgs/ks/three.png);
+    }
+    .saizi-span .saizi.saizi-4 {
+      background-image: url(../assets/imgs/ks/four.png);
+    }
+    .saizi-span .saizi.saizi-5 {
+      background-image: url(../assets/imgs/ks/five.png);
+    }
+    .saizi-span .saizi.saizi-6 {
+      background-image: url(../assets/imgs/ks/six.png);
+    }
+    .dot-bottom {
+      margin-left: 3px;
+      margin-right: -5px;
+    }
+    li {
+      border-bottom: 0.5px solid rgb(45, 92, 55);
+    }
+    p {
+      color: #fff;
+      text-align: center;
+    }
+    .top-line {
+      height: 25px;
+      line-height: 25px;
+      background: rgb(0, 88, 46);
+      .t-issue {
+        width: 20%;
+      }
+      .t-num {
+        padding-left: 0px;
+        text-align: center;
+        width: 30%;
+      }
+      p {
+        float: left;
+        width: 16%;
+        font-size: 14px;
+      }
+    }
+    .his-line {
+      height: 28px;
+      line-height: 25px;
+
+      width: 100%;
+      .t-issue {
+        font-size: 10px;
+        width: 20%;
+      }
+      .cutline {
+        height: 28px;
+        width: 1px;
+        background: #2d5c37;
+        margin-left: -3px;
+        .dom {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: #2d5c37;
+          margin-left: -3px;
+          position: absolute;
+          margin-top: 10px;
+          //width: 5px;
+          //height: 5px;
+          //border-radius: 50%;
+          //background: #2d5c37;
+          //margin-left: -2px;
+        }
+      }
+      .t-num {
+        padding-left: 0px;
+        text-align: center;
+        width: 31%;
+        //border-left: 1px solid #2d5c37;
+      }
+      p {
+        float: left;
+        width: 16%;
+        font-size: 14px;
+      }
+      .kj-ing {
+        width: 80%;
+      }
+    }
+    .his-line:nth-child(odd) {
+      background: rgb(53, 118, 75);
+    }
+    .his-line:nth-child(even) {
+      background: rgb(36, 113, 76);
+    }
+  }
+  .ks-tab-head-kj.others, .kj-container.others {
+    .t-xt {
+      width: 30%;
+    }
+    .t-issue {
+      width: 25%;
+    }
+    .t-num {
+      width: 45%;
+    }
+    .his-line .cutline .dom {
+      margin-left: -2px;
+    }
+    .kj-ing {
+      width: 75%;
+    }
+  }
+  .kj-container {
+    //margin-top: 25px;
+  }
+
+  .jbzs-container {
+    margin-top: 7px;
+  }
+  //基本走势css 次顶级tab 和 内容css
+  .ks-tab-head-jbzs, .jbzs-container {
+    overflow: hidden;
+    li {
+      border-bottom: 0.5px solid rgb(45, 92, 55);
+    }
+    p {
+      color: #fff;
+      text-align: center;
+    }
+    .top-line, .his-line {
+      height: 32px;
+      line-height: 32px;
+      background: rgb(0, 88, 46);
+      .t-issue {
+        font-size: 12px;
+        width: 15vw;
+      }
+      .t-num {
+        padding-left: 0px;
+        text-align: center;
+        width: 13vw;
+      }
+      .t-total, .t-kuadu {
+        padding-left: 0px;
+        text-align: center;
+        width: 10vw;
+      }
+      .t-1, .t-2, .t-3, .t-4, .t-5, .t-6 {
+        width: 8.6vw;
+        .t {
+          width: 22px;
+          height: 22px;
+
+          border-radius: 50%;
+          line-height: 22px;
+        }
+        .t.active {
+          background-image: linear-gradient(0deg, #F74511 0%, #F98A6A 100%);
+        }
+        .corner {
+          width: 15px;
+          height: 15px;
+          background: blue;
+          border-radius: 50%;
+          position: absolute;
+          font-size: 10px;
+          margin-left: -10px;
+          line-height: 15px;
+        }
+      }
+      p {
+        float: left;
+        font-size: 14px;
+        border-left: 0.5px solid #2d5c37;
+      }
+    }
+    .his-line {
+
+    }
+    .his-line:nth-child(odd) {
+      background: rgb(53, 118, 75);
+    }
+    .his-line:nth-child(even) {
+      background: rgb(36, 113, 76);
+    }
+    .txt {
+      width: 48vw;
+    }
+  }
+
+  //和值玩法 和值走势css
+  .ks-tab-head-hzzs, .hzzs-container {
+    overflow: scroll;
+    li {
+      border-bottom: 0.5px solid rgb(45, 92, 55);
+    }
+    p {
+      color: #fff;
+      text-align: center;
+    }
+    .top-line, .his-line {
+      width: 155%;
+      height: 25px;
+      line-height: 25px;
+      background: rgb(0, 88, 46);
+      .t-issue {
+        background: rgb(36, 113, 76);
+        font-size: 12px;
+        width: 15vw;
+        position: absolute;
+        //border-bottom: 0.5px solid #2d5c37;
+      }
+      .t-3 {
+        margin-left: 54px
+      }
+      .t-num {
+        padding-left: 0px;
+        text-align: center;
+        width: 13vw;
+      }
+      .t-total, .t-kuadu {
+        padding-left: 0px;
+        text-align: center;
+        width: 10vw;
+      }
+      .t-3, .t-4, .t-5, .t-6, .t-5, .t-6,
+      .t-7, .t-8, .t-9, .t-10, .t-11, .t-12,
+      .t-13, .t-14, .t-15, .t-16, .t-17, .t-18 {
+        width: 8.6vw;
+      }
+      p {
+        float: left;
+        font-size: 14px;
+        border-left: 0.5px solid #2d5c37;
+      }
+    }
+
+    .top-line .t-issue {
+      background: rgb(0, 88, 46);
+    }
+
+    .his-line:nth-child(odd) {
+      background: rgb(53, 118, 75);
+    }
+    .his-line:nth-child(even) {
+      background: rgb(36, 113, 76);
+    }
+  }
+
+  .hzzs-container {
+    margin-top: 0px;
+    .t-issue:nth-child(odd) {
+      border-bottom: 0.5px solid #2d5c37;
+      background: rgb(53, 118, 75);
+      span {
+        width: 100%;
+        height: 1px;
+        background: #2d5c37;
+        margin-top: -29px;
+        //width: 100%;
+        //height: 0.5px;
+        //background: #2d5c37;
+      }
+    }
+    .t-issue:nth-child(even) {
+      background: rgb(36, 113, 76);
+    }
+
+    .his-line{
+      .t.active{
+        background-image: linear-gradient(0deg, #F74511 0%, #F98A6A 100%);
+      }
+      .t{
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        line-height: 22px;
+      }
+    }
+
+  .bottom-hzzs{
+    .txt{
+      width:15vw;
+      font-size:12px;
+      position: absolute;
+      border-bottom: 0.5px solid #2d5c37;
+      background: #35764b;
+    }
+ .t-3{
+      margin-left: 54px;
+    }
+  }
+
+  }
+
+  //  -- 冷热
+  .ks-tab-head-lr, .lr-container {
+    overflow: hidden;
+    li {
+      border-bottom: 0.5px solid rgb(45, 92, 55);
+    }
+    p {
+      color: #fff;
+      text-align: center;
+    }
+    .top-line, .his-line {
+
+      width: 155%;
+      height: 25px;
+      line-height: 25px;
+      background: rgb(0, 88, 46);
+      .t-hz {
+        width: 15vw;
+      }
+      .t-30lr, .t-60lr, .t-100lr, .t-yl {
+        padding-left: 0px;
+        text-align: center;
+        width: 21.25vw;
+      }
+
+      p {
+        float: left;
+        font-size: 14px;
+        border-left: 0.5px solid #2d5c37;
+      }
+    }
+    .his-line {
+      .hot,.t-hz{
+        color:rgb(248,100,58);
+      }
+      height: 32px;
+      line-height: 32px;
+    }
+    .his-line:nth-child(odd) {
+      background: rgb(53, 118, 75);
+    }
+    .his-line:nth-child(even) {
+      background: rgb(36, 113, 76);
+    }
+  }
+  .lr-container {
+    margin-top: 0px;
+  }
+
+  // -- 形态走势
+  .ks-tab-head-xtzs, .xtzs-container {
+
+    overflow: hidden;
+    li {
+      border-bottom: 0.5px solid rgb(45, 92, 55);
+    }
+    p {
+      color: #fff;
+      text-align: center;
+    }
+    .top-line, .his-line {
+      width: 155%;
+      height: 25px;
+      line-height: 25px;
+      background: rgb(0, 88, 46);
+      .t-issue {
+        width: 17vw;
+      }
+      .t-kjh, .t-sant, .t-sanbt, .t-ert, .t-erbt, .t {
+        width: 16.6vw;
+      }
+      //.t-sant.active{
+      //  background: rgb(50,145,255);
+      //}
+      //.t-sanbt.active{
+      //  background: rgb(126,211,33);
+      //}
+      //.t-ert.active{
+      //  background: rgb(227,55,76);
+      //}
+      //.t-erbt.active{
+      //  background: rgb(245,166,35);
+      //}
+      p {
+        float: left;
+        font-size: 14px;
+        border-left: 0.5px solid #2d5c37;
+      }
+    }
+    .his-line {
+      height: 32px;
+      line-height: 32px;
+      .t-issue {
+        font-size: 10px;
+      }
+      p:nth-child(3).active {
+        background: rgb(50, 145, 255);
+      }
+      p:nth-child(4).active {
+        background: rgb(126, 211, 33);
+      }
+      p:nth-child(5).active {
+        background: rgb(227, 55, 76);
+      }
+      p:nth-child(6).active {
+        background: rgb(245, 166, 35);
+      }
+
+    }
+    .bottom-xtzs {
+      .txt {
+        width: 33.6vw;
+      }
+    }
+
+  }
+  .xtzs-container {
+    margin-top: 0px;
+  }
+  .his-line:nth-child(odd) {
+    background: rgb(53, 118, 75);
+  }
+  .his-line:nth-child(even) {
+    background: rgb(36, 113, 76);
+  }
+
+  // --- 号码分布
+  .ks-tab-head-hmfb, .hmfb-container {
+    overflow: scroll;
+    li {
+      border-bottom: 0.5px solid rgb(45, 92, 55);
+    }
+    p {
+      color: #fff;
+      text-align: center;
+    }
+    .top-line, .his-line {
+      width: 100%;
+      height: 25px;
+      line-height: 25px;
+      background: rgb(0, 88, 46);
+      .t-issue {
+        width: 15vw;
+      }
+      .t-kjh {
+        width: 13vw;
+      }
+      .t-1, .t-2, .t-3, .t-4, .t-5, .t-6, .t {
+        width: 12vw;
+      }
+      .t {
+        span {
+          width: 20px;
+          height: 20px;
+          //background: red;
+          line-height: 20px;
+        }
+        .active {
+          background: red;
+        }
+      }
+      p {
+        float: left;
+        font-size: 14px;
+        border-left: 0.5px solid #2d5c37;
+      }
+    }
+    .his-line {
+      height: 32px;
+      line-height: 32px;
+      .t-issue {
+        font-size: 10px;
+      }
+    }
+    .his-line:nth-child(odd) {
+      background: rgb(53, 118, 75);
+    }
+    .his-line:nth-child(even) {
+      background: rgb(36, 113, 76);
+    }
+
+    .bottom-hmfb {
+      .txt {
+        width: 28vw;
+      }
+    }
+  }
+  .hmfb-container {
+    margin-top: 0px;
+  }
+  .ks-tab-head-hmfb,.hmfb-container.erbth{
+    .top-line, .his-line {
+      width: 210%;
+    }
+  }
+  //底部
+  .kstrend-footer {
+
+    height: 95px;
+
+    div {
+      float: left;
+      width: 100%;
+    }
+    .bottom-1 {
+      //float: left;
+      height: 47px;
+      background: rgb(0, 88, 46);
+      ul {
+        height: 100%;
+        overflow: scroll;
+      }
+      span {
+        margin-top: 14px;
+        float: left;
+        color: #fff;
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 12px;
+      }
+
+      //每个玩的 li  p 标签不同
+
+      li {
+        height: 100%;
+        padding-top: 11px;
+      }
+      .hezhi {
+        width: 200%;
+        p {
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .santh {
+        width: 100%;
+        p {
+          width: 11vw;
+          height: 25px;
+        }
+      }
+      .erth {
+        width: 100%;
+        p {
+          width: 11vw;
+          height: 25px;
+        }
+      }
+      .sanl {
+        width: 100%;
+        p {
+          width: 11vw;
+          height: 25px;
+        }
+      }
+      .sanbth {
+        width: 300%;
+        p {
+          width: 11vw;
+          height: 25px;
+        }
+      }
+      .erbth{
+        width: 210%;
+        p {
+          width: 11vw;
+          height: 25px;
+        }
+      }
+      .dtys {
+        width: 100%;
+        p {
+          width: 25px;
+          height: 25px;
+        }
+      }
+      p {
+        text-align: center;
+        color: rgb(248, 100, 58);
+        float: left;
+        font-size: 14px;
+        margin-right: 6px;
+        background: #fff;
+        border-radius: 3px;
+        line-height: 25px;
+      }
+      .active {
+        background: rgb(249, 141, 75);
+        color: #fff;
+      }
+
+    }
+    .bottom-2 {
+      p {
+        float: left;
+        margin-top: 14px;
+        margin-left: 15px;
+        span {
+          color: rgb(244, 54, 77);
+        }
+      }
+      .confirm-btn {
+
+        text-align: center;
+        color: #fff;
+        margin-right: 6px;
+        margin-top: 5px;
+        width: 85px;
+        height: 38px;
+        background-image: linear-gradient(43deg, #F3361B 0%, #EC6432 1%, #F5AD58 100%);
+        float: right;
+        //background: grey;
+        border-radius: 3px;
+        span {
+          line-height: 38px;
+        }
+      }
+
+    }
+
+  }
+
+  //玩法选择-阴影
+  .alert-con, .my-table {
+    width: 100%;
+  }
+  .alert-con, .alert-show {
+    top: auto;
+    right: 0;
+    left: 0;
+  }
+  .alert-con {
+    top: 0px;
+    z-index: 4;
+    position: absolute;
+    background: rgb(0, 87, 46);
+    padding-bottom: 10px;
+    .pp {
+      width: 100%;
+      height: 2px;
+      background-image: linear-gradient(43deg, #F3361B 0%, #EC6432 1%, #F5AD58 100%);
+      position: absolute;
+      margin-top: 94px
+    }
+    .play-title {
+      padding-left: 2%;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+    .play-list li {
+      float: left;
+      width: 25%;
+      padding: 0 2%;
+      margin-bottom: 12px;
+    }
+    .play-select {
+      padding: 0px 2% 3px;
+      //background: #fff;
+      margin-top: 54px;
+    }
+
+    .play-black {
+      background: rgb(255, 255, 255);
+      color: rgb(102, 102, 102);
+      font-size: 14px;
+      border-radius: 2px;
+      text-align: center;
+      //box-shadow: 0px 2px 1px 1px rgb(207, 207, 207);
+      line-height: 26px;
+      width: 100%;
+      -webkit-transition: all .3s;
+      transition: all .3s;
+    }
+    .play-yellow {
+      background: rgb(233, 146, 89);
+      color: #fff;
+    }
+
+    .after-select {
+      padding: 12px 4%;
+      //background: #e3e3e3;
+    }
+    .after-con {
+      display: none;
+    }
+    .after-con.active {
+      display: block;
+    }
+    .after-list {
+      .after-l {
+        float: left;
+        text-align: center;
+      }
+      .after-text {
+        font-size: 1.3rem;
+        color: #4a4a4a;
+        line-height: 34px;
+      }
+    }
+    .lastchina {
+      li {
+        float: left;
+        padding: 0 1%;
+        margin-bottom: 10px;
+        i {
+          padding: 0 6px;
+        }
+      }
+    }
+    .after-list .after-text {
+      font-size: 1.3rem;
+      color: #4a4a4a;
+      line-height: 34px;
+    }
+    .after-list-3 .after-text {
+      width: 42px;
+    }
+
+  }
+
+  .body-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+    z-index: 3;
+    display: block;
+  }
+
+}

@@ -1,0 +1,76 @@
+<!-- Generated template for the QianerzuxuanfushiComponent component -->
+<div class="shakePhone" (click)="randomChoose()"></div>  
+<div>{{common.smallKind.bonus_note}} {{util.formatMoney(common.bonus)}} 元</div>
+
+<div class="l-game" *ngFor="let data of common.ballData;let ii = index" >
+    <div class="l">
+        <p><span></span>前二</p>
+        <p class="statistic-data" *ngIf="check('当前遗漏')">遗漏</p>
+        <p class="statistic-data" *ngIf="check('30期冷热')">冷热</p>
+        <p class="statistic-data" *ngIf="check('平均遗漏')">平均</p>
+        <p class="statistic-data" *ngIf="check('最大遗漏')">最大</p>  
+    </div>
+
+    <div class="r">
+        <div class="ball-list">
+            <ul class="ball-choose">
+                <li *ngFor="let item of data.value.slice(0,6);let i = index" [class.current]="item == 1" (click)="changeToggle(ii,i)">
+                    {{('0' + (i + 1)).slice(-2)}}
+                    <span class="tip-block">{{('0' + (i + 1)).slice(-2)}}</span>
+                </li>
+            </ul>
+
+            <ul class="yilou statistic" *ngIf="check('当前遗漏')">
+                    <li *ngFor ="let detail of common.missData.qezuxfs.current.slice(0,6)" [class.active]="checkMax(detail,common.missData.qszuxfs.current)">{{detail}}</li>  
+                       
+                </ul>
+                    
+                <ul class="lengre statistic" *ngIf="check('30期冷热')">
+                    <li *ngFor ="let detail of common.missData.qezuxfs.hot.slice(0,6)" [ngClass]="checkLengRe(detail,common.missData.qszuxfs.hot)">{{detail}}</li>
+                   
+                </ul>
+    
+                <ul class="lengre statistic" *ngIf="check('平均遗漏')">
+                    <li *ngFor ="let detail of common.missData.qezuxfs.average.slice(0,6)">{{detail}}</li>
+                   
+                </ul>
+    
+                <ul class="lengre statistic" *ngIf="check('最大遗漏')">
+                    <li *ngFor ="let detail of common.missData.qezuxfs.max.slice(0,6)">{{detail}}</li>
+                   
+                </ul>
+
+            <ul class="ball-choose">
+                <li *ngFor="let item of [0,1,2,3,4,5];let i = index" [class.current]="data.value[i+6] == 1" [class.blank]="i > 4" >
+                    <span *ngIf="i <= 4" (click)="changeToggle(ii,i+6)">{{ppp(i)}}</span>
+                    <span *ngIf="i > 4"></span> 
+                    <span *ngIf="i <= 4" class="tip-block">{{ppp(i)}}</span> 
+                </li>
+            </ul>
+
+            <ul class="yilou statistic" *ngIf="check('当前遗漏')">
+                    <li *ngFor ="let detail of common.missData.qezuxfs.current.slice(-5)" [class.active]="checkMax(detail,common.missData.qszuxfs.current)">{{detail}}</li>             
+                    <li></li>             
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('30期冷热')">
+                <li *ngFor ="let detail of common.missData.qezuxfs.hot.slice(-5)" [ngClass]="checkLengRe(detail,common.missData.qszuxfs.hot)">{{detail}}</li>
+                <li></li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('平均遗漏')">
+                <li *ngFor ="let detail of common.missData.qezuxfs.average.slice(-5)">{{detail}}</li>
+                <li></li>
+            </ul>
+
+            <ul class="lengre statistic" *ngIf="check('最大遗漏')">
+                <li *ngFor ="let detail of common.missData.qezuxfs.max.slice(-5)">{{detail}}</li>  
+                <li></li>          
+            </ul>
+        
+            <div class="btn-list">
+                <a href="javascript:;" *ngFor="let detail of common.btn[ii];let j = index" [class.current]="detail.flag" (click)="changeXuanActive(ii,j,detail.name)">{{detail.name}} <span></span></a>
+            </div>
+        </div>
+    </div>
+</div>

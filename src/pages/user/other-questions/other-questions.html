@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">{{QAQdata.parent.name}}</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="question-content clearfixl">
+    <h4>{{QAQdata.parent.name}}</h4>
+    <ul>
+      <li *ngFor="let question of QAQdata.data">
+        <h5><span></span>{{question.title}}</h5>
+        <p [innerHTML]="question.content"></p>
+      </li>
+    </ul>
+  </div>
+  <div class="connect-kefu">
+    <span (click)="http.lineService(userInfo.username)">未解决问题？联系客服</span>
+  </div>
+</ion-content>

@@ -1,0 +1,314 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+       section{position: relative} 
+       ul,li, p{padding: 0;margin: 0}
+       li{list-style: none}
+       li.time{display: flex;justify-content: space-around}
+       .time div{background: #8882a5; color:#ffffff;border-radius: 5px;height:50px;line-height: 50px;width: 45%;text-align: center }
+
+       .game-container{
+        margin:20px auto; display:flex;width:90%;position:relative;justify-content:space-around
+       }
+
+       .img-wrapper{width:20%;background:url('img/ssc.png') center center no-repeat;width:160px;height: 38px;}
+
+       div.deadline{color:#ffffff;font-size: 13px}
+
+       div.deadline div{text-align: right}
+
+       .top-content{display:flex;height:70px;width:100%;position:relative;justify-content:space-between}
+
+       .top-brand{width:49%;height:70px;background:#3f3c4d;display:flex;align-items:center;border-radius:5px}
+
+       .main-content{width:100%;background:#ffffff;border:1px solid #dcdcdc;margin-top:15px;display:flex;align-items:center;flex-direction:column}
+
+       .yellow-ball div{background: #ddbd68;width:40px;height: 40px;border-radius: 50%;text-align: center;line-height: 40px }
+
+       .big-method{display: flex;width:98%;border-bottom: 1px solid #ededed;padding: 5px 0 10px 0;margin-bottom:15px }
+       .big-method li, .method-container li{margin-right: 10px;padding: 3px 5px; border-radius: 5px}
+       .big-method li.active, .method-container li.active{background: #4b4d67;color:#ffffff}
+
+       .play-help{display:flex;height:20px;align-items:center;width:98%;margin-top:10px;padding-bottom:10px;border-bottom:1px solid #dcdcdc}
+
+       .ball-line{padding-right: 30px}
+
+       .ball-line div{width:40px;height: 40px;border-radius: 50%;background: #e1e1e1;border:1px solid #c7c7c7; display: flex; align-items: center; justify-content: center}
+
+       .ball-line div span{width:30px;height: 30px;border-radius: 50%;background: #ffffff;text-align: center;line-height: 30px; border:1px solid #c7c7c7}
+      
+       .change-button span{width:35px;height: 35px;background: #ffffff; border: 1px solid #dcdcdc;display: inline-block;margin-left: 5px;text-align: center;line-height: 35px}
+
+       .multiple-change span{line-height:30px;text-align: center; display: inline-block }
+
+       .multiple-change div.triangle{  width: 0px;
+        height: 0px;
+       
+        right: 3px;top:12px;
+        border-color: #222222 transparent transparent transparent; 
+        border-style: solid;
+        border-width: 8px 5px 0px 5px;}
+
+        .dead-line{width:30%;position:relative}
+
+        .time-count{display:flex;width:50%;justify-content:space-around}
+
+       .tri-container{width:20px;background:#e4e4e4;height:30px;border-left:1px solid #bdbdbd;box-sizing:border-box;display:flex;align-items:center;justify-content:center} 
+    
+       .money-unit span{display: inline-block;width: 30px;height: 30px;text-align: center;line-height: 30px;border: 1px solid #bdbaaf;}
+
+       .money-unit span:nth-of-type(1), .money-unit span:nth-of-type(2), .money-unit span:nth-of-type(3){border-right: none}
+
+       .statistic-amount span{color: #d4c7a9}
+
+       .addNumber{background:url('img/addRandom.png') center center no-repeat;width:200px;height: 38px;border-radius: 5px}
+
+       .delete{background:url('img/delete.png') center center no-repeat;width:50px;height: 20px}
+       
+       table tbody{padding: 0}
+       .table-content td{text-align: center;border-bottom: 1px solid #cccccc}
+
+       th,td{border-right: none;}
+
+       .order-info{position:absolute;bottom:0;width:100%;background:#f6f6f6;padding-left:15px;height:30px;line-height:30px;box-sizing:border-box}
+
+       .order-info span{color: #b79a5b}
+
+       .latest-30{background:#5a566b;height:40px;line-height:40px;border-top-left-radius:5px;border-top-right-radius:5px;text-align:center;color:#ffffff}
+
+       ul.head-title li:nth-of-type(1){width:32px}
+       ul.head-title li:nth-of-type(2), ul.head-title li:nth-of-type(3){width:70px}
+       ul.list-content li:nth-of-type(2), ul.list-content li:nth-of-type(3){width:70px}
+
+       ul.list-content .mid-content{text-align: center}
+
+       li.time{display:flex;width:31%}
+
+       .side-right ul{border-bottom: 1px solid #f0f0f0}
+
+       .haoma-container{display:flex;justify-content:space-around}
+       .haoma-container span:nth-of-type(1), .haoma-container span:nth-of-type(2), .haoma-container span:nth-of-type(3){color: #fea72f}
+
+       .mid-content.active{color: #7b7bda}
+
+       .bet-now{background:url('img/bet-now.png') center center no-repeat;width:100%;height: 50px;margin-top: 10px;background-size: 100% 100%}
+
+       ul.setting{width:20%;text-align:center;padding:10px 0;color:#ffffff;font-size:14px}
+
+       ul.setting li{display: flex}
+
+       .bg1{background:url('img/k_icon.png') center center no-repeat;width:15px;height: 15px;margin-right: 5px}
+       .bg2{background:url('img/k_icon_2.png') center center no-repeat;width:15px;height: 15px;margin-right: 5px}
+       .bg3{background:url('img/sound_icon_21.png') center center no-repeat;width:15px;height: 15px;margin-right: 5px}
+
+       .ball-line div.active,.ball-line div.active span {background:#4c4e69}
+       .ball-line div.active span{border:none; color: #ffffff}
+
+    </style>
+</head>
+<body>
+    
+    <div class="game-container">
+       <section class="side-left" style="width:75%">
+            <div class="top-content">
+
+                 <div class="countdown top-brand">
+                       <div class="img-wrapper">
+                      
+                       </div>
+                       <div class="deadline">
+                            <div>第20161006-046期</div> 
+                            <div>截止时间...</div>
+                       </div>
+
+                       <ul class="time-count" style="">
+                           <li class="hour time">
+                                <div>0</div> <div>0</div>
+                           </li>
+
+                           <li class="minute time">
+                                <div>0</div> <div>1</div>
+                           </li>
+
+                           <li class="second time">
+                                <div>3</div> <div>5</div>
+                           </li>
+                       </ul>
+                 </div>
+
+                 <div class="kaijiang top-brand" style="display:flex;">
+                        <div style="width:30%;text-align:center;color:#ffffff">
+                             <div>第20161006-045期</div>
+                             <div style="color:#9f4976">已开奖</div>
+                        </div>
+                        <div class="yellow-ball" style="width:50%;display:flex;justify-content:space-around">
+                              <div>8</div><div>9</div><div>4</div><div>9</div><div>2</div>
+                        </div>
+                        <ul class="setting">
+                            <li><div class="bg1"> </div><div>号码走势</span></li>
+                            <li><div class="bg2"> </div><div>游戏说明</span></li>
+                            <li><div class="bg3"> </div><div>开启音效</span></li>
+                        </ul>
+                 </div>
+            </div>
+
+            <div class="main-content">
+                 <ul class="big-method">
+                      <li>五星</li><li>四星</li><li class="active">后三码</li><li>前三码</li>
+                 </ul>
+
+                 <div class="method-container" style="width:98%">
+                     <ul style="display:flex;">
+                         <li>后三直选:</li> <li class="active">复式</li> <li>单式</li> 
+                     </ul>
+                     <ul style="display:flex;">
+                         <li>后三组选:</li> <li>组三</li> <li>组六</li> 
+                     </ul>
+                 </div>
+
+                 <div class="play-help">
+                     <img src="./img/circle.png">  <span>从百位,十位,个位中各选一个号码组成一注</span>
+                 </div>
+
+                 <div class="ball-area" style="background:#eeeeee;margin:10px 0 10px;padding:10px 30px 0px 20px;width:98%;box-sizing:border-box">
+                      <ul s>
+                         <li style="display:flex;justify-content:space-around;align-items:center;margin-bottom:20px"> 
+                             <div style="width:50px;line-height:40px">百位</div>  
+                             <div class="ball-line" style="width:590px;display:flex;justify-content:space-around"> 
+                                    <div><span>0</span></div><div class="active"><span>1</span></div><div><span>2</span></div><div><span>3</span></div><div><span>4</span></div>
+                                    <div><span>5</span></div><div><span>6</span></div><div><span>7</span></div><div><span>8</span></div><div><span>9</span></div>
+                                      
+                             </div>
+                            <div class="change-button">
+                                <span>全</span><span>大</span><span>小</span><span>奇</span><span>偶</span><span>清</span>
+                            </div>
+                         </li>
+
+                         <li style="display:flex;justify-content:space-around;align-items:center; margin-bottom:20px"> 
+                            <div style="width:50px;line-height:40px">十位</div>  
+                            <div class="ball-line" style="width:590px;display:flex;justify-content:space-around"> 
+                                    <div><span>0</span></div><div class="active"><span>1</span></div><div><span>2</span></div><div><span>3</span></div><div><span>4</span></div>
+                                    <div><span>5</span></div><div><span>6</span></div><div><span>7</span></div><div><span>8</span></div><div><span>9</span></div>
+                            </div>
+                           <div class="change-button">
+                               <span>全</span><span>大</span><span>小</span><span>奇</span><span>偶</span><span>清</span>
+                           </div>
+                         </li>
+
+                         <li style="display:flex;justify-content:space-around;align-items:center;margin-bottom:20px;"> 
+                                <div style="width:50px;line-height:40px">个位</div>  
+                                <div class="ball-line" style="width:590px;display:flex;justify-content:space-around"> 
+                                        <div><span>0</span></div><div class="active"><span>1</span></div><div><span>2</span></div><div><span>3</span></div><div><span>4</span></div>
+                                        <div><span>5</span></div><div><span>6</span></div><div><span>7</span></div><div><span>8</span></div><div><span>9</span></div>
+                                </div>
+                               <div class="change-button">
+                                   <span>全</span><span>大</span><span>小</span><span>奇</span><span>偶</span><span>清</span>
+                               </div>
+                         </li>
+
+                      </ul>
+
+                      <div style="display:flex;justify-content:space-between;width:100%;background:#eeeeee;margin-bottom:15px;padding-top:10px;border-top:1px solid #cccccc" class="bet-info">
+                        <div style="display:flex">
+                                <div style="background:#ffffff;border:1px solid #bdbdbd;height:30px;width:110px;display:flex" class="multiple-change">
+                                    <div>
+                                        <span style="width:30px;">-</span><span style="width:30px;">1倍</span><span style="width:30px;">+</span>
+                                    </div>
+                                    <div class="tri-container">
+                                        <div class="triangle"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-left:30px" class="money-unit">
+                                    <span>元</span><span>角</span><span>分</span><span>厘</span>
+                                </div>
+                            </div>
+    
+                            <div style="display:flex;height:30px;line-height:30px" class="statistic-amount">
+                                <div>选了 <span>1</span> 注</div>
+                                <div style="margin-left:10px">共 <span>¥ 2</span> 元</div>
+    
+                                <div class="addNumber" style="margin-left:20px"></div>
+                            </div>
+                        </div>
+                 </div>
+
+                 <div class="bet-list" style="width:98%;margin:15px auto;display:flex;justify-content:space-between">
+                    
+                     <div class="bet-left" style="width:75%;height:180px;background:#ffffff;border:1px solid #d2d2d2;position:relative">
+                         
+                            <table style="width:100%;background:#f2f2f2;" border="0" cellspacing="0" cellpadding="0"> 
+                                    <thead class="table-head" style="border-top:1px solid #e2ddd5;height:40px;line-height:40px;">
+                                         <th>玩法&号码</th><th style="width:160px">奖期</th><th>模式</th><th>注</th><th>倍</th><th>金额</th><th>预计奖金</th> <th class="delete"></th>
+                                    </thead>
+          
+                                    <tbody style="height:120px;background:#ffffff">  
+                                        <tr class="table-content" style="height:40px;line-height:40px;border-bottom:1px solid #e7e7e7;">
+                                            <td>[后三码]1,1,1</td> <td>20161206-034</td> <td>元</td> <td>1注</td> <td>1倍</td> <td>2元</td> <td>180000.00</td> <td>x</td>   
+                                        </tr>
+                                    </tbody>
+                                   
+        
+                                   
+
+                             </table>
+                             <div class="order-info" style="">
+                                 已选择【<span>0</span>】单, 总投注【<span>0</span>】注, 总金额 <span>0</span> 元 
+                             </div>
+                     </div>
+                   
+                     <div class="bet-right" style="width:22%; display:flex; flex-direction:column">
+                          <div style="height:60px;width:100%;background:#f2f2f2;display:flex;align-items:center;flex-direction:column">
+                              <div style="height:30px;line-height:30px">预计中奖金额</div>
+                              <div style="height:30px;line-height:30px;color:#bba065">0.000000元</div>
+                          </div>
+
+                          <div class="bet-now"></div>
+
+                     </div>
+                 </div>
+            </div>
+       </section>
+
+       <section class="side-right" style="width:20%">
+            <div style="border-radius:5px;border:1px solid #d7cfff;padding-bottom:10px">
+                 <p class="latest-30">最近30期开奖结果</p>
+
+                 <ul class="head-title" style="display:flex;justify-content:space-between;padding:0 8px;height:30px;line-height:30px"> 
+                    <li>期号</li><li>开奖号码</li><li>前三形态</li>
+                   
+                 
+                 </ul>
+
+                 <ul class="list-content" style="display:flex;justify-content:space-between;padding:0 8px;height:30px;line-height:30px">
+                    <li>045</li>
+                    <li class="haoma-container" style="display:flex;justify-content:space-around">
+                        <span>8</span><span>9</span><span>4</span><span>9</span><span>2</span>
+                    </li>
+                    <li class="mid-content">组六</li>     
+                 </ul>
+
+                 <ul class="list-content" style="display:flex;justify-content:space-between;padding:0 8px;height:30px;line-height:30px">
+                        <li>045</li>
+                        <li class="haoma-container" style="display:flex;justify-content:space-around">
+                            <span>8</span><span>9</span><span>4</span><span>9</span><span>2</span>
+                        </li>
+                        <li class="mid-content active">组三</li>     
+                 </ul>
+
+                 <ul class="list-content" style="display:flex;justify-content:space-between;padding:0 8px;height:30px;line-height:30px">
+                        <li>045</li>
+                        <li class="haoma-container" style="display:flex;justify-content:space-around">
+                            <span>8</span><span>9</span><span>4</span><span>9</span><span>2</span>
+                        </li>
+                        <li class="mid-content active">组六</li>     
+                 </ul>
+            </div>
+       </section>
+    </div>
+</body>
+</html>

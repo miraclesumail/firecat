@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">银行卡</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="e-content">
+    <div class="card-list">
+      <div class="card-unit bank-{{bankData.identifier}}">
+        <div class="bank-logo"><i class="firecat-icon s-{{bankData.identifier}}-icon"></i></div>
+        <div class="bank-info">
+          <h4>{{bankData.bank}}</h4>
+          <p class="card-type">储蓄卡</p>
+          <p>{{formatBankNumber(bankData.account)}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="user-wrap">
+      <p>持卡人姓名：{{bankData.account_name}}</p>
+      <p><span class="unbind-btn" (click)="unBindCard()">解除绑定</span></p>
+    </div>
+  </div>
+
+</ion-content>

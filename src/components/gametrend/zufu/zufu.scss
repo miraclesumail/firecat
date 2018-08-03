@@ -1,0 +1,14 @@
+zufu {
+    .trend-category li.head-category{width:17%}  
+    .trend-category li.head-category.xuan5{width:14.2%}  
+  
+    .trend-category li.head-content{width:8.3%}  
+    .trend-category li.head-content.xuan5{width:7.8%}  
+
+    li.zufu-content{position:relative;display:flex;width:7.8%;align-items:center;justify-content:center;border-left:1px solid #f0f0f0}
+    li.zufu-content.noNumber{width:85.8%}
+
+    div.noRecord div:not(.wait-record){display: none}
+
+    ion-slides div.kai-jiang-line div:nth-of-type(2){width:28%}
+}

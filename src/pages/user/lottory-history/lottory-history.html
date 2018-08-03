@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">购彩记录</h2>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="lh-head">
+    <div class="lh-Picker">
+      <ion-datetime min="2013" cancelText="取消" doneText="确定" (ionChange)='selectDate()' displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="lrecord.timeStarts"></ion-datetime>
+      <i class="firecat-icon dropdown-icon"></i>
+    </div>
+    <div class="mid-line"></div>
+    <div class="lh-Picker">
+      <ion-datetime min="2013" cancelText="取消" doneText="确定" (ionChange)='selectDate()' displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="lrecord.timeEnds"></ion-datetime>
+      <i class="firecat-icon dropdown-icon"></i>
+    </div>
+    <div class="mid-line"></div>
+    <div class="lh-Picker game-picker">
+      <ion-item>
+        <ion-select (ionChange)="selectLottory(lrecord.currentLottory,lrecord.currentpage,true)" cancelText="取消" okText="确认" placeholder="{{lrecord.currentLottory.friend_name}}">
+          <ion-label>全部游戏</ion-label>
+          <ion-option *ngFor="let lottory of lrecord.lottorys" value="{{lottory.friend_name}}" (ionSelect)="changeCurrent(lottory)">{{lottory.friend_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <i class="firecat-icon dropdown-icon"></i>
+    </div>
+  </div>
+  <div class="lh-body">
+    <div class="switch-case case-withdraw">
+      <div class="enpty" *ngIf="lrecord.data.length==0">
+        <p>暂无相关记录</p>
+        <div class="fix-sure-btn">
+          <button (click)="toHome()">立即购彩</button>
+        </div>
+      </div>
+      <div class="month"  *ngIf="lrecord.data.length!=0">
+        <div class="case-content switch-case">
+          <div class="case-content-unit" [ngClass]="{'isSlide':record.isSlide==true}" *ngFor="let record of lrecord.data;index as i">
+            <div class="case-wrap">
+              <p><span>{{record.friendly_name}}</span> <span>{{(record.created_at).substring(5,10)}}</span> {{record.issue.slice(-6)}}期</p>
+              <!--<p><span [ngClass]="{'blue':record.is_waiting==true,'red':record.is_win==true}">{{lrecord.statusName[record.status]}}</span></p>-->
+              <p style="width: auto;flex: none;"><span [ngClass]="{'blue':record.status==0,'red':record.status==3||record.status==4,'grey':record.status==1||record.status==2||record.status==5}">{{lrecord.statusName[record.status]}}</span></p>
+            </div>
+            <div class="case-wrap ball-wrap border-bottom">
+              <p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden"><span>{{record.title}}：</span>{{record.display_bet_number}}</p>
+              <!--<p class="ball-list" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden"><span>{{record.display_bet_number}}</span>-->
+
+                <!--<span *ngFor="let ball of record.winning_number.split('|')">{{ball}}</span>-->
+              <!--</p>-->
+              <p>金额：{{formatMoney(record.amount)}}元</p>
+            </div>
+            <div class="content-detail">
+              <div class="case-wrap ">
+                <p class="right">开奖号码： <span>{{record.winning_number==null?'等待开奖':record.winning_number}}</span></p>
+              </div>
+              <div class="case-wrap ">
+                <!--<p class="right" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号： <input style="background: none;text-overflow: ellipsis;border: none;user-select: text" id="{{'copy-text-'+i}}" [ngModel]="record.serial_number" disabled/></p>-->
+                <p class="right" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号： <span>{{record.id}}</span></p>
+                <!--<p class="copy-btn" id="{{'copy-btn-'+i}}" data-clipboard-action="cut" data-clipboard-target="'#copy-text-'+i">复制</p>-->
+                <!--<p class="copy-btn" data-clipboard-text="record.serial_number">复 制</p>-->
+              </div>
+              <div class="case-wrap ">
+                <p class="right">投注时间： <span>{{record.bought_at}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">玩法详情： <span>{{record.title}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden">投注内容： <span>{{record.display_bet_number}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">模&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;式： <span>{{lrecord.bet_model[record.coefficient]}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">倍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数： <span>{{record.multiple}}倍</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">投注返点： <span>{{record.commission}}</span></p>
+              </div>
+              <div class="case-wrap">
+                <p class="right">中奖金额： <span class="red">{{record.prize>0?formatMoney(record.prize):0.00}}元</span></p>
+              </div>
+            </div>
+            <div class="case-wrap case-wrap-big">
+              <p *ngIf="record.trace_id != null">正在追号</p>
+              <p>
+                <!--<span>充值成功</span>-->
+                <button class="detail-btn concel-btn" *ngIf="record.status==0" (click)="concelBill(record)">撤单</button>
+                <button class="detail-btn" (click)="toggleDetail(record)"><i class="trangle"></i>{{record.isSlide==true?'收起':'详情'}}</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite($event))" *ngIf="loadmore==true">
+    <ion-infinite-scroll-content class="myloading" loadingSpinner="bubbles" loadingText="努力加载中…"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!--<div *ngIf="isNomore==false" style="line-height: 50px;text-align: center;font-size: 14px;margin-top: -40px">-->
+    <!--没有更多了-->
+  <!--</div>-->
+</ion-content>

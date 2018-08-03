@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <h2 class="DIY-title">用户登录</h2>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="common-form">
+    <div class="cf-row">
+      <label for="username">用户名</label>
+      <input id="username" type="text" maxlength="40" [(ngModel)]="username" placeholder="请输入手机/邮箱/用户名" required>
+      <p class="row-info" *ngIf="nameInfoFlag">{{nameInfo}}<i class="firecat-icon small-dager-close-icon"></i></p>
+    </div>
+    <div class="cf-row">
+      <label for="password">密&nbsp;&nbsp;&nbsp;码</label>
+      <input id="password" type="password" maxlength="20" [(ngModel)]="password" placeholder="6-20个字符，可使用字母或数字" required>
+      <p class="row-info"  *ngIf="pswInfoFlag">{{pswInfo}}<i class="firecat-icon small-dager-close-icon"></i></p>
+    </div>
+    <div class="submit-row">
+      <button class="submit-button" (click)="login()">登录</button>
+    </div>
+    <div class="common-form-info">
+      忘记密码？请<a href="javascript:;" (click)="http.lineService()">联系客服</a>
+    </div>
+  </div>
+</ion-content>
